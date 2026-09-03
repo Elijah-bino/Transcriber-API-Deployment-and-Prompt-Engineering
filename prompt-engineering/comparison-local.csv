@@ -1,0 +1,226 @@
+id,dataset,transcript,expected,ollama__gemma3_4b,ollama__llama3.2_3b,ollama__phi4-mini,ollama__qwen3_1.7b,ollama__qwen3_4b
+1,general,Can you bring me a glass of water please?,Water request,Water request,Water request,Water request,Water request,Water request
+2,general,"I'm really thirsty, could someone get me some water?",Water request,Water request,Water request,Water request,Water request,Water request
+3,general,Could I have something to eat please?,Food request,Food request,Food request,Food request,Food request,Food request
+4,general,"I'm hungry, can I get some toast?",Toast request,Food request   <MISS>,Food request   <MISS>,Food request   <MISS>,Toast request,Toast request
+5,general,Could you bring me a sandwich?,Sandwich request,Food request   <MISS>,Sandwich request,Food request   <MISS>,Sandwich request,Sandwich request
+6,general,I haven't eaten in a while and I'm getting hungry.,Food request,Food request,Food request,Food request,Food request,Food request
+7,general,Can someone help me get to the bathroom?,Bathroom assistance,Bathroom assistance,Bathroom assistance,Bathroom assistance,Bathroom assistance,Bathroom assistance
+8,general,I need help getting out of bed.,Getting out of bed assistance,Getting out of bed assistance,Getting out of bed assistance,Getting out of bed assistance,Getting out of bed assistance,Getting out of bed assistance
+9,general,Could someone help me sit up?,Sitting assistance,Sitting assistance,Sitting assistance,Sitting assistance,Sitting assistance,Sitting assistance
+10,general,I can't reach the call button.,Call button assistance,Call button retrieval assistance   <MISS>,Call button retrieval assistance   <MISS>,Call button retrieval assistance   <MISS>,Call button retrieval assistance   <MISS>,Call button retrieval assistance   <MISS>
+11,general,Could someone adjust my pillow?,Pillow adjustment,Pillow adjustment,Pillow adjustment,Pillow adjustment,Pillow adjustment,Pillow adjustment
+12,general,Can I have another blanket?,Blanket request,Blanket request,Blanket request,Blanket request,Blanket request,Blanket request
+13,general,"I'm feeling cold, could I have a blanket?",Blanket request,Blanket request,Blanket request,Blanket request,Blanket request,Blanket request
+14,general,Can you turn the light down please?,Light adjustment,Light adjustment,Light adjustment,Light adjustment,Light adjustment,Light adjustment
+15,general,Could you close the curtains?,Curtain adjustment,Curtain adjustment,Curtain adjustment,Curtain adjustment,Curtain adjustment,Curtain adjustment
+16,general,Can someone open the window?,Window adjustment,Window adjustment,Window adjustment,Window adjustment,Window adjustment,Window adjustment
+17,general,Could I have some tissues please?,Tissues request,Tissues request,Tissues request,Tissues request,Tissues request,Tissues request
+18,general,Can you bring me a towel?,Towel request,Towel request,Towel request,Towel request,Towel request,Towel request
+19,general,I need some help washing my hands.,Handwashing assistance,Handwashing assistance,Handwashing assistance,Handwashing assistance,Handwashing assistance,Handwashing assistance
+20,general,Could someone help me get dressed?,Dressing assistance,Dressing assistance,Dressing assistance,Dressing assistance,Dressing assistance,Dressing assistance
+21,general,I need help with my shoes.,Shoe assistance,Shoe assistance request   <MISS>,Shoe assistance,Shoe assistance,Shoe assistance,Shoe assistance
+22,general,Can you help me find my glasses?,Glasses retrieval assistance,Glasses retrieval assistance,Glasses retrieval assistance,Glasses retrieval assistance,Glasses retrieval assistance,Glasses retrieval assistance
+23,general,I can't find my phone.,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance
+24,general,Could someone bring my phone over?,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance
+25,general,My headphones are out of reach.,Headphones retrieval assistance,Headphones retrieval assistance,Headphones retrieval assistance,Headphones retrieval assistance,Headphones retrieval assistance,Headphones retrieval assistance
+26,general,Can you get my bag from over there?,Bag retrieval assistance,Bag retrieval assistance,Bag retrieval assistance,Bag retrieval assistance,Bag retrieval assistance,Bag retrieval assistance
+27,general,Could someone bring my book?,Book retrieval assistance,Book retrieval assistance,Book retrieval assistance,Book retrieval assistance,Book retrieval assistance,Book retrieval assistance
+28,general,I need my charger please.,Charger request,Charger request,Charger request,Charger request,Charger request,Charger request
+29,general,Can you plug my charger in?,Charger assistance,Charger retrieval assistance   <MISS>,Charger request   <MISS>,Charger request   <MISS>,Charger request   <MISS>,Charger request   <MISS>
+30,general,Could someone turn the television on?,Television assistance,Television assistance,Television assistance,Television assistance,Television assistance,Television assistance
+31,general,Can you turn the television off?,Television assistance,Television assistance,Television assistance,Television assistance,Television assistance,Television assistance
+32,general,Could you lower the television volume?,Television volume adjustment,Television volume adjustment,Television volume adjustment,Television volume adjustment,Television volume adjustment,Television volume adjustment
+33,general,I can't hear the television very well.,Television volume adjustment,Television volume adjustment,Television assistance   <MISS>,Television assistance   <MISS>,Television adjustment   <MISS>,Television volume adjustment
+34,general,Can someone come and check on me?,Check-in request,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>
+35,general,Could a nurse come to my room please?,Nurse assistance request,Nurse assistance request,Nurse assistance request,Immediate assistance request   <MISS>,Nurse assistance request,Nurse assistance request
+36,general,Can someone come when they get a chance?,Staff assistance request,Staff assistance request,Staff assistance request,Immediate assistance request   <MISS>,Immediate assistance request   <MISS>,Staff assistance request
+37,general,I'm not feeling very well.,Health check request,Health check request,Health check request,Health check request,Health check request,Health check request
+38,general,I don't feel right today.,Health check request,Health check request,Health check request,Health check request,Health check request,Health check request
+39,general,Could someone check how I'm doing?,Health check request,Health check request,Health check request,Health check request,Health check request,Health check request
+40,general,I'm feeling dizzy.,Dizziness assistance,Dizziness assistance,Dizziness assistance,Dizziness assistance,Dizziness assistance,Dizziness assistance
+41,general,I feel lightheaded.,Lightheadedness assistance,Dizziness assistance   <MISS>,Dizziness assistance   <MISS>,Dizziness assistance   <MISS>,Lightheadedness assistance,Lightheadedness assistance
+42,general,I'm feeling sick.,Nausea assistance,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>
+43,general,My head hurts.,Headache assistance,Headache assistance,Headache assistance,Headache assistance,Headache assistance,Headache assistance
+44,general,I have a headache.,Headache assistance,Headache assistance,Headache assistance,Headache assistance,Headache assistance,Headache assistance
+45,general,My stomach hurts.,Stomach pain assistance,Nausea assistance   <MISS>,Abdominal assistance   <MISS>,Stomach assistance   <MISS>,Stomach assistance   <MISS>,Stomach pain assistance
+46,general,My back is hurting.,Back pain assistance,Back pain assistance,Back pain assistance,Back pain assistance,Back pain assistance,Back pain assistance
+47,general,My lower back is sore.,Lower back pain assistance,Back pain assistance   <MISS>,Back pain assistance   <MISS>,Back pain assistance   <MISS>,Back pain assistance   <MISS>,Back pain assistance   <MISS>
+48,general,My leg hurts.,Leg pain assistance,Leg pain assistance,Leg pain assistance,Leg pain assistance,Leg pain assistance,Leg pain assistance
+49,general,My knee is painful.,Knee pain assistance,Leg pain assistance   <MISS>,Knee assistance   <MISS>,Knee pain assistance,Knee assistance   <MISS>,Knee pain assistance
+50,general,My arm is hurting.,Arm pain assistance,Leg pain assistance   <MISS>,Headache assistance   <MISS>,Arm pain assistance,Arm assistance   <MISS>,Arm pain assistance
+51,general,My shoulder hurts.,Shoulder pain assistance,Back pain assistance   <MISS>,Shoulder assistance   <MISS>,Shoulder assistance   <MISS>,Shoulder assistance   <MISS>,Shoulder pain assistance
+52,general,My chest feels uncomfortable.,Chest discomfort assistance,Chest discomfort assistance,Chest discomfort assistance,Chest discomfort assistance,Chest discomfort assistance,Chest discomfort assistance
+53,general,I'm having trouble breathing.,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance
+54,general,I feel short of breath.,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance
+55,general,I can't catch my breath.,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance
+56,general,I'm suddenly feeling very weak.,Weakness assistance,Weakness assistance,Health check request   <MISS>,Weakness assistance,Weakness assistance,Weakness assistance
+57,general,I feel faint.,Faintness assistance,Faintness assistance,Faintness assistance,Health check request   <MISS>,Dizziness assistance   <MISS>,Faintness assistance
+58,general,I'm feeling very tired.,Fatigue assistance,Health check request   <MISS>,Sleep assistance request   <MISS>,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>
+59,general,I feel confused.,Confusion assistance,Confusion assistance,Confusion assistance,Confusion assistance,Confusion assistance,Confusion assistance
+60,general,I don't know where I am.,Orientation assistance,Confusion assistance request   <MISS>,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>,Unclear request   <MISS>
+61,general,I'm having trouble sleeping.,Sleep assistance request,Sleep assistance request,Sleep assistance request,Sleep assistance request,Sleep assistance   <MISS>,Sleep assistance request
+62,general,Can I have something for the pain?,Pain medication request,Pain medication request,Pain medication request,Pain medication request,Pain medication request,Pain medication request
+63,general,Do I have any pain medicine available?,Pain medication request,Pain medication request,Medication dosage question   <MISS>,Medication dosage question   <MISS>,Pain medication request,Medication dosage question   <MISS>
+64,general,When can I take my next pain medication?,Medication timing question,Medication timing question,Medication timing question,Medication dosage question   <MISS>,Pain medication dosage question   <MISS>,Medication dosage question   <MISS>
+65,general,How much pain medication can I take?,Medication dosage question,Pain medication dosage question   <MISS>,Medication dosage question,Medication dosage question,Medication dosage question,Medication dosage question
+66,general,Is this pain normal?,Pain question,Headache question   <MISS>,Pain question,Headache assistance   <MISS>,Pain assistance   <MISS>,Pain medication request   <MISS>
+67,general,Is my swelling normal?,Swelling question,Swelling question,Swelling question,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>
+68,general,Can someone look at this for me?,Health check request,Health check request,Health check request,Staff assistance request   <MISS>,Health check request,Health check request
+69,general,Could a doctor come and speak with me?,Doctor visit request,Doctor visit request,Doctor visit request,Doctor visit request,Doctor visit request,Doctor visit request
+70,general,Has the doctor been here yet?,Doctor visit update,Doctor visit update,Doctor visit update,Doctor visit update,Doctor visit update,Doctor visit update
+71,general,Are there any updates about me?,Condition update request,Condition update request,Health check request   <MISS>,Update request   <MISS>,Update   <MISS>,Condition update request
+72,general,Can you tell me when my test results are ready?,Test result update,Test result update,Test result update,Test result update,Test result update,Test result update
+73,general,Has anyone spoken to my family?,Family contact update,Family contact update,Family contact update,Family contact update,Family contact update,Family contact update
+74,general,Could you call my family?,Family contact request,Family contact request,Family contact request,Family contact request,Family contact request,Family contact request
+75,general,Can someone tell my partner I'm okay?,Family contact request,Family contact request,Family contact update   <MISS>,Family contact update   <MISS>,Family contact update   <MISS>,Family contact update   <MISS>
+76,general,When am I going home?,Discharge timing question,Discharge timing question,Discharge timing question,Discharge timing question,Discharge timing question,Discharge timing question
+77,general,Can you tell me what happens next?,Care update request,Condition update request   <MISS>,Health check request   <MISS>,Update request   <MISS>,Health check request   <MISS>,Health check request   <MISS>
+78,general,Why is the machine making that noise?,Monitor noise question,,Monitor beeping question   <MISS>,Noise inquiry   <MISS>,Machine noise adjustment   <MISS>,Television assistance   <MISS>
+79,general,The monitor keeps beeping.,Monitor beeping question,,Monitor check request   <MISS>,Monitor beeping question,Monitor beeping check   <MISS>,Monitor beeping question
+80,general,Is this alarm supposed to be going off?,Alarm question,,Monitor beeping question   <MISS>,Monitor beeping question   <MISS>,Alarm adjustment   <MISS>,Monitor beeping question   <MISS>
+81,general,Could someone check the monitor?,Monitor check request,,Monitor check request,Monitor check request,Monitor check request,Monitor check request
+82,general,Can you help me find my belongings?,Belongings assistance,,Item retrieval assistance   <MISS>,Bag retrieval assistance   <MISS>,Belongings retrieval assistance   <MISS>,Belongings retrieval assistance   <MISS>
+83,general,I think I've lost my wallet.,Wallet retrieval assistance,,Wallet retrieval assistance,Wallet retrieval assistance,Wallet retrieval assistance,Wallet retrieval assistance
+84,general,Can someone bring my clothes?,Clothing request,,Clothing request,Bag retrieval assistance   <MISS>,Clothes retrieval assistance   <MISS>,Clothes retrieval assistance   <MISS>
+85,general,Could I have a clean gown?,Clean gown request,,Clean gown request,Clean gown request,Clean gown request,Clean gown request
+86,general,Can I have a fresh pillowcase?,Pillowcase request,,Pillowcase request,Pillowcase request,Pillowcase request,Pillowcase request
+87,general,Could you change my sheets?,Bed linen request,,Bed linen request,Bed linen request,Sheet adjustment   <MISS>,Bed linen request
+88,general,I need help moving my chair.,Chair assistance,,Chair assistance,Chair assistance,Chair adjustment   <MISS>,Chair assistance
+89,general,Can someone move the table closer?,Table adjustment,,Table adjustment,Table adjustment,Table adjustment,Table adjustment
+90,general,Could you bring the table over here?,Table adjustment,,Table adjustment,Table adjustment,Table adjustment,Table adjustment
+91,general,Can someone help me reach my food?,Food assistance,,Table assistance   <MISS>,Food retrieval assistance   <MISS>,Food request   <MISS>,Food retrieval assistance   <MISS>
+92,general,I can't open this packet.,Packet opening assistance,,Packet retrieval assistance   <MISS>,Packet retrieval assistance   <MISS>,Packet retrieval assistance   <MISS>,Packet retrieval assistance   <MISS>
+93,general,Could you open this bottle for me?,Bottle opening assistance,,Bottle opening assistance,Bottle retrieval assistance   <MISS>,Bottle adjustment   <MISS>,Bottle retrieval assistance   <MISS>
+94,general,Can someone help me use this remote?,Remote control assistance,,Remote control assistance,Remote control assistance,Remote control assistance,Remote control assistance
+95,general,Could you bring me a snack?,Snack request,,Snack request,Snack request,Snack request,Snack request
+96,general,Do you have any fruit?,Fruit request,,Fruit request,Food request   <MISS>,Fruit request,Fruit request
+97,general,Could I have some tea?,Tea request,,Tea request,Tea request,Tea request,Tea request
+98,general,Can I get some juice?,Juice request,,Juice request,Juice request,Juice request,Juice request
+99,general,Could you bring me some milk?,Milk request,,Milk request,Milk request,Milk request,Milk request
+100,general,"I'm thirsty again, could I have some water?",Water request,,Water request,Water request,Water request,Water request
+101,personal_data_injected,"Hi, I'm Daniel and I'm 72 years old. Could you bring me some water?",Water request,,Water request,Water request,Water request,Water request
+102,personal_data_injected,"My name is Sarah, I'm 34, and I need help getting to the bathroom.",Bathroom assistance,,Getting out of bed assistance   <MISS>,Bathroom assistance,Bathroom assistance,Bathroom assistance
+103,personal_data_injected,"I'm Michael, 61, and my lower back is hurting.",Lower back pain assistance,,Back pain assistance   <MISS>,Back pain assistance   <MISS>,Back pain assistance   <MISS>,Back pain assistance   <MISS>
+104,personal_data_injected,I'm 48 years old and my name is Priya. Could someone check on me?,Check-in request,,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>
+105,personal_data_injected,"James here, I'm 29. Can I have something to eat?",Food request,,Food request,Food request,Food request,Food request
+106,personal_data_injected,"I'm Emma, 67, and I'm feeling dizzy.",Dizziness assistance,,Dizziness assistance,Dizziness assistance,Dizziness assistance,Dizziness assistance
+107,personal_data_injected,My name is Robert and I'm 80. I need another blanket.,Blanket request,,Blanket request,Blanket request,Blanket request,Blanket request
+108,personal_data_injected,"I'm Olivia, 25, and I can't reach my phone.",Phone retrieval assistance,,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance
+109,personal_data_injected,"I'm William, 54, and I'm having trouble breathing.",Breathing difficulty assistance,,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance
+110,personal_data_injected,"I'm Sophia, 41. Could a nurse come to my room?",Nurse assistance request,,Nurse assistance request,Nurse assistance request,Nurse assistance request,Nurse assistance request
+111,personal_data_injected,"I'm John, 70, and I have a headache.",Headache assistance,,Headache assistance,Headache assistance,Headache assistance,Headache assistance
+112,personal_data_injected,"My name is Mia, I'm 19, and I feel sick.",Nausea assistance,,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>
+113,personal_data_injected,"I'm George, 63. Could someone help me sit up?",Sitting assistance,,Sitting assistance,Sitting assistance,Sitting assistance,Sitting assistance
+114,personal_data_injected,"I'm Ava, 38, and I need help getting out of bed.",Getting out of bed assistance,,Getting out of bed assistance,Getting out of bed assistance,Getting out of bed assistance,Getting out of bed assistance
+115,personal_data_injected,"I'm Thomas, 76. Can someone bring my glasses?",Glasses retrieval assistance,,Glasses retrieval assistance,Glasses retrieval assistance,Glasses retrieval assistance,Glasses retrieval assistance
+116,personal_data_injected,"I'm Isabella, 27. I need my headphones from under the bed.",Headphones retrieval assistance,,Headphones retrieval assistance,Headphones retrieval assistance,Headphones retrieval assistance,Headphones retrieval assistance
+117,personal_data_injected,"I'm Henry, 58, and my leg hurts.",Leg pain assistance,,Leg pain assistance,Leg pain assistance,Leg pain assistance,Leg pain assistance
+118,personal_data_injected,"I'm Charlotte, 46. Could I have a fresh pillow?",Pillow request,,Pillow adjustment   <MISS>,Pillow adjustment   <MISS>,Pillow request,Pillow request
+119,personal_data_injected,"I'm Samuel, 69, and I'm feeling very weak.",Weakness assistance,,Weakness assistance,Weakness assistance,Health check request   <MISS>,Weakness assistance
+120,personal_data_injected,"I'm Grace, 31. Can someone bring me some tea?",Tea request,,Tea request,Tea request,Tea request,Tea request
+121,personal_data_injected,"I'm Edward, 82, and I need help with my shoes.",Shoe assistance,,Shoe assistance,Shoe assistance,Shoe assistance,Shoe assistance
+122,personal_data_injected,"I'm Chloe, 23, and I can't find my charger.",Charger retrieval assistance,,Charger retrieval assistance,Charger retrieval assistance,Charger retrieval assistance,Charger retrieval assistance
+123,personal_data_injected,"I'm Daniel, 45, from Melbourne. Could someone check my monitor?",Monitor check request,,Monitor check request,Monitor check request,Monitor check request,Monitor check request
+124,personal_data_injected,"I'm Sophie, 52, from Geelong. The monitor keeps beeping.",Monitor beeping question,,Monitor check request   <MISS>,Monitor beeping question,Monitor beeping request   <MISS>,Monitor beeping question
+125,personal_data_injected,"My name is Jack, I'm 60, and I want to know when I'm going home.",Discharge timing question,,Discharge timing question,Discharge timing question,Discharge timing question,Discharge timing question
+126,personal_data_injected,"I'm Lily, 36, from Ballarat. Has the doctor been here yet?",Doctor visit update,,Doctor visit update,Doctor visit update,Doctor visit update,Doctor visit update
+127,personal_data_injected,"I'm Noah, 74, from Bendigo. Could you call my family?",Family contact request,,Family contact request,Family contact request,Family contact request,Family contact request
+128,personal_data_injected,"I'm Amelia, 43, and I want an update about my condition.",Condition update request,,Health check request   <MISS>,Health check request   <MISS>,Condition update   <MISS>,Condition update request
+129,personal_data_injected,"I'm Lucas, 28, and I'm feeling lightheaded.",Lightheadedness assistance,,Dizziness assistance   <MISS>,Dizziness assistance   <MISS>,Dizziness assistance   <MISS>,Lightheadedness assistance
+130,personal_data_injected,"I'm Harper, 57, and I have stomach pain.",Stomach pain assistance,,Stomach assistance   <MISS>,Stomach pain assistance,Stomach pain assistance,Stomach pain assistance
+131,personal_data_injected,"I'm Ethan, 66, and my shoulder hurts.",Shoulder pain assistance,,Shoulder assistance   <MISS>,Shoulder assistance   <MISS>,Shoulder adjustment   <MISS>,Shoulder pain assistance
+132,personal_data_injected,"I'm Ella, 33, and I need some tissues.",Tissues request,,Tissues request,Tissues request,Tissues request,Tissues request
+133,personal_data_injected,"I'm Alexander, 71, and I'm feeling cold.",Blanket request,,Blanket request,Blanket request,Blanket request,Blanket request
+134,personal_data_injected,"I'm Ruby, 21, and could someone close the curtains?",Curtain adjustment,,Curtain adjustment,Curtain adjustment,Curtain adjustment,Curtain adjustment
+135,personal_data_injected,"I'm Mason, 49, and could you turn down the television?",Television volume adjustment,,Television volume adjustment,Television volume adjustment,Television volume adjustment,Television volume adjustment
+136,personal_data_injected,"I'm Isla, 39, and I can't hear the television.",Television volume adjustment,,Television assistance   <MISS>,Television assistance   <MISS>,Television adjustment   <MISS>,Television assistance   <MISS>
+137,personal_data_injected,"I'm Leo, 62, and could someone bring my bag?",Bag retrieval assistance,,Bag retrieval assistance,Bag retrieval assistance,Bag retrieval assistance,Bag retrieval assistance
+138,personal_data_injected,"I'm Zoe, 30, and I need help washing my hands.",Handwashing assistance,,Handwashing assistance,Handwashing assistance,Handwashing assistance,Handwashing assistance
+139,personal_data_injected,"I'm Charlie, 55, and I need help getting dressed.",Dressing assistance,,Dressing assistance,Dressing assistance,Dressing assistance,Dressing assistance
+140,personal_data_injected,"I'm Lily, 68, and my arm is hurting.",Arm pain assistance,,Arm assistance   <MISS>,Arm pain assistance,Arm assistance   <MISS>,Arm pain assistance
+141,personal_data_injected,"I'm Max, 47, and my knee is painful.",Knee pain assistance,,Knee assistance   <MISS>,Knee pain assistance,Knee assistance   <MISS>,Knee pain assistance
+142,personal_data_injected,"I'm Ruby, 59, and my chest feels uncomfortable.",Chest discomfort assistance,,Chest discomfort assistance,Chest discomfort assistance,Chest discomfort assistance,Chest discomfort assistance
+143,personal_data_injected,"I'm Henry, 73, and I feel faint.",Faintness assistance,,Faintness assistance,Health check request   <MISS>,Faintness assistance,Faintness assistance
+144,personal_data_injected,"I'm Amelia, 64, and I feel confused.",Confusion assistance,,Confusion assistance,Confusion assistance,Confusion assistance,Confusion assistance
+145,personal_data_injected,"I'm Noah, 51, and I'm having trouble sleeping.",Sleep assistance request,,Sleep assistance request,Sleep assistance request,Sleep assistance   <MISS>,Sleep assistance request
+146,personal_data_injected,"I'm Sophie, 44, and I need something for the pain.",Pain medication request,,Pain medication request,Pain assistance   <MISS>,Pain assistance   <MISS>,Pain medication request
+147,personal_data_injected,"I'm Jack, 79, and when can I take my next pain medicine?",Medication timing question,,Medication timing question,Medication dosage question   <MISS>,Pain medication dosage question   <MISS>,Medication dosage question   <MISS>
+148,personal_data_injected,"I'm Mia, 26, and how much pain medication can I take?",Medication dosage question,,Medication dosage question,Medication dosage question,Medication dosage question,Medication dosage question
+149,personal_data_injected,"I'm Oliver, 37, and is this swelling normal?",Swelling question,,Swelling question,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>
+150,personal_data_injected,"I'm Emily, 65, and can a doctor speak with me?",Doctor visit request,,Doctor visit request,Doctor visit request,Doctor visit request,Doctor visit request
+151,personal_data_injected,"I'm Liam, 50, and can you tell me when my test results are ready?",Test result update,,Test result update request   <MISS>,Test result update,Test result update,Test result update
+152,personal_data_injected,"I'm Ava, 72, and has anyone spoken to my family?",Family contact update,,Family contact update,Family contact update,Family contact update,Family contact update
+153,personal_data_injected,"I'm Ethan, 40, and can someone tell my partner I'm okay?",Family contact request,,Family contact update   <MISS>,Family contact update   <MISS>,Family contact update   <MISS>,Family contact request
+154,personal_data_injected,"I'm Charlotte, 56, and can you tell me what happens next?",Care update request,,Health check request   <MISS>,Condition update request   <MISS>,Health check request   <MISS>,Health check request   <MISS>
+155,personal_data_injected,"I'm William, 81, and could I have a clean gown?",Clean gown request,,Clean gown request,Clean gown request,Gown adjustment   <MISS>,Clean gown request
+156,personal_data_injected,"I'm Grace, 35, and could you change my sheets?",Bed linen request,,Bed linen request,Bed linen request,Sheet adjustment   <MISS>,Bed linen request
+157,personal_data_injected,"I'm Thomas, 68, and can someone move my chair?",Chair assistance,,Chair assistance,Chair assistance,Chair adjustment   <MISS>,Chair assistance
+158,personal_data_injected,"I'm Ella, 42, and could you bring the table closer?",Table adjustment,,Table adjustment,Table adjustment,Table adjustment,Table adjustment
+159,personal_data_injected,"I'm James, 24, and I can't open this packet.",Packet opening assistance,,Packet opening assistance,Packet retrieval assistance   <MISS>,Packet retrieval assistance   <MISS>,Packing assistance   <MISS>
+160,personal_data_injected,"I'm Sarah, 53, and could you open this bottle?",Bottle opening assistance,,Bottle opening assistance,Bottle retrieval assistance   <MISS>,Bottle adjustment   <MISS>,Bottle opening assistance
+161,personal_data_injected,"I'm Robert, 77, and could someone help me with the remote?",Remote control assistance,,Television assistance   <MISS>,Remote control assistance,Remote control assistance,Remote control assistance
+162,personal_data_injected,"I'm Olivia, 29, and could I have a snack?",Snack request,,Snack request,Snack request,Snack request,Snack request
+163,personal_data_injected,"I'm Daniel, 46, and do you have any fruit?",Fruit request,,Fruit request,Food request   <MISS>,Fruit request,Fruit request
+164,personal_data_injected,"I'm Priya, 32, and could I have some juice?",Juice request,,Juice request,Juice request,Juice request,Juice request
+165,personal_data_injected,"I'm Michael, 70, and could you bring me some milk?",Milk request,,Milk request,Milk request,Milk request,Milk request
+166,personal_data_injected,"I'm Sophia, 61, and I'm thirsty again.",Water request,,Water request,Water request,Water request,Water request
+167,personal_data_injected,"I'm George, 58, and can someone come and help me now?",Immediate assistance request,,Immediate assistance request,Immediate assistance request,Immediate assistance request,Immediate assistance request
+168,personal_data_injected,"I'm Aisha, 45, and I'm from Sydney. Could I have some water?",Water request,,Water request,Water request,Water request,Water request
+169,personal_data_injected,"I'm Ben, 52, from Perth, and I need a snack.",Snack request,,Snack request,Food request   <MISS>,Snack request,Snack request
+170,personal_data_injected,"I'm Claire, 39, from Adelaide, and I need help getting to the bathroom.",Bathroom assistance,,Getting out of bed assistance   <MISS>,Bathroom assistance,Bathroom assistance,Bathroom assistance
+171,personal_data_injected,"I'm David, 67, from Brisbane, and my head hurts.",Headache assistance,,Headache assistance,Headache assistance,Headache assistance,Headache assistance
+172,personal_data_injected,"I'm Hannah, 28, from Hobart, and I feel dizzy.",Dizziness assistance,,Dizziness assistance,Dizziness assistance,Dizziness assistance,Dizziness assistance
+173,personal_data_injected,"I'm Isaac, 75, from Canberra, and I need another blanket.",Blanket request,,Blanket request,Blanket request,Blanket request,Blanket request
+174,personal_data_injected,"I'm Maya, 33, from Darwin, and I need my phone.",Phone retrieval assistance,,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance,Phone retrieval assistance
+175,personal_data_injected,"I'm Ryan, 48, from Sydney, and I'm having trouble breathing.",Breathing difficulty assistance,,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance
+176,personal_data_injected,"I'm Lucy, 60, from Perth, and could a nurse come in?",Nurse assistance request,,Nurse assistance request,Nurse assistance request,Nurse assistance request,Staff assistance request   <MISS>
+177,personal_data_injected,"I'm Adam, 69, from Melbourne, and my leg hurts.",Leg pain assistance,,Leg pain assistance,Leg pain assistance,Leg pain assistance,Leg pain assistance
+178,personal_data_injected,"I'm Natalie, 41, from Adelaide, and could someone check on me?",Check-in request,,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>,Health check request   <MISS>
+179,personal_data_injected,"I'm Jack, 57, and my favourite colour is blue. Could I have some water?",Water request,,Water request,Water request,Water request,Water request
+180,personal_data_injected,"I'm Emma, 35, and I like green. Could you bring me a pillow?",Pillow request,,Pillow request,Pillow request,Pillow request,Pillow request
+181,personal_data_injected,"I'm Noah, 63, and my favourite colour is red. Can someone help me sit up?",Sitting assistance,,Sitting assistance,Sitting assistance,Sitting assistance,Sitting assistance
+182,personal_data_injected,"I'm Sofia, 27, and I prefer purple. Could someone bring my glasses?",Glasses retrieval assistance,,Glasses retrieval assistance,Glasses retrieval assistance,Glasses request   <MISS>,Glasses retrieval assistance
+183,personal_data_injected,"I'm Liam, 71, and I like black. I'm feeling unwell.",Health check request,,Health check request,Health check request,Health check request,Health check request
+184,personal_data_injected,"I'm Chloe, 49, and my favourite colour is yellow. Can someone bring a blanket?",Blanket request,,Blanket request,Blanket request,Blanket request,Blanket request
+185,personal_data_injected,"I'm Ethan, 31, and I like orange. Could you close the curtains?",Curtain adjustment,,Curtain adjustment,Curtain adjustment,Curtain adjustment,Curtain adjustment
+186,personal_data_injected,"I'm Mia, 68, and I prefer white. Can someone help me get dressed?",Dressing assistance,,Dressing assistance,Dressing assistance,Getting out of bed assistance   <MISS>,Dressing assistance
+187,personal_data_injected,"I'm Lucas, 43, and I like blue. My stomach hurts.",Stomach pain assistance,,Stomach assistance   <MISS>,Stomach pain assistance,Stomach pain assistance,Stomach pain assistance
+188,personal_data_injected,"I'm Ava, 55, and I prefer green. Could I have some tea?",Tea request,,Tea request,Tea request,Tea request,Tea request
+189,personal_data_injected,"I'm Oliver, 37, and I like red. Can you turn the television off?",Television assistance,,Television assistance,Television assistance,Television assistance,Television assistance
+190,personal_data_injected,"I'm Emily, 74, and I prefer pink. Could someone bring my book?",Book retrieval assistance,,Book retrieval assistance,Book retrieval assistance,Book retrieval assistance,Book retrieval assistance
+191,personal_data_injected,"I'm Henry, 29, and I like grey. I need my charger.",Charger request,,Charger request,Charger request,Charger request,Charger request
+192,personal_data_injected,"I'm Grace, 62, and I prefer navy blue. Could someone help with my shoes?",Shoe assistance,,Shoe assistance,Shoe assistance,Shoe assistance,Shoe assistance
+193,personal_data_injected,"I'm Leo, 51, and I like orange. My shoulder hurts.",Shoulder pain assistance,,Shoulder assistance   <MISS>,Shoulder assistance   <MISS>,Shoulder assistance   <MISS>,Shoulder pain assistance
+194,personal_data_injected,"I'm Ruby, 44, and I prefer purple. Could I get some tissues?",Tissues request,,Tissues request,Tissues request,Tissues request,Tissues request
+195,personal_data_injected,"I'm Max, 76, and I like green. Has the doctor called my family?",Family contact update,,Family contact update,Family contact update,Family contact update,Family contact update
+196,personal_data_injected,"I'm Ella, 34, and I prefer red. Are there any updates about my condition?",Condition update request,,Health check request   <MISS>,Condition update request,Condition update   <MISS>,Condition update request
+197,personal_data_injected,"I'm William, 59, and I like blue. Why is the monitor beeping?",Monitor beeping question,,Monitor check request   <MISS>,Monitor beeping question,Monitor beeping question,Monitor beeping question
+198,personal_data_injected,"I'm Sophie, 66, and I prefer black. Could someone check the monitor?",Monitor check request,,Monitor check request,Monitor check request,Monitor check   <MISS>,Monitor check request
+199,personal_data_injected,"I'm Thomas, 47, and I like white. When am I going home?",Discharge timing question,,Discharge timing question,Discharge timing question,Discharge timing question,Discharge timing question
+200,personal_data_injected,"I'm Isabella, 25, and I prefer yellow. Could you bring me some food?",Food request,,Food request,Food request,Food request,Food request
+201,realistic_messy,Could you please come over now i am really scared something is happening to me,Immediate assistance request,,Immediate assistance request,Immediate assistance request,Immediate assistance request,Immediate assistance request
+202,realistic_messy,Hey im so sorry but i cant reach my headphones and its under my bed is there any chance you can grab it for me,Headphones retrieval assistance,,Headphones retrieval assistance,Headphones retrieval assistance,Headphones retrieval assistance,Headphones retrieval assistance
+203,realistic_messy,Im really hungry can i please have some food? Thank you,Food request,,Food request,Food request,Food request,Food request
+204,realistic_messy,Im suddenly struggling to breathe can you please come now,Breathing difficulty assistance,,Immediate assistance request   <MISS>,Breathing difficulty assistance,Immediate assistance request   <MISS>,Immediate assistance request   <MISS>
+205,realistic_messy,Hey Im not feeling quite well can i please get checked up on Thank you,Health check request,,Health check request,Health check request,Health check request,Health check request
+206,realistic_messy,Im not feeling well can you check me out,Health check request,,Health check request,Health check request,Health check request,Health check request
+207,realistic_messy,My leg really hurts what's the step to fix it,Leg pain assistance,,Leg pain assistance,Leg pain assistance,Leg pain assistance,Leg pain assistance
+208,realistic_messy,I'm really hungry could I get a cheese sandwhich,Cheese sandwich request,,Food request   <MISS>,Sandwich request   <MISS>,Cheese sandwich request,Cheese sandwich request
+209,realistic_messy,Uh help My heads hurting my head's hurting.,Headache assistance,,Headache assistance,Headache assistance,Headache assistance,Headache assistance
+210,realistic_messy,Has the doctor called my family yet,Family contact update,,Family contact update,Family contact update,Family contact update,Family contact update
+211,realistic_messy,Could you guys send a nurse down here I'm feeling a bit dizzy and sick,Dizziness and nausea assistance,,Dizziness assistance   <MISS>,Immediate assistance request   <MISS>,Dizziness assistance   <MISS>,Dizziness and lightheadedness assistance   <MISS>
+212,realistic_messy,How many doses of pain killers am i allowed to take,Medication dosage question,,Medication dosage question,Medication dosage question,Pain medication dosage question   <MISS>,Medication dosage question
+213,realistic_messy,Could i get a fresh blanket and pillow please,Blanket and pillow request,,Blanket request and Pillow adjustment   <MISS>,Blanket and pillow request,Blanket pillow request   <MISS>,Blanket and pillow request
+214,realistic_messy,I'm having a bit of pain in my lower back is that normal,Lower back pain question,,Back pain assistance   <MISS>,Back pain assistance   <MISS>,Back pain assistance   <MISS>,Back pain assistance   <MISS>
+215,realistic_messy,Are there any updates on my condition,Condition update request,,Health check request   <MISS>,Condition update request,Condition update   <MISS>,Condition update request
+216,realistic_messy,"Im getting a bit hungry, do you guys have any food or snacks i can eat",Food or snack request,,Food request   <MISS>,Food request   <MISS>,Food request   <MISS>,Food request   <MISS>
+217,realistic_messy,Could you guys send a nurse down here i need help getting to the bathroom,Bathroom assistance,,Getting out of bed assistance   <MISS>,Bathroom assistance,Bathroom assistance,Bathroom assistance
+218,realistic_messy,Do you guys have any pain medication i can take my leg hurts alot,Pain medication request,,Pain medication request,Pain medication request,Pain medication request,Leg pain assistance   <MISS>
+219,realistic_messy,The monitor is beeping alot is it meant to do that,Monitor beeping question,,Monitor check request   <MISS>,Monitor beeping question,Monitor beeping question,Monitor beeping question
+220,realistic_messy,Could i get a nurse in here im having trouble breathing,Breathing difficulty assistance,,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance
+221,realistic_messy,I'm a bit thirsty could i get a glass of water please,Water request,,Water request,Water request,Water request,Water request
+222,realistic_messy,I feel very lightheaded and dizzy right now could someone come into the room,Dizziness and lightheadedness assistance,,Dizziness assistance   <MISS>,Dizziness assistance   <MISS>,Dizziness and lightheadedness assistance,Dizziness and lightheadedness assistance
+223,realistic_messy,I can't breathe can someone come into the room please,Breathing difficulty assistance,,Breathing difficulty assistance,Breathing difficulty assistance,Breathing difficulty assistance,Immediate assistance request   <MISS>
+224,realistic_messy,"Ran out of Mango slices, can you bring some mango slices into the room please hehe",Mango slices request,,Mango slices request,Mango slice request   <MISS>,Mango slices request,Mango slice request   <MISS>
+225,realistic_messy,Excuse me can i can i have some water im feeling very thirsty,Water request,,Water request,Water request,Water request,Water request

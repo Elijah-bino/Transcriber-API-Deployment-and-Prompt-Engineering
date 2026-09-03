@@ -921,15 +921,24 @@ Why self-hosted small model (not a hosted API): pilot forbids external API calls
 request path (data residency). The cloud eval (Run 1, prompt v1) is a ceiling reference only;
 free NIM/Groq no longer host the small deployable models.
 
-Runs: Run 1 (v1, cloud, 225 rows, all 0 leaks, exact dragged by house-style not
-comprehension). Run 2 (v2 smoke: 60→92% exact, 86→100% semantic). Run 3 (v2, local Ollama
-CPU Q4: qwen3:4b + qwen3:1.7b complete; phi4-mini/llama3.2:3b/gemma3:4b/granite not finished —
-flaky eval laptop, three power losses; not decision-critical since 4b already clears the bar).
+Runs: Run 1 (v1, cloud, 225 rows, all 0 leaks). Run 2 (v2 smoke: 60→92% exact). Run 3 (v2,
+local Ollama CPU Q4, all 225 rows): qwen3:4b 83.6/90.2, gemma3:4b 76.6/84.4, llama3.2:3b
+74.2/85.8, phi4-mini 74.2/84.4, qwen3:1.7b 70.7/89.8 — **every model 0 PII leaks**. qwen3:4b
+wins by 7 pts on exact. gemma3:4b + granite were still finishing at last pull; won't change it.
 
-Still open: build the rephrase service (FastAPI = keyword fast-path → Ollama qwen3:4b →
-PII post-filter → safe fallback; `/health`, API-key auth, audit log), package one Docker
-image, deploy to a VM in `australia-southeast1`, wire STT → rephrase → Redis. No inference
-is self-hosted yet; Gen-1 still calls OpenRouter/Kimi in production.
+**Deployment decided 2026-09-04 (build starts next session) — see FINDINGS.md "Deployment plan":**
+- **VM + FastAPI, NOT Cloud Run** (serverless pays the 15-25s model RAM-load on cold start;
+  min-instances=1 costs ~= a VM anyway).
+- One Docker image: `FROM ollama/ollama` + `RUN ollama pull qwen3:4b` (baked at build time) +
+  FastAPI; `OLLAMA_KEEP_ALIVE=-1`. Two endpoints: `POST /transcribe` → Google STT,
+  `POST /shorten` → keyword fast-path → localhost Ollama → PII filter → fallback. `/health`,
+  `X-API-Key`, audit log. **Prompt `v2.txt` ships inside the service image** (system message
+  per call) so prompt changes redeploy the service, not the model layer.
+- Registry: **Artifact Registry** (same cloud, private, no limits) — or none for one VM.
+- Build machine: **not the eval laptop** — Cloud Build or the target VM. OPEN.
+- VM in `australia-southeast1`, SA with `Cloud Speech Client`, Docker, Caddy HTTPS.
+  Size: `e2-standard-4` CPU vs `g2`+L4 GPU. OPEN — needs a `/shorten` latency load-test
+  (prompt caching of the stable v2 prefix should give ~1-3s steady state).
 
 Product decision for Noah (not blocking): free-text label (current) vs controlled output
 (category enum + urgency + deterministic formatter).
@@ -939,17 +948,20 @@ OpenRouter key, NVIDIA NIM key, Groq key (`prompt-engineering/.env`), laptop SSH
 
 ### 6.6 Immediate next steps (as of this document)
 1. ~~Eval + model selection~~ DONE — `qwen3:4b` + prompt `v2` locked (Section 6.5).
-2. Build the rephrase service: FastAPI wrapper = keyword fast-path → Ollama `qwen3:4b`
-   (`/api/chat`, `think:false`, JSON schema, `prompts/v2.txt`) → PII post-filter →
-   safe fallback; `/health`, `X-API-Key` auth, audit log (transcript, output, model +
-   prompt version, latency). Never expose Ollama directly.
-3. Package one Docker image (Ollama + qwen3:4b + wrapper); deploy to a VM in `australia-southeast1`
-   (e2-standard-4 CPU to start).
-4. Wire STT → rephrase → Redis. First end-to-end Gen-2 pipeline.
-5. Rotate all plaintext keys (see 6.5), incl. laptop SSH creds.
-6. Reserve the STT VM external IP as static (`34.56.137.75`, currently ephemeral).
-7. Address the STT HTTPS gap + lock down SSH before real patient audio.
-8. Noah: free-text vs controlled-output for rephrasing; US-hosted STT VM data residency.
+2. Answer the two OPEN deployment questions (Section 6.5): build machine (Cloud Build vs
+   target VM), VM size (e2-standard-4 CPU vs g2+L4 GPU).
+3. Scaffold `service/`: Dockerfile (`FROM ollama/ollama`, `RUN ollama pull qwen3:4b`),
+   `start.sh`, `app/` (main = `/transcribe` + `/shorten` + `/health` + `X-API-Key`;
+   `keywords.py` fast-path; `rephrase.py` = Ollama `/api/chat` + `think:false` + JSON schema
+   + v2 prompt; `pii.py` post-filter → safe fallback; `audit.py`), `prompts/v2.txt`,
+   `cloudbuild.yaml`. Never expose Ollama directly.
+4. Load-test `/shorten` latency on the chosen VM; confirm ~1-3s steady state.
+5. Wire STT → rephrase → Redis. First end-to-end Gen-2 pipeline. Retire aidevm's standalone STT.
+6. Rotate all plaintext keys (see 6.5), incl. laptop SSH creds.
+7. Reserve the STT VM external IP as static (`34.56.137.75`, currently ephemeral).
+8. Address the STT HTTPS gap + lock down SSH before real patient audio.
+9. Noah: free-text vs controlled-output for rephrasing; US-hosted STT VM data residency.
+10. Finish the local pass (gemma3:4b, granite) if the eval laptop stays up — not blocking.
 9. Finish the local pass (phi4-mini/llama3.2:3b/gemma3:4b/granite) if the eval laptop stabilises — not blocking.
 
 ---

@@ -151,16 +151,19 @@ story += [
     tbl([
         ["Model", "Params", "Licence", "Exact", "Semantic", "personal", "PII leak", "p50"],
         ["qwen3:4b", "4B", "Apache 2.0", "83.6%", "90.2%", "94%", "0", "2.4s"],
+        ["gemma3:4b", "4B", "Gemma", "76.6%", "84.4%", "(finishing)", "0", "1.9s"],
+        ["llama3.2:3b", "3B", "Llama", "74.2%", "85.8%", "90%", "0", "1.4s"],
+        ["phi4-mini", "3.8B", "MIT", "74.2%", "84.4%", "89%", "0", "1.6s"],
         ["qwen3:1.7b", "1.7B", "Apache 2.0", "70.7%", "89.8%", "91%", "0", "0.9s"],
-        ["phi4-mini", "3.8B", "MIT", "incomplete", "—", "—", "—", "—"],
-        ["llama3.2:3b", "3B", "Llama", "not run", "", "", "", ""],
-        ["gemma3:4b", "4B", "Gemma", "not run", "", "", "", ""],
-        ["granite3.1-moe:3b", "3B", "Apache 2.0", "not run", "", "", "", ""],
+        ["granite3.1-moe:3b", "3B", "Apache 2.0", "(finishing)", "", "", "", ""],
     ], colw=[30 * mm, 14 * mm, 20 * mm, 18 * mm, 20 * mm, 18 * mm, 16 * mm, 12 * mm]),
-    P("The eval box (a gaming laptop; its GPU was blocked by Secure Boot, so CPU only, "
-      "7 GB RAM) lost power three times mid-run. phi4-mini, llama3.2:3b, gemma3:4b and "
-      "granite did not complete. qwen3:4b already clears the bar, so they are not "
-      "decision-critical; the table is filled in if the box stabilises.", SMALL),
+    P("Every model: <b>zero PII leaks</b> &mdash; the v2 de-identification instruction holds "
+      "across the board. qwen3:4b wins by 7 points on exact match. The smaller models "
+      "generalise (“Toast request” &rarr; “Food request”) where qwen3:4b keeps "
+      "the specific item. The eval box (a gaming laptop; Secure Boot blocked the GPU, so CPU "
+      "only, 7 GB RAM) lost power three times; the watcher auto-resumed each time. gemma3:4b "
+      "and granite were still finishing at the last data pull &mdash; they do not change the "
+      "decision. Per-response detail: <font face='Courier'>comparison-local.csv</font>.", SMALL),
     PageBreak(),
 ]
 
@@ -182,21 +185,34 @@ story += [
     P("<b>Fallback:</b> qwen3:1.7b (70.7% / 89.8% / 0) if the target hardware cannot run 4B "
       "fast enough &mdash; it is ~2.5x quicker and still leak-free.", BODY),
 
-    P("7. Deployment recommendation", H1),
-    P("Serving shape (self-hosted, scales with a real inference server):", BODY),
+    P("7. Deployment plan (decided)", H1),
+    P("<b>VM + FastAPI, not Cloud Run.</b> Serverless scale-to-zero pays a 15&ndash;25s "
+      "model RAM-load on every cold start; pinning one warm instance removes that but costs "
+      "about the same as a VM, so a plain VM is simpler for the same money.", BODY),
     Paragraph(
-        "Next.js &rarr; AIDE Rephrase API (FastAPI)<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472; keyword fast-path &nbsp; ~60-70% of requests, no model call<br/>"
-        "&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472; ambiguous &rarr; Ollama / vLLM (private) &rarr; qwen3:4b<br/>"
+        "Next.js &rarr; AIDE API (FastAPI, one VM, one Docker image)<br/>"
+        "&nbsp;&nbsp;&nbsp;&nbsp;POST /transcribe &rarr; Google Cloud Speech-to-Text<br/>"
+        "&nbsp;&nbsp;&nbsp;&nbsp;POST /shorten &nbsp;&nbsp;&#9500;&#9472; keyword fast-path &nbsp; ~60-70%, no model call<br/>"
+        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472; else &rarr; localhost Ollama qwen3:4b (think:false, JSON schema)<br/>"
         "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr; PII post-filter &rarr; safe fallback &rarr; Redis &rarr; dashboard",
         MONO),
-    P("&bull; Package as one Docker image: Ollama + qwen3:4b baked in + the FastAPI wrapper.<br/>"
-      "&bull; Deploy to a VM in <font face='Courier'>australia-southeast1</font> (Sydney) "
-      "&mdash; CPU e2-standard-4 to start, GPU later if volume needs it.<br/>"
-      "&bull; The wrapper is the security boundary: API-key auth, input validation, output "
-      "validation, PII post-filter, timeout, and a compliance audit log (transcript, output, "
-      "model + prompt version, latency).<br/>"
-      "&bull; Never expose Ollama/vLLM to the internet directly.", BODY),
+    P("&bull; One Docker image: <font face='Courier'>FROM ollama/ollama</font>, "
+      "<font face='Courier'>RUN ollama pull qwen3:4b</font> (baked into a layer at build "
+      "time &mdash; downloaded from ollama.com once, never again), + FastAPI. "
+      "<font face='Courier'>OLLAMA_KEEP_ALIVE=-1</font> keeps the model resident.<br/>"
+      "&bull; The prompt (<font face='Courier'>v2.txt</font>) ships inside the service image "
+      "and is sent as the system message per call &mdash; so a prompt change redeploys the "
+      "service, not the model layer. The identical prefix every call lets the inference "
+      "engine cache the ~1400-token prefill &rarr; steady-state ~1&ndash;3s (to be load-tested).<br/>"
+      "&bull; Registry: Artifact Registry (same cloud, private, no pull limits) &mdash; or "
+      "none, building and running on the one VM.<br/>"
+      "&bull; VM in <font face='Courier'>australia-southeast1</font> with a service account "
+      "holding <i>Cloud Speech Client</i> (so /transcribe needs no key file), Docker, HTTPS "
+      "via Caddy, firewall on the API port. Start CPU (e2-standard-4); move to an L4 GPU only "
+      "if the latency test fails.<br/>"
+      "&bull; The FastAPI layer is the security boundary: X-API-Key auth, input + output "
+      "validation, PII post-filter, timeout, audit log (transcript, output, model + prompt "
+      "version, latency). Ollama is never exposed to the internet.", BODY),
 
     P("8. Limitations and open items", H1),
     P("&bull; The eval set is synthetic and cleaner than real STT output; the PII injection "

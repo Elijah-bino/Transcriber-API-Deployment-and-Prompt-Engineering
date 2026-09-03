@@ -1,0 +1,1800 @@
+
+[1] (general) Can you bring me a glass of water please?
+      expected : Water request
+  ollama__gemma3_4b            : Water request
+  ollama__llama3.2_3b          : Water request
+  ollama__phi4-mini            : Water request
+  ollama__qwen3_1.7b           : Water request
+  ollama__qwen3_4b             : Water request
+
+[2] (general) I'm really thirsty, could someone get me some water?
+      expected : Water request
+  ollama__gemma3_4b            : Water request
+  ollama__llama3.2_3b          : Water request
+  ollama__phi4-mini            : Water request
+  ollama__qwen3_1.7b           : Water request
+  ollama__qwen3_4b             : Water request
+
+[3] (general) Could I have something to eat please?
+      expected : Food request
+  ollama__gemma3_4b            : Food request
+  ollama__llama3.2_3b          : Food request
+  ollama__phi4-mini            : Food request
+  ollama__qwen3_1.7b           : Food request
+  ollama__qwen3_4b             : Food request
+
+[4] (general) I'm hungry, can I get some toast?
+      expected : Toast request
+  ollama__gemma3_4b            : Food request   <MISS>
+  ollama__llama3.2_3b          : Food request   <MISS>
+  ollama__phi4-mini            : Food request   <MISS>
+  ollama__qwen3_1.7b           : Toast request
+  ollama__qwen3_4b             : Toast request
+
+[5] (general) Could you bring me a sandwich?
+      expected : Sandwich request
+  ollama__gemma3_4b            : Food request   <MISS>
+  ollama__llama3.2_3b          : Sandwich request
+  ollama__phi4-mini            : Food request   <MISS>
+  ollama__qwen3_1.7b           : Sandwich request
+  ollama__qwen3_4b             : Sandwich request
+
+[6] (general) I haven't eaten in a while and I'm getting hungry.
+      expected : Food request
+  ollama__gemma3_4b            : Food request
+  ollama__llama3.2_3b          : Food request
+  ollama__phi4-mini            : Food request
+  ollama__qwen3_1.7b           : Food request
+  ollama__qwen3_4b             : Food request
+
+[7] (general) Can someone help me get to the bathroom?
+      expected : Bathroom assistance
+  ollama__gemma3_4b            : Bathroom assistance
+  ollama__llama3.2_3b          : Bathroom assistance
+  ollama__phi4-mini            : Bathroom assistance
+  ollama__qwen3_1.7b           : Bathroom assistance
+  ollama__qwen3_4b             : Bathroom assistance
+
+[8] (general) I need help getting out of bed.
+      expected : Getting out of bed assistance
+  ollama__gemma3_4b            : Getting out of bed assistance
+  ollama__llama3.2_3b          : Getting out of bed assistance
+  ollama__phi4-mini            : Getting out of bed assistance
+  ollama__qwen3_1.7b           : Getting out of bed assistance
+  ollama__qwen3_4b             : Getting out of bed assistance
+
+[9] (general) Could someone help me sit up?
+      expected : Sitting assistance
+  ollama__gemma3_4b            : Sitting assistance
+  ollama__llama3.2_3b          : Sitting assistance
+  ollama__phi4-mini            : Sitting assistance
+  ollama__qwen3_1.7b           : Sitting assistance
+  ollama__qwen3_4b             : Sitting assistance
+
+[10] (general) I can't reach the call button.
+      expected : Call button assistance
+  ollama__gemma3_4b            : Call button retrieval assistance   <MISS>
+  ollama__llama3.2_3b          : Call button retrieval assistance   <MISS>
+  ollama__phi4-mini            : Call button retrieval assistance   <MISS>
+  ollama__qwen3_1.7b           : Call button retrieval assistance   <MISS>
+  ollama__qwen3_4b             : Call button retrieval assistance   <MISS>
+
+[11] (general) Could someone adjust my pillow?
+      expected : Pillow adjustment
+  ollama__gemma3_4b            : Pillow adjustment
+  ollama__llama3.2_3b          : Pillow adjustment
+  ollama__phi4-mini            : Pillow adjustment
+  ollama__qwen3_1.7b           : Pillow adjustment
+  ollama__qwen3_4b             : Pillow adjustment
+
+[12] (general) Can I have another blanket?
+      expected : Blanket request
+  ollama__gemma3_4b            : Blanket request
+  ollama__llama3.2_3b          : Blanket request
+  ollama__phi4-mini            : Blanket request
+  ollama__qwen3_1.7b           : Blanket request
+  ollama__qwen3_4b             : Blanket request
+
+[13] (general) I'm feeling cold, could I have a blanket?
+      expected : Blanket request
+  ollama__gemma3_4b            : Blanket request
+  ollama__llama3.2_3b          : Blanket request
+  ollama__phi4-mini            : Blanket request
+  ollama__qwen3_1.7b           : Blanket request
+  ollama__qwen3_4b             : Blanket request
+
+[14] (general) Can you turn the light down please?
+      expected : Light adjustment
+  ollama__gemma3_4b            : Light adjustment
+  ollama__llama3.2_3b          : Light adjustment
+  ollama__phi4-mini            : Light adjustment
+  ollama__qwen3_1.7b           : Light adjustment
+  ollama__qwen3_4b             : Light adjustment
+
+[15] (general) Could you close the curtains?
+      expected : Curtain adjustment
+  ollama__gemma3_4b            : Curtain adjustment
+  ollama__llama3.2_3b          : Curtain adjustment
+  ollama__phi4-mini            : Curtain adjustment
+  ollama__qwen3_1.7b           : Curtain adjustment
+  ollama__qwen3_4b             : Curtain adjustment
+
+[16] (general) Can someone open the window?
+      expected : Window adjustment
+  ollama__gemma3_4b            : Window adjustment
+  ollama__llama3.2_3b          : Window adjustment
+  ollama__phi4-mini            : Window adjustment
+  ollama__qwen3_1.7b           : Window adjustment
+  ollama__qwen3_4b             : Window adjustment
+
+[17] (general) Could I have some tissues please?
+      expected : Tissues request
+  ollama__gemma3_4b            : Tissues request
+  ollama__llama3.2_3b          : Tissues request
+  ollama__phi4-mini            : Tissues request
+  ollama__qwen3_1.7b           : Tissues request
+  ollama__qwen3_4b             : Tissues request
+
+[18] (general) Can you bring me a towel?
+      expected : Towel request
+  ollama__gemma3_4b            : Towel request
+  ollama__llama3.2_3b          : Towel request
+  ollama__phi4-mini            : Towel request
+  ollama__qwen3_1.7b           : Towel request
+  ollama__qwen3_4b             : Towel request
+
+[19] (general) I need some help washing my hands.
+      expected : Handwashing assistance
+  ollama__gemma3_4b            : Handwashing assistance
+  ollama__llama3.2_3b          : Handwashing assistance
+  ollama__phi4-mini            : Handwashing assistance
+  ollama__qwen3_1.7b           : Handwashing assistance
+  ollama__qwen3_4b             : Handwashing assistance
+
+[20] (general) Could someone help me get dressed?
+      expected : Dressing assistance
+  ollama__gemma3_4b            : Dressing assistance
+  ollama__llama3.2_3b          : Dressing assistance
+  ollama__phi4-mini            : Dressing assistance
+  ollama__qwen3_1.7b           : Dressing assistance
+  ollama__qwen3_4b             : Dressing assistance
+
+[21] (general) I need help with my shoes.
+      expected : Shoe assistance
+  ollama__gemma3_4b            : Shoe assistance request   <MISS>
+  ollama__llama3.2_3b          : Shoe assistance
+  ollama__phi4-mini            : Shoe assistance
+  ollama__qwen3_1.7b           : Shoe assistance
+  ollama__qwen3_4b             : Shoe assistance
+
+[22] (general) Can you help me find my glasses?
+      expected : Glasses retrieval assistance
+  ollama__gemma3_4b            : Glasses retrieval assistance
+  ollama__llama3.2_3b          : Glasses retrieval assistance
+  ollama__phi4-mini            : Glasses retrieval assistance
+  ollama__qwen3_1.7b           : Glasses retrieval assistance
+  ollama__qwen3_4b             : Glasses retrieval assistance
+
+[23] (general) I can't find my phone.
+      expected : Phone retrieval assistance
+  ollama__gemma3_4b            : Phone retrieval assistance
+  ollama__llama3.2_3b          : Phone retrieval assistance
+  ollama__phi4-mini            : Phone retrieval assistance
+  ollama__qwen3_1.7b           : Phone retrieval assistance
+  ollama__qwen3_4b             : Phone retrieval assistance
+
+[24] (general) Could someone bring my phone over?
+      expected : Phone retrieval assistance
+  ollama__gemma3_4b            : Phone retrieval assistance
+  ollama__llama3.2_3b          : Phone retrieval assistance
+  ollama__phi4-mini            : Phone retrieval assistance
+  ollama__qwen3_1.7b           : Phone retrieval assistance
+  ollama__qwen3_4b             : Phone retrieval assistance
+
+[25] (general) My headphones are out of reach.
+      expected : Headphones retrieval assistance
+  ollama__gemma3_4b            : Headphones retrieval assistance
+  ollama__llama3.2_3b          : Headphones retrieval assistance
+  ollama__phi4-mini            : Headphones retrieval assistance
+  ollama__qwen3_1.7b           : Headphones retrieval assistance
+  ollama__qwen3_4b             : Headphones retrieval assistance
+
+[26] (general) Can you get my bag from over there?
+      expected : Bag retrieval assistance
+  ollama__gemma3_4b            : Bag retrieval assistance
+  ollama__llama3.2_3b          : Bag retrieval assistance
+  ollama__phi4-mini            : Bag retrieval assistance
+  ollama__qwen3_1.7b           : Bag retrieval assistance
+  ollama__qwen3_4b             : Bag retrieval assistance
+
+[27] (general) Could someone bring my book?
+      expected : Book retrieval assistance
+  ollama__gemma3_4b            : Book retrieval assistance
+  ollama__llama3.2_3b          : Book retrieval assistance
+  ollama__phi4-mini            : Book retrieval assistance
+  ollama__qwen3_1.7b           : Book retrieval assistance
+  ollama__qwen3_4b             : Book retrieval assistance
+
+[28] (general) I need my charger please.
+      expected : Charger request
+  ollama__gemma3_4b            : Charger request
+  ollama__llama3.2_3b          : Charger request
+  ollama__phi4-mini            : Charger request
+  ollama__qwen3_1.7b           : Charger request
+  ollama__qwen3_4b             : Charger request
+
+[29] (general) Can you plug my charger in?
+      expected : Charger assistance
+  ollama__gemma3_4b            : Charger retrieval assistance   <MISS>
+  ollama__llama3.2_3b          : Charger request   <MISS>
+  ollama__phi4-mini            : Charger request   <MISS>
+  ollama__qwen3_1.7b           : Charger request   <MISS>
+  ollama__qwen3_4b             : Charger request   <MISS>
+
+[30] (general) Could someone turn the television on?
+      expected : Television assistance
+  ollama__gemma3_4b            : Television assistance
+  ollama__llama3.2_3b          : Television assistance
+  ollama__phi4-mini            : Television assistance
+  ollama__qwen3_1.7b           : Television assistance
+  ollama__qwen3_4b             : Television assistance
+
+[31] (general) Can you turn the television off?
+      expected : Television assistance
+  ollama__gemma3_4b            : Television assistance
+  ollama__llama3.2_3b          : Television assistance
+  ollama__phi4-mini            : Television assistance
+  ollama__qwen3_1.7b           : Television assistance
+  ollama__qwen3_4b             : Television assistance
+
+[32] (general) Could you lower the television volume?
+      expected : Television volume adjustment
+  ollama__gemma3_4b            : Television volume adjustment
+  ollama__llama3.2_3b          : Television volume adjustment
+  ollama__phi4-mini            : Television volume adjustment
+  ollama__qwen3_1.7b           : Television volume adjustment
+  ollama__qwen3_4b             : Television volume adjustment
+
+[33] (general) I can't hear the television very well.
+      expected : Television volume adjustment
+  ollama__gemma3_4b            : Television volume adjustment
+  ollama__llama3.2_3b          : Television assistance   <MISS>
+  ollama__phi4-mini            : Television assistance   <MISS>
+  ollama__qwen3_1.7b           : Television adjustment   <MISS>
+  ollama__qwen3_4b             : Television volume adjustment
+
+[34] (general) Can someone come and check on me?
+      expected : Check-in request
+  ollama__gemma3_4b            : Health check request   <MISS>
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Health check request   <MISS>
+
+[35] (general) Could a nurse come to my room please?
+      expected : Nurse assistance request
+  ollama__gemma3_4b            : Nurse assistance request
+  ollama__llama3.2_3b          : Nurse assistance request
+  ollama__phi4-mini            : Immediate assistance request   <MISS>
+  ollama__qwen3_1.7b           : Nurse assistance request
+  ollama__qwen3_4b             : Nurse assistance request
+
+[36] (general) Can someone come when they get a chance?
+      expected : Staff assistance request
+  ollama__gemma3_4b            : Staff assistance request
+  ollama__llama3.2_3b          : Staff assistance request
+  ollama__phi4-mini            : Immediate assistance request   <MISS>
+  ollama__qwen3_1.7b           : Immediate assistance request   <MISS>
+  ollama__qwen3_4b             : Staff assistance request
+
+[37] (general) I'm not feeling very well.
+      expected : Health check request
+  ollama__gemma3_4b            : Health check request
+  ollama__llama3.2_3b          : Health check request
+  ollama__phi4-mini            : Health check request
+  ollama__qwen3_1.7b           : Health check request
+  ollama__qwen3_4b             : Health check request
+
+[38] (general) I don't feel right today.
+      expected : Health check request
+  ollama__gemma3_4b            : Health check request
+  ollama__llama3.2_3b          : Health check request
+  ollama__phi4-mini            : Health check request
+  ollama__qwen3_1.7b           : Health check request
+  ollama__qwen3_4b             : Health check request
+
+[39] (general) Could someone check how I'm doing?
+      expected : Health check request
+  ollama__gemma3_4b            : Health check request
+  ollama__llama3.2_3b          : Health check request
+  ollama__phi4-mini            : Health check request
+  ollama__qwen3_1.7b           : Health check request
+  ollama__qwen3_4b             : Health check request
+
+[40] (general) I'm feeling dizzy.
+      expected : Dizziness assistance
+  ollama__gemma3_4b            : Dizziness assistance
+  ollama__llama3.2_3b          : Dizziness assistance
+  ollama__phi4-mini            : Dizziness assistance
+  ollama__qwen3_1.7b           : Dizziness assistance
+  ollama__qwen3_4b             : Dizziness assistance
+
+[41] (general) I feel lightheaded.
+      expected : Lightheadedness assistance
+  ollama__gemma3_4b            : Dizziness assistance   <MISS>
+  ollama__llama3.2_3b          : Dizziness assistance   <MISS>
+  ollama__phi4-mini            : Dizziness assistance   <MISS>
+  ollama__qwen3_1.7b           : Lightheadedness assistance
+  ollama__qwen3_4b             : Lightheadedness assistance
+
+[42] (general) I'm feeling sick.
+      expected : Nausea assistance
+  ollama__gemma3_4b            : Health check request   <MISS>
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Health check request   <MISS>
+
+[43] (general) My head hurts.
+      expected : Headache assistance
+  ollama__gemma3_4b            : Headache assistance
+  ollama__llama3.2_3b          : Headache assistance
+  ollama__phi4-mini            : Headache assistance
+  ollama__qwen3_1.7b           : Headache assistance
+  ollama__qwen3_4b             : Headache assistance
+
+[44] (general) I have a headache.
+      expected : Headache assistance
+  ollama__gemma3_4b            : Headache assistance
+  ollama__llama3.2_3b          : Headache assistance
+  ollama__phi4-mini            : Headache assistance
+  ollama__qwen3_1.7b           : Headache assistance
+  ollama__qwen3_4b             : Headache assistance
+
+[45] (general) My stomach hurts.
+      expected : Stomach pain assistance
+  ollama__gemma3_4b            : Nausea assistance   <MISS>
+  ollama__llama3.2_3b          : Abdominal assistance   <MISS>
+  ollama__phi4-mini            : Stomach assistance   <MISS>
+  ollama__qwen3_1.7b           : Stomach assistance   <MISS>
+  ollama__qwen3_4b             : Stomach pain assistance
+
+[46] (general) My back is hurting.
+      expected : Back pain assistance
+  ollama__gemma3_4b            : Back pain assistance
+  ollama__llama3.2_3b          : Back pain assistance
+  ollama__phi4-mini            : Back pain assistance
+  ollama__qwen3_1.7b           : Back pain assistance
+  ollama__qwen3_4b             : Back pain assistance
+
+[47] (general) My lower back is sore.
+      expected : Lower back pain assistance
+  ollama__gemma3_4b            : Back pain assistance   <MISS>
+  ollama__llama3.2_3b          : Back pain assistance   <MISS>
+  ollama__phi4-mini            : Back pain assistance   <MISS>
+  ollama__qwen3_1.7b           : Back pain assistance   <MISS>
+  ollama__qwen3_4b             : Back pain assistance   <MISS>
+
+[48] (general) My leg hurts.
+      expected : Leg pain assistance
+  ollama__gemma3_4b            : Leg pain assistance
+  ollama__llama3.2_3b          : Leg pain assistance
+  ollama__phi4-mini            : Leg pain assistance
+  ollama__qwen3_1.7b           : Leg pain assistance
+  ollama__qwen3_4b             : Leg pain assistance
+
+[49] (general) My knee is painful.
+      expected : Knee pain assistance
+  ollama__gemma3_4b            : Leg pain assistance   <MISS>
+  ollama__llama3.2_3b          : Knee assistance   <MISS>
+  ollama__phi4-mini            : Knee pain assistance
+  ollama__qwen3_1.7b           : Knee assistance   <MISS>
+  ollama__qwen3_4b             : Knee pain assistance
+
+[50] (general) My arm is hurting.
+      expected : Arm pain assistance
+  ollama__gemma3_4b            : Leg pain assistance   <MISS>
+  ollama__llama3.2_3b          : Headache assistance   <MISS>
+  ollama__phi4-mini            : Arm pain assistance
+  ollama__qwen3_1.7b           : Arm assistance   <MISS>
+  ollama__qwen3_4b             : Arm pain assistance
+
+[51] (general) My shoulder hurts.
+      expected : Shoulder pain assistance
+  ollama__gemma3_4b            : Back pain assistance   <MISS>
+  ollama__llama3.2_3b          : Shoulder assistance   <MISS>
+  ollama__phi4-mini            : Shoulder assistance   <MISS>
+  ollama__qwen3_1.7b           : Shoulder assistance   <MISS>
+  ollama__qwen3_4b             : Shoulder pain assistance
+
+[52] (general) My chest feels uncomfortable.
+      expected : Chest discomfort assistance
+  ollama__gemma3_4b            : Chest discomfort assistance
+  ollama__llama3.2_3b          : Chest discomfort assistance
+  ollama__phi4-mini            : Chest discomfort assistance
+  ollama__qwen3_1.7b           : Chest discomfort assistance
+  ollama__qwen3_4b             : Chest discomfort assistance
+
+[53] (general) I'm having trouble breathing.
+      expected : Breathing difficulty assistance
+  ollama__gemma3_4b            : Breathing difficulty assistance
+  ollama__llama3.2_3b          : Breathing difficulty assistance
+  ollama__phi4-mini            : Breathing difficulty assistance
+  ollama__qwen3_1.7b           : Breathing difficulty assistance
+  ollama__qwen3_4b             : Breathing difficulty assistance
+
+[54] (general) I feel short of breath.
+      expected : Breathing difficulty assistance
+  ollama__gemma3_4b            : Breathing difficulty assistance
+  ollama__llama3.2_3b          : Breathing difficulty assistance
+  ollama__phi4-mini            : Breathing difficulty assistance
+  ollama__qwen3_1.7b           : Breathing difficulty assistance
+  ollama__qwen3_4b             : Breathing difficulty assistance
+
+[55] (general) I can't catch my breath.
+      expected : Breathing difficulty assistance
+  ollama__gemma3_4b            : Breathing difficulty assistance
+  ollama__llama3.2_3b          : Breathing difficulty assistance
+  ollama__phi4-mini            : Breathing difficulty assistance
+  ollama__qwen3_1.7b           : Breathing difficulty assistance
+  ollama__qwen3_4b             : Breathing difficulty assistance
+
+[56] (general) I'm suddenly feeling very weak.
+      expected : Weakness assistance
+  ollama__gemma3_4b            : Weakness assistance
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Weakness assistance
+  ollama__qwen3_1.7b           : Weakness assistance
+  ollama__qwen3_4b             : Weakness assistance
+
+[57] (general) I feel faint.
+      expected : Faintness assistance
+  ollama__gemma3_4b            : Faintness assistance
+  ollama__llama3.2_3b          : Faintness assistance
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Dizziness assistance   <MISS>
+  ollama__qwen3_4b             : Faintness assistance
+
+[58] (general) I'm feeling very tired.
+      expected : Fatigue assistance
+  ollama__gemma3_4b            : Health check request   <MISS>
+  ollama__llama3.2_3b          : Sleep assistance request   <MISS>
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Health check request   <MISS>
+
+[59] (general) I feel confused.
+      expected : Confusion assistance
+  ollama__gemma3_4b            : Confusion assistance
+  ollama__llama3.2_3b          : Confusion assistance
+  ollama__phi4-mini            : Confusion assistance
+  ollama__qwen3_1.7b           : Confusion assistance
+  ollama__qwen3_4b             : Confusion assistance
+
+[60] (general) I don't know where I am.
+      expected : Orientation assistance
+  ollama__gemma3_4b            : Confusion assistance request   <MISS>
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Unclear request   <MISS>
+
+[61] (general) I'm having trouble sleeping.
+      expected : Sleep assistance request
+  ollama__gemma3_4b            : Sleep assistance request
+  ollama__llama3.2_3b          : Sleep assistance request
+  ollama__phi4-mini            : Sleep assistance request
+  ollama__qwen3_1.7b           : Sleep assistance   <MISS>
+  ollama__qwen3_4b             : Sleep assistance request
+
+[62] (general) Can I have something for the pain?
+      expected : Pain medication request
+  ollama__gemma3_4b            : Pain medication request
+  ollama__llama3.2_3b          : Pain medication request
+  ollama__phi4-mini            : Pain medication request
+  ollama__qwen3_1.7b           : Pain medication request
+  ollama__qwen3_4b             : Pain medication request
+
+[63] (general) Do I have any pain medicine available?
+      expected : Pain medication request
+  ollama__gemma3_4b            : Pain medication request
+  ollama__llama3.2_3b          : Medication dosage question   <MISS>
+  ollama__phi4-mini            : Medication dosage question   <MISS>
+  ollama__qwen3_1.7b           : Pain medication request
+  ollama__qwen3_4b             : Medication dosage question   <MISS>
+
+[64] (general) When can I take my next pain medication?
+      expected : Medication timing question
+  ollama__gemma3_4b            : Medication timing question
+  ollama__llama3.2_3b          : Medication timing question
+  ollama__phi4-mini            : Medication dosage question   <MISS>
+  ollama__qwen3_1.7b           : Pain medication dosage question   <MISS>
+  ollama__qwen3_4b             : Medication dosage question   <MISS>
+
+[65] (general) How much pain medication can I take?
+      expected : Medication dosage question
+  ollama__gemma3_4b            : Pain medication dosage question   <MISS>
+  ollama__llama3.2_3b          : Medication dosage question
+  ollama__phi4-mini            : Medication dosage question
+  ollama__qwen3_1.7b           : Medication dosage question
+  ollama__qwen3_4b             : Medication dosage question
+
+[66] (general) Is this pain normal?
+      expected : Pain question
+  ollama__gemma3_4b            : Headache question   <MISS>
+  ollama__llama3.2_3b          : Pain question
+  ollama__phi4-mini            : Headache assistance   <MISS>
+  ollama__qwen3_1.7b           : Pain assistance   <MISS>
+  ollama__qwen3_4b             : Pain medication request   <MISS>
+
+[67] (general) Is my swelling normal?
+      expected : Swelling question
+  ollama__gemma3_4b            : Swelling question
+  ollama__llama3.2_3b          : Swelling question
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Health check request   <MISS>
+
+[68] (general) Can someone look at this for me?
+      expected : Health check request
+  ollama__gemma3_4b            : Health check request
+  ollama__llama3.2_3b          : Health check request
+  ollama__phi4-mini            : Staff assistance request   <MISS>
+  ollama__qwen3_1.7b           : Health check request
+  ollama__qwen3_4b             : Health check request
+
+[69] (general) Could a doctor come and speak with me?
+      expected : Doctor visit request
+  ollama__gemma3_4b            : Doctor visit request
+  ollama__llama3.2_3b          : Doctor visit request
+  ollama__phi4-mini            : Doctor visit request
+  ollama__qwen3_1.7b           : Doctor visit request
+  ollama__qwen3_4b             : Doctor visit request
+
+[70] (general) Has the doctor been here yet?
+      expected : Doctor visit update
+  ollama__gemma3_4b            : Doctor visit update
+  ollama__llama3.2_3b          : Doctor visit update
+  ollama__phi4-mini            : Doctor visit update
+  ollama__qwen3_1.7b           : Doctor visit update
+  ollama__qwen3_4b             : Doctor visit update
+
+[71] (general) Are there any updates about me?
+      expected : Condition update request
+  ollama__gemma3_4b            : Condition update request
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Update request   <MISS>
+  ollama__qwen3_1.7b           : Update   <MISS>
+  ollama__qwen3_4b             : Condition update request
+
+[72] (general) Can you tell me when my test results are ready?
+      expected : Test result update
+  ollama__gemma3_4b            : Test result update
+  ollama__llama3.2_3b          : Test result update
+  ollama__phi4-mini            : Test result update
+  ollama__qwen3_1.7b           : Test result update
+  ollama__qwen3_4b             : Test result update
+
+[73] (general) Has anyone spoken to my family?
+      expected : Family contact update
+  ollama__gemma3_4b            : Family contact update
+  ollama__llama3.2_3b          : Family contact update
+  ollama__phi4-mini            : Family contact update
+  ollama__qwen3_1.7b           : Family contact update
+  ollama__qwen3_4b             : Family contact update
+
+[74] (general) Could you call my family?
+      expected : Family contact request
+  ollama__gemma3_4b            : Family contact request
+  ollama__llama3.2_3b          : Family contact request
+  ollama__phi4-mini            : Family contact request
+  ollama__qwen3_1.7b           : Family contact request
+  ollama__qwen3_4b             : Family contact request
+
+[75] (general) Can someone tell my partner I'm okay?
+      expected : Family contact request
+  ollama__gemma3_4b            : Family contact request
+  ollama__llama3.2_3b          : Family contact update   <MISS>
+  ollama__phi4-mini            : Family contact update   <MISS>
+  ollama__qwen3_1.7b           : Family contact update   <MISS>
+  ollama__qwen3_4b             : Family contact update   <MISS>
+
+[76] (general) When am I going home?
+      expected : Discharge timing question
+  ollama__gemma3_4b            : Discharge timing question
+  ollama__llama3.2_3b          : Discharge timing question
+  ollama__phi4-mini            : Discharge timing question
+  ollama__qwen3_1.7b           : Discharge timing question
+  ollama__qwen3_4b             : Discharge timing question
+
+[77] (general) Can you tell me what happens next?
+      expected : Care update request
+  ollama__gemma3_4b            : Condition update request   <MISS>
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Update request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Health check request   <MISS>
+
+[78] (general) Why is the machine making that noise?
+      expected : Monitor noise question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Monitor beeping question   <MISS>
+  ollama__phi4-mini            : Noise inquiry   <MISS>
+  ollama__qwen3_1.7b           : Machine noise adjustment   <MISS>
+  ollama__qwen3_4b             : Television assistance   <MISS>
+
+[79] (general) The monitor keeps beeping.
+      expected : Monitor beeping question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Monitor check request   <MISS>
+  ollama__phi4-mini            : Monitor beeping question
+  ollama__qwen3_1.7b           : Monitor beeping check   <MISS>
+  ollama__qwen3_4b             : Monitor beeping question
+
+[80] (general) Is this alarm supposed to be going off?
+      expected : Alarm question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Monitor beeping question   <MISS>
+  ollama__phi4-mini            : Monitor beeping question   <MISS>
+  ollama__qwen3_1.7b           : Alarm adjustment   <MISS>
+  ollama__qwen3_4b             : Monitor beeping question   <MISS>
+
+[81] (general) Could someone check the monitor?
+      expected : Monitor check request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Monitor check request
+  ollama__phi4-mini            : Monitor check request
+  ollama__qwen3_1.7b           : Monitor check request
+  ollama__qwen3_4b             : Monitor check request
+
+[82] (general) Can you help me find my belongings?
+      expected : Belongings assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Item retrieval assistance   <MISS>
+  ollama__phi4-mini            : Bag retrieval assistance   <MISS>
+  ollama__qwen3_1.7b           : Belongings retrieval assistance   <MISS>
+  ollama__qwen3_4b             : Belongings retrieval assistance   <MISS>
+
+[83] (general) I think I've lost my wallet.
+      expected : Wallet retrieval assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Wallet retrieval assistance
+  ollama__phi4-mini            : Wallet retrieval assistance
+  ollama__qwen3_1.7b           : Wallet retrieval assistance
+  ollama__qwen3_4b             : Wallet retrieval assistance
+
+[84] (general) Can someone bring my clothes?
+      expected : Clothing request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Clothing request
+  ollama__phi4-mini            : Bag retrieval assistance   <MISS>
+  ollama__qwen3_1.7b           : Clothes retrieval assistance   <MISS>
+  ollama__qwen3_4b             : Clothes retrieval assistance   <MISS>
+
+[85] (general) Could I have a clean gown?
+      expected : Clean gown request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Clean gown request
+  ollama__phi4-mini            : Clean gown request
+  ollama__qwen3_1.7b           : Clean gown request
+  ollama__qwen3_4b             : Clean gown request
+
+[86] (general) Can I have a fresh pillowcase?
+      expected : Pillowcase request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Pillowcase request
+  ollama__phi4-mini            : Pillowcase request
+  ollama__qwen3_1.7b           : Pillowcase request
+  ollama__qwen3_4b             : Pillowcase request
+
+[87] (general) Could you change my sheets?
+      expected : Bed linen request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Bed linen request
+  ollama__phi4-mini            : Bed linen request
+  ollama__qwen3_1.7b           : Sheet adjustment   <MISS>
+  ollama__qwen3_4b             : Bed linen request
+
+[88] (general) I need help moving my chair.
+      expected : Chair assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Chair assistance
+  ollama__phi4-mini            : Chair assistance
+  ollama__qwen3_1.7b           : Chair adjustment   <MISS>
+  ollama__qwen3_4b             : Chair assistance
+
+[89] (general) Can someone move the table closer?
+      expected : Table adjustment
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Table adjustment
+  ollama__phi4-mini            : Table adjustment
+  ollama__qwen3_1.7b           : Table adjustment
+  ollama__qwen3_4b             : Table adjustment
+
+[90] (general) Could you bring the table over here?
+      expected : Table adjustment
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Table adjustment
+  ollama__phi4-mini            : Table adjustment
+  ollama__qwen3_1.7b           : Table adjustment
+  ollama__qwen3_4b             : Table adjustment
+
+[91] (general) Can someone help me reach my food?
+      expected : Food assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Table assistance   <MISS>
+  ollama__phi4-mini            : Food retrieval assistance   <MISS>
+  ollama__qwen3_1.7b           : Food request   <MISS>
+  ollama__qwen3_4b             : Food retrieval assistance   <MISS>
+
+[92] (general) I can't open this packet.
+      expected : Packet opening assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Packet retrieval assistance   <MISS>
+  ollama__phi4-mini            : Packet retrieval assistance   <MISS>
+  ollama__qwen3_1.7b           : Packet retrieval assistance   <MISS>
+  ollama__qwen3_4b             : Packet retrieval assistance   <MISS>
+
+[93] (general) Could you open this bottle for me?
+      expected : Bottle opening assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Bottle opening assistance
+  ollama__phi4-mini            : Bottle retrieval assistance   <MISS>
+  ollama__qwen3_1.7b           : Bottle adjustment   <MISS>
+  ollama__qwen3_4b             : Bottle retrieval assistance   <MISS>
+
+[94] (general) Can someone help me use this remote?
+      expected : Remote control assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Remote control assistance
+  ollama__phi4-mini            : Remote control assistance
+  ollama__qwen3_1.7b           : Remote control assistance
+  ollama__qwen3_4b             : Remote control assistance
+
+[95] (general) Could you bring me a snack?
+      expected : Snack request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Snack request
+  ollama__phi4-mini            : Snack request
+  ollama__qwen3_1.7b           : Snack request
+  ollama__qwen3_4b             : Snack request
+
+[96] (general) Do you have any fruit?
+      expected : Fruit request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Fruit request
+  ollama__phi4-mini            : Food request   <MISS>
+  ollama__qwen3_1.7b           : Fruit request
+  ollama__qwen3_4b             : Fruit request
+
+[97] (general) Could I have some tea?
+      expected : Tea request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Tea request
+  ollama__phi4-mini            : Tea request
+  ollama__qwen3_1.7b           : Tea request
+  ollama__qwen3_4b             : Tea request
+
+[98] (general) Can I get some juice?
+      expected : Juice request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Juice request
+  ollama__phi4-mini            : Juice request
+  ollama__qwen3_1.7b           : Juice request
+  ollama__qwen3_4b             : Juice request
+
+[99] (general) Could you bring me some milk?
+      expected : Milk request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Milk request
+  ollama__phi4-mini            : Milk request
+  ollama__qwen3_1.7b           : Milk request
+  ollama__qwen3_4b             : Milk request
+
+[100] (general) I'm thirsty again, could I have some water?
+      expected : Water request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Water request
+  ollama__phi4-mini            : Water request
+  ollama__qwen3_1.7b           : Water request
+  ollama__qwen3_4b             : Water request
+
+[101] (personal_data_injected) Hi, I'm Daniel and I'm 72 years old. Could you bring me some water?
+      expected : Water request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Water request
+  ollama__phi4-mini            : Water request
+  ollama__qwen3_1.7b           : Water request
+  ollama__qwen3_4b             : Water request
+
+[102] (personal_data_injected) My name is Sarah, I'm 34, and I need help getting to the bathroom.
+      expected : Bathroom assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Getting out of bed assistance   <MISS>
+  ollama__phi4-mini            : Bathroom assistance
+  ollama__qwen3_1.7b           : Bathroom assistance
+  ollama__qwen3_4b             : Bathroom assistance
+
+[103] (personal_data_injected) I'm Michael, 61, and my lower back is hurting.
+      expected : Lower back pain assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Back pain assistance   <MISS>
+  ollama__phi4-mini            : Back pain assistance   <MISS>
+  ollama__qwen3_1.7b           : Back pain assistance   <MISS>
+  ollama__qwen3_4b             : Back pain assistance   <MISS>
+
+[104] (personal_data_injected) I'm 48 years old and my name is Priya. Could someone check on me?
+      expected : Check-in request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Health check request   <MISS>
+
+[105] (personal_data_injected) James here, I'm 29. Can I have something to eat?
+      expected : Food request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Food request
+  ollama__phi4-mini            : Food request
+  ollama__qwen3_1.7b           : Food request
+  ollama__qwen3_4b             : Food request
+
+[106] (personal_data_injected) I'm Emma, 67, and I'm feeling dizzy.
+      expected : Dizziness assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Dizziness assistance
+  ollama__phi4-mini            : Dizziness assistance
+  ollama__qwen3_1.7b           : Dizziness assistance
+  ollama__qwen3_4b             : Dizziness assistance
+
+[107] (personal_data_injected) My name is Robert and I'm 80. I need another blanket.
+      expected : Blanket request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Blanket request
+  ollama__phi4-mini            : Blanket request
+  ollama__qwen3_1.7b           : Blanket request
+  ollama__qwen3_4b             : Blanket request
+
+[108] (personal_data_injected) I'm Olivia, 25, and I can't reach my phone.
+      expected : Phone retrieval assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Phone retrieval assistance
+  ollama__phi4-mini            : Phone retrieval assistance
+  ollama__qwen3_1.7b           : Phone retrieval assistance
+  ollama__qwen3_4b             : Phone retrieval assistance
+
+[109] (personal_data_injected) I'm William, 54, and I'm having trouble breathing.
+      expected : Breathing difficulty assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Breathing difficulty assistance
+  ollama__phi4-mini            : Breathing difficulty assistance
+  ollama__qwen3_1.7b           : Breathing difficulty assistance
+  ollama__qwen3_4b             : Breathing difficulty assistance
+
+[110] (personal_data_injected) I'm Sophia, 41. Could a nurse come to my room?
+      expected : Nurse assistance request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Nurse assistance request
+  ollama__phi4-mini            : Nurse assistance request
+  ollama__qwen3_1.7b           : Nurse assistance request
+  ollama__qwen3_4b             : Nurse assistance request
+
+[111] (personal_data_injected) I'm John, 70, and I have a headache.
+      expected : Headache assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Headache assistance
+  ollama__phi4-mini            : Headache assistance
+  ollama__qwen3_1.7b           : Headache assistance
+  ollama__qwen3_4b             : Headache assistance
+
+[112] (personal_data_injected) My name is Mia, I'm 19, and I feel sick.
+      expected : Nausea assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Health check request   <MISS>
+
+[113] (personal_data_injected) I'm George, 63. Could someone help me sit up?
+      expected : Sitting assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Sitting assistance
+  ollama__phi4-mini            : Sitting assistance
+  ollama__qwen3_1.7b           : Sitting assistance
+  ollama__qwen3_4b             : Sitting assistance
+
+[114] (personal_data_injected) I'm Ava, 38, and I need help getting out of bed.
+      expected : Getting out of bed assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Getting out of bed assistance
+  ollama__phi4-mini            : Getting out of bed assistance
+  ollama__qwen3_1.7b           : Getting out of bed assistance
+  ollama__qwen3_4b             : Getting out of bed assistance
+
+[115] (personal_data_injected) I'm Thomas, 76. Can someone bring my glasses?
+      expected : Glasses retrieval assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Glasses retrieval assistance
+  ollama__phi4-mini            : Glasses retrieval assistance
+  ollama__qwen3_1.7b           : Glasses retrieval assistance
+  ollama__qwen3_4b             : Glasses retrieval assistance
+
+[116] (personal_data_injected) I'm Isabella, 27. I need my headphones from under the bed.
+      expected : Headphones retrieval assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Headphones retrieval assistance
+  ollama__phi4-mini            : Headphones retrieval assistance
+  ollama__qwen3_1.7b           : Headphones retrieval assistance
+  ollama__qwen3_4b             : Headphones retrieval assistance
+
+[117] (personal_data_injected) I'm Henry, 58, and my leg hurts.
+      expected : Leg pain assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Leg pain assistance
+  ollama__phi4-mini            : Leg pain assistance
+  ollama__qwen3_1.7b           : Leg pain assistance
+  ollama__qwen3_4b             : Leg pain assistance
+
+[118] (personal_data_injected) I'm Charlotte, 46. Could I have a fresh pillow?
+      expected : Pillow request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Pillow adjustment   <MISS>
+  ollama__phi4-mini            : Pillow adjustment   <MISS>
+  ollama__qwen3_1.7b           : Pillow request
+  ollama__qwen3_4b             : Pillow request
+
+[119] (personal_data_injected) I'm Samuel, 69, and I'm feeling very weak.
+      expected : Weakness assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Weakness assistance
+  ollama__phi4-mini            : Weakness assistance
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Weakness assistance
+
+[120] (personal_data_injected) I'm Grace, 31. Can someone bring me some tea?
+      expected : Tea request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Tea request
+  ollama__phi4-mini            : Tea request
+  ollama__qwen3_1.7b           : Tea request
+  ollama__qwen3_4b             : Tea request
+
+[121] (personal_data_injected) I'm Edward, 82, and I need help with my shoes.
+      expected : Shoe assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Shoe assistance
+  ollama__phi4-mini            : Shoe assistance
+  ollama__qwen3_1.7b           : Shoe assistance
+  ollama__qwen3_4b             : Shoe assistance
+
+[122] (personal_data_injected) I'm Chloe, 23, and I can't find my charger.
+      expected : Charger retrieval assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Charger retrieval assistance
+  ollama__phi4-mini            : Charger retrieval assistance
+  ollama__qwen3_1.7b           : Charger retrieval assistance
+  ollama__qwen3_4b             : Charger retrieval assistance
+
+[123] (personal_data_injected) I'm Daniel, 45, from Melbourne. Could someone check my monitor?
+      expected : Monitor check request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Monitor check request
+  ollama__phi4-mini            : Monitor check request
+  ollama__qwen3_1.7b           : Monitor check request
+  ollama__qwen3_4b             : Monitor check request
+
+[124] (personal_data_injected) I'm Sophie, 52, from Geelong. The monitor keeps beeping.
+      expected : Monitor beeping question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Monitor check request   <MISS>
+  ollama__phi4-mini            : Monitor beeping question
+  ollama__qwen3_1.7b           : Monitor beeping request   <MISS>
+  ollama__qwen3_4b             : Monitor beeping question
+
+[125] (personal_data_injected) My name is Jack, I'm 60, and I want to know when I'm going home.
+      expected : Discharge timing question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Discharge timing question
+  ollama__phi4-mini            : Discharge timing question
+  ollama__qwen3_1.7b           : Discharge timing question
+  ollama__qwen3_4b             : Discharge timing question
+
+[126] (personal_data_injected) I'm Lily, 36, from Ballarat. Has the doctor been here yet?
+      expected : Doctor visit update
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Doctor visit update
+  ollama__phi4-mini            : Doctor visit update
+  ollama__qwen3_1.7b           : Doctor visit update
+  ollama__qwen3_4b             : Doctor visit update
+
+[127] (personal_data_injected) I'm Noah, 74, from Bendigo. Could you call my family?
+      expected : Family contact request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Family contact request
+  ollama__phi4-mini            : Family contact request
+  ollama__qwen3_1.7b           : Family contact request
+  ollama__qwen3_4b             : Family contact request
+
+[128] (personal_data_injected) I'm Amelia, 43, and I want an update about my condition.
+      expected : Condition update request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Condition update   <MISS>
+  ollama__qwen3_4b             : Condition update request
+
+[129] (personal_data_injected) I'm Lucas, 28, and I'm feeling lightheaded.
+      expected : Lightheadedness assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Dizziness assistance   <MISS>
+  ollama__phi4-mini            : Dizziness assistance   <MISS>
+  ollama__qwen3_1.7b           : Dizziness assistance   <MISS>
+  ollama__qwen3_4b             : Lightheadedness assistance
+
+[130] (personal_data_injected) I'm Harper, 57, and I have stomach pain.
+      expected : Stomach pain assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Stomach assistance   <MISS>
+  ollama__phi4-mini            : Stomach pain assistance
+  ollama__qwen3_1.7b           : Stomach pain assistance
+  ollama__qwen3_4b             : Stomach pain assistance
+
+[131] (personal_data_injected) I'm Ethan, 66, and my shoulder hurts.
+      expected : Shoulder pain assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Shoulder assistance   <MISS>
+  ollama__phi4-mini            : Shoulder assistance   <MISS>
+  ollama__qwen3_1.7b           : Shoulder adjustment   <MISS>
+  ollama__qwen3_4b             : Shoulder pain assistance
+
+[132] (personal_data_injected) I'm Ella, 33, and I need some tissues.
+      expected : Tissues request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Tissues request
+  ollama__phi4-mini            : Tissues request
+  ollama__qwen3_1.7b           : Tissues request
+  ollama__qwen3_4b             : Tissues request
+
+[133] (personal_data_injected) I'm Alexander, 71, and I'm feeling cold.
+      expected : Blanket request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Blanket request
+  ollama__phi4-mini            : Blanket request
+  ollama__qwen3_1.7b           : Blanket request
+  ollama__qwen3_4b             : Blanket request
+
+[134] (personal_data_injected) I'm Ruby, 21, and could someone close the curtains?
+      expected : Curtain adjustment
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Curtain adjustment
+  ollama__phi4-mini            : Curtain adjustment
+  ollama__qwen3_1.7b           : Curtain adjustment
+  ollama__qwen3_4b             : Curtain adjustment
+
+[135] (personal_data_injected) I'm Mason, 49, and could you turn down the television?
+      expected : Television volume adjustment
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Television volume adjustment
+  ollama__phi4-mini            : Television volume adjustment
+  ollama__qwen3_1.7b           : Television volume adjustment
+  ollama__qwen3_4b             : Television volume adjustment
+
+[136] (personal_data_injected) I'm Isla, 39, and I can't hear the television.
+      expected : Television volume adjustment
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Television assistance   <MISS>
+  ollama__phi4-mini            : Television assistance   <MISS>
+  ollama__qwen3_1.7b           : Television adjustment   <MISS>
+  ollama__qwen3_4b             : Television assistance   <MISS>
+
+[137] (personal_data_injected) I'm Leo, 62, and could someone bring my bag?
+      expected : Bag retrieval assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Bag retrieval assistance
+  ollama__phi4-mini            : Bag retrieval assistance
+  ollama__qwen3_1.7b           : Bag retrieval assistance
+  ollama__qwen3_4b             : Bag retrieval assistance
+
+[138] (personal_data_injected) I'm Zoe, 30, and I need help washing my hands.
+      expected : Handwashing assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Handwashing assistance
+  ollama__phi4-mini            : Handwashing assistance
+  ollama__qwen3_1.7b           : Handwashing assistance
+  ollama__qwen3_4b             : Handwashing assistance
+
+[139] (personal_data_injected) I'm Charlie, 55, and I need help getting dressed.
+      expected : Dressing assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Dressing assistance
+  ollama__phi4-mini            : Dressing assistance
+  ollama__qwen3_1.7b           : Dressing assistance
+  ollama__qwen3_4b             : Dressing assistance
+
+[140] (personal_data_injected) I'm Lily, 68, and my arm is hurting.
+      expected : Arm pain assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Arm assistance   <MISS>
+  ollama__phi4-mini            : Arm pain assistance
+  ollama__qwen3_1.7b           : Arm assistance   <MISS>
+  ollama__qwen3_4b             : Arm pain assistance
+
+[141] (personal_data_injected) I'm Max, 47, and my knee is painful.
+      expected : Knee pain assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Knee assistance   <MISS>
+  ollama__phi4-mini            : Knee pain assistance
+  ollama__qwen3_1.7b           : Knee assistance   <MISS>
+  ollama__qwen3_4b             : Knee pain assistance
+
+[142] (personal_data_injected) I'm Ruby, 59, and my chest feels uncomfortable.
+      expected : Chest discomfort assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Chest discomfort assistance
+  ollama__phi4-mini            : Chest discomfort assistance
+  ollama__qwen3_1.7b           : Chest discomfort assistance
+  ollama__qwen3_4b             : Chest discomfort assistance
+
+[143] (personal_data_injected) I'm Henry, 73, and I feel faint.
+      expected : Faintness assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Faintness assistance
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Faintness assistance
+  ollama__qwen3_4b             : Faintness assistance
+
+[144] (personal_data_injected) I'm Amelia, 64, and I feel confused.
+      expected : Confusion assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Confusion assistance
+  ollama__phi4-mini            : Confusion assistance
+  ollama__qwen3_1.7b           : Confusion assistance
+  ollama__qwen3_4b             : Confusion assistance
+
+[145] (personal_data_injected) I'm Noah, 51, and I'm having trouble sleeping.
+      expected : Sleep assistance request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Sleep assistance request
+  ollama__phi4-mini            : Sleep assistance request
+  ollama__qwen3_1.7b           : Sleep assistance   <MISS>
+  ollama__qwen3_4b             : Sleep assistance request
+
+[146] (personal_data_injected) I'm Sophie, 44, and I need something for the pain.
+      expected : Pain medication request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Pain medication request
+  ollama__phi4-mini            : Pain assistance   <MISS>
+  ollama__qwen3_1.7b           : Pain assistance   <MISS>
+  ollama__qwen3_4b             : Pain medication request
+
+[147] (personal_data_injected) I'm Jack, 79, and when can I take my next pain medicine?
+      expected : Medication timing question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Medication timing question
+  ollama__phi4-mini            : Medication dosage question   <MISS>
+  ollama__qwen3_1.7b           : Pain medication dosage question   <MISS>
+  ollama__qwen3_4b             : Medication dosage question   <MISS>
+
+[148] (personal_data_injected) I'm Mia, 26, and how much pain medication can I take?
+      expected : Medication dosage question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Medication dosage question
+  ollama__phi4-mini            : Medication dosage question
+  ollama__qwen3_1.7b           : Medication dosage question
+  ollama__qwen3_4b             : Medication dosage question
+
+[149] (personal_data_injected) I'm Oliver, 37, and is this swelling normal?
+      expected : Swelling question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Swelling question
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Health check request   <MISS>
+
+[150] (personal_data_injected) I'm Emily, 65, and can a doctor speak with me?
+      expected : Doctor visit request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Doctor visit request
+  ollama__phi4-mini            : Doctor visit request
+  ollama__qwen3_1.7b           : Doctor visit request
+  ollama__qwen3_4b             : Doctor visit request
+
+[151] (personal_data_injected) I'm Liam, 50, and can you tell me when my test results are ready?
+      expected : Test result update
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Test result update request   <MISS>
+  ollama__phi4-mini            : Test result update
+  ollama__qwen3_1.7b           : Test result update
+  ollama__qwen3_4b             : Test result update
+
+[152] (personal_data_injected) I'm Ava, 72, and has anyone spoken to my family?
+      expected : Family contact update
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Family contact update
+  ollama__phi4-mini            : Family contact update
+  ollama__qwen3_1.7b           : Family contact update
+  ollama__qwen3_4b             : Family contact update
+
+[153] (personal_data_injected) I'm Ethan, 40, and can someone tell my partner I'm okay?
+      expected : Family contact request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Family contact update   <MISS>
+  ollama__phi4-mini            : Family contact update   <MISS>
+  ollama__qwen3_1.7b           : Family contact update   <MISS>
+  ollama__qwen3_4b             : Family contact request
+
+[154] (personal_data_injected) I'm Charlotte, 56, and can you tell me what happens next?
+      expected : Care update request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Condition update request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Health check request   <MISS>
+
+[155] (personal_data_injected) I'm William, 81, and could I have a clean gown?
+      expected : Clean gown request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Clean gown request
+  ollama__phi4-mini            : Clean gown request
+  ollama__qwen3_1.7b           : Gown adjustment   <MISS>
+  ollama__qwen3_4b             : Clean gown request
+
+[156] (personal_data_injected) I'm Grace, 35, and could you change my sheets?
+      expected : Bed linen request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Bed linen request
+  ollama__phi4-mini            : Bed linen request
+  ollama__qwen3_1.7b           : Sheet adjustment   <MISS>
+  ollama__qwen3_4b             : Bed linen request
+
+[157] (personal_data_injected) I'm Thomas, 68, and can someone move my chair?
+      expected : Chair assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Chair assistance
+  ollama__phi4-mini            : Chair assistance
+  ollama__qwen3_1.7b           : Chair adjustment   <MISS>
+  ollama__qwen3_4b             : Chair assistance
+
+[158] (personal_data_injected) I'm Ella, 42, and could you bring the table closer?
+      expected : Table adjustment
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Table adjustment
+  ollama__phi4-mini            : Table adjustment
+  ollama__qwen3_1.7b           : Table adjustment
+  ollama__qwen3_4b             : Table adjustment
+
+[159] (personal_data_injected) I'm James, 24, and I can't open this packet.
+      expected : Packet opening assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Packet opening assistance
+  ollama__phi4-mini            : Packet retrieval assistance   <MISS>
+  ollama__qwen3_1.7b           : Packet retrieval assistance   <MISS>
+  ollama__qwen3_4b             : Packing assistance   <MISS>
+
+[160] (personal_data_injected) I'm Sarah, 53, and could you open this bottle?
+      expected : Bottle opening assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Bottle opening assistance
+  ollama__phi4-mini            : Bottle retrieval assistance   <MISS>
+  ollama__qwen3_1.7b           : Bottle adjustment   <MISS>
+  ollama__qwen3_4b             : Bottle opening assistance
+
+[161] (personal_data_injected) I'm Robert, 77, and could someone help me with the remote?
+      expected : Remote control assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Television assistance   <MISS>
+  ollama__phi4-mini            : Remote control assistance
+  ollama__qwen3_1.7b           : Remote control assistance
+  ollama__qwen3_4b             : Remote control assistance
+
+[162] (personal_data_injected) I'm Olivia, 29, and could I have a snack?
+      expected : Snack request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Snack request
+  ollama__phi4-mini            : Snack request
+  ollama__qwen3_1.7b           : Snack request
+  ollama__qwen3_4b             : Snack request
+
+[163] (personal_data_injected) I'm Daniel, 46, and do you have any fruit?
+      expected : Fruit request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Fruit request
+  ollama__phi4-mini            : Food request   <MISS>
+  ollama__qwen3_1.7b           : Fruit request
+  ollama__qwen3_4b             : Fruit request
+
+[164] (personal_data_injected) I'm Priya, 32, and could I have some juice?
+      expected : Juice request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Juice request
+  ollama__phi4-mini            : Juice request
+  ollama__qwen3_1.7b           : Juice request
+  ollama__qwen3_4b             : Juice request
+
+[165] (personal_data_injected) I'm Michael, 70, and could you bring me some milk?
+      expected : Milk request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Milk request
+  ollama__phi4-mini            : Milk request
+  ollama__qwen3_1.7b           : Milk request
+  ollama__qwen3_4b             : Milk request
+
+[166] (personal_data_injected) I'm Sophia, 61, and I'm thirsty again.
+      expected : Water request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Water request
+  ollama__phi4-mini            : Water request
+  ollama__qwen3_1.7b           : Water request
+  ollama__qwen3_4b             : Water request
+
+[167] (personal_data_injected) I'm George, 58, and can someone come and help me now?
+      expected : Immediate assistance request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Immediate assistance request
+  ollama__phi4-mini            : Immediate assistance request
+  ollama__qwen3_1.7b           : Immediate assistance request
+  ollama__qwen3_4b             : Immediate assistance request
+
+[168] (personal_data_injected) I'm Aisha, 45, and I'm from Sydney. Could I have some water?
+      expected : Water request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Water request
+  ollama__phi4-mini            : Water request
+  ollama__qwen3_1.7b           : Water request
+  ollama__qwen3_4b             : Water request
+
+[169] (personal_data_injected) I'm Ben, 52, from Perth, and I need a snack.
+      expected : Snack request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Snack request
+  ollama__phi4-mini            : Food request   <MISS>
+  ollama__qwen3_1.7b           : Snack request
+  ollama__qwen3_4b             : Snack request
+
+[170] (personal_data_injected) I'm Claire, 39, from Adelaide, and I need help getting to the bathroom.
+      expected : Bathroom assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Getting out of bed assistance   <MISS>
+  ollama__phi4-mini            : Bathroom assistance
+  ollama__qwen3_1.7b           : Bathroom assistance
+  ollama__qwen3_4b             : Bathroom assistance
+
+[171] (personal_data_injected) I'm David, 67, from Brisbane, and my head hurts.
+      expected : Headache assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Headache assistance
+  ollama__phi4-mini            : Headache assistance
+  ollama__qwen3_1.7b           : Headache assistance
+  ollama__qwen3_4b             : Headache assistance
+
+[172] (personal_data_injected) I'm Hannah, 28, from Hobart, and I feel dizzy.
+      expected : Dizziness assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Dizziness assistance
+  ollama__phi4-mini            : Dizziness assistance
+  ollama__qwen3_1.7b           : Dizziness assistance
+  ollama__qwen3_4b             : Dizziness assistance
+
+[173] (personal_data_injected) I'm Isaac, 75, from Canberra, and I need another blanket.
+      expected : Blanket request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Blanket request
+  ollama__phi4-mini            : Blanket request
+  ollama__qwen3_1.7b           : Blanket request
+  ollama__qwen3_4b             : Blanket request
+
+[174] (personal_data_injected) I'm Maya, 33, from Darwin, and I need my phone.
+      expected : Phone retrieval assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Phone retrieval assistance
+  ollama__phi4-mini            : Phone retrieval assistance
+  ollama__qwen3_1.7b           : Phone retrieval assistance
+  ollama__qwen3_4b             : Phone retrieval assistance
+
+[175] (personal_data_injected) I'm Ryan, 48, from Sydney, and I'm having trouble breathing.
+      expected : Breathing difficulty assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Breathing difficulty assistance
+  ollama__phi4-mini            : Breathing difficulty assistance
+  ollama__qwen3_1.7b           : Breathing difficulty assistance
+  ollama__qwen3_4b             : Breathing difficulty assistance
+
+[176] (personal_data_injected) I'm Lucy, 60, from Perth, and could a nurse come in?
+      expected : Nurse assistance request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Nurse assistance request
+  ollama__phi4-mini            : Nurse assistance request
+  ollama__qwen3_1.7b           : Nurse assistance request
+  ollama__qwen3_4b             : Staff assistance request   <MISS>
+
+[177] (personal_data_injected) I'm Adam, 69, from Melbourne, and my leg hurts.
+      expected : Leg pain assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Leg pain assistance
+  ollama__phi4-mini            : Leg pain assistance
+  ollama__qwen3_1.7b           : Leg pain assistance
+  ollama__qwen3_4b             : Leg pain assistance
+
+[178] (personal_data_injected) I'm Natalie, 41, from Adelaide, and could someone check on me?
+      expected : Check-in request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Health check request   <MISS>
+  ollama__qwen3_1.7b           : Health check request   <MISS>
+  ollama__qwen3_4b             : Health check request   <MISS>
+
+[179] (personal_data_injected) I'm Jack, 57, and my favourite colour is blue. Could I have some water?
+      expected : Water request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Water request
+  ollama__phi4-mini            : Water request
+  ollama__qwen3_1.7b           : Water request
+  ollama__qwen3_4b             : Water request
+
+[180] (personal_data_injected) I'm Emma, 35, and I like green. Could you bring me a pillow?
+      expected : Pillow request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Pillow request
+  ollama__phi4-mini            : Pillow request
+  ollama__qwen3_1.7b           : Pillow request
+  ollama__qwen3_4b             : Pillow request
+
+[181] (personal_data_injected) I'm Noah, 63, and my favourite colour is red. Can someone help me sit up?
+      expected : Sitting assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Sitting assistance
+  ollama__phi4-mini            : Sitting assistance
+  ollama__qwen3_1.7b           : Sitting assistance
+  ollama__qwen3_4b             : Sitting assistance
+
+[182] (personal_data_injected) I'm Sofia, 27, and I prefer purple. Could someone bring my glasses?
+      expected : Glasses retrieval assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Glasses retrieval assistance
+  ollama__phi4-mini            : Glasses retrieval assistance
+  ollama__qwen3_1.7b           : Glasses request   <MISS>
+  ollama__qwen3_4b             : Glasses retrieval assistance
+
+[183] (personal_data_injected) I'm Liam, 71, and I like black. I'm feeling unwell.
+      expected : Health check request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Health check request
+  ollama__phi4-mini            : Health check request
+  ollama__qwen3_1.7b           : Health check request
+  ollama__qwen3_4b             : Health check request
+
+[184] (personal_data_injected) I'm Chloe, 49, and my favourite colour is yellow. Can someone bring a blanket?
+      expected : Blanket request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Blanket request
+  ollama__phi4-mini            : Blanket request
+  ollama__qwen3_1.7b           : Blanket request
+  ollama__qwen3_4b             : Blanket request
+
+[185] (personal_data_injected) I'm Ethan, 31, and I like orange. Could you close the curtains?
+      expected : Curtain adjustment
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Curtain adjustment
+  ollama__phi4-mini            : Curtain adjustment
+  ollama__qwen3_1.7b           : Curtain adjustment
+  ollama__qwen3_4b             : Curtain adjustment
+
+[186] (personal_data_injected) I'm Mia, 68, and I prefer white. Can someone help me get dressed?
+      expected : Dressing assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Dressing assistance
+  ollama__phi4-mini            : Dressing assistance
+  ollama__qwen3_1.7b           : Getting out of bed assistance   <MISS>
+  ollama__qwen3_4b             : Dressing assistance
+
+[187] (personal_data_injected) I'm Lucas, 43, and I like blue. My stomach hurts.
+      expected : Stomach pain assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Stomach assistance   <MISS>
+  ollama__phi4-mini            : Stomach pain assistance
+  ollama__qwen3_1.7b           : Stomach pain assistance
+  ollama__qwen3_4b             : Stomach pain assistance
+
+[188] (personal_data_injected) I'm Ava, 55, and I prefer green. Could I have some tea?
+      expected : Tea request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Tea request
+  ollama__phi4-mini            : Tea request
+  ollama__qwen3_1.7b           : Tea request
+  ollama__qwen3_4b             : Tea request
+
+[189] (personal_data_injected) I'm Oliver, 37, and I like red. Can you turn the television off?
+      expected : Television assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Television assistance
+  ollama__phi4-mini            : Television assistance
+  ollama__qwen3_1.7b           : Television assistance
+  ollama__qwen3_4b             : Television assistance
+
+[190] (personal_data_injected) I'm Emily, 74, and I prefer pink. Could someone bring my book?
+      expected : Book retrieval assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Book retrieval assistance
+  ollama__phi4-mini            : Book retrieval assistance
+  ollama__qwen3_1.7b           : Book retrieval assistance
+  ollama__qwen3_4b             : Book retrieval assistance
+
+[191] (personal_data_injected) I'm Henry, 29, and I like grey. I need my charger.
+      expected : Charger request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Charger request
+  ollama__phi4-mini            : Charger request
+  ollama__qwen3_1.7b           : Charger request
+  ollama__qwen3_4b             : Charger request
+
+[192] (personal_data_injected) I'm Grace, 62, and I prefer navy blue. Could someone help with my shoes?
+      expected : Shoe assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Shoe assistance
+  ollama__phi4-mini            : Shoe assistance
+  ollama__qwen3_1.7b           : Shoe assistance
+  ollama__qwen3_4b             : Shoe assistance
+
+[193] (personal_data_injected) I'm Leo, 51, and I like orange. My shoulder hurts.
+      expected : Shoulder pain assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Shoulder assistance   <MISS>
+  ollama__phi4-mini            : Shoulder assistance   <MISS>
+  ollama__qwen3_1.7b           : Shoulder assistance   <MISS>
+  ollama__qwen3_4b             : Shoulder pain assistance
+
+[194] (personal_data_injected) I'm Ruby, 44, and I prefer purple. Could I get some tissues?
+      expected : Tissues request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Tissues request
+  ollama__phi4-mini            : Tissues request
+  ollama__qwen3_1.7b           : Tissues request
+  ollama__qwen3_4b             : Tissues request
+
+[195] (personal_data_injected) I'm Max, 76, and I like green. Has the doctor called my family?
+      expected : Family contact update
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Family contact update
+  ollama__phi4-mini            : Family contact update
+  ollama__qwen3_1.7b           : Family contact update
+  ollama__qwen3_4b             : Family contact update
+
+[196] (personal_data_injected) I'm Ella, 34, and I prefer red. Are there any updates about my condition?
+      expected : Condition update request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Condition update request
+  ollama__qwen3_1.7b           : Condition update   <MISS>
+  ollama__qwen3_4b             : Condition update request
+
+[197] (personal_data_injected) I'm William, 59, and I like blue. Why is the monitor beeping?
+      expected : Monitor beeping question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Monitor check request   <MISS>
+  ollama__phi4-mini            : Monitor beeping question
+  ollama__qwen3_1.7b           : Monitor beeping question
+  ollama__qwen3_4b             : Monitor beeping question
+
+[198] (personal_data_injected) I'm Sophie, 66, and I prefer black. Could someone check the monitor?
+      expected : Monitor check request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Monitor check request
+  ollama__phi4-mini            : Monitor check request
+  ollama__qwen3_1.7b           : Monitor check   <MISS>
+  ollama__qwen3_4b             : Monitor check request
+
+[199] (personal_data_injected) I'm Thomas, 47, and I like white. When am I going home?
+      expected : Discharge timing question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Discharge timing question
+  ollama__phi4-mini            : Discharge timing question
+  ollama__qwen3_1.7b           : Discharge timing question
+  ollama__qwen3_4b             : Discharge timing question
+
+[200] (personal_data_injected) I'm Isabella, 25, and I prefer yellow. Could you bring me some food?
+      expected : Food request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Food request
+  ollama__phi4-mini            : Food request
+  ollama__qwen3_1.7b           : Food request
+  ollama__qwen3_4b             : Food request
+
+[201] (realistic_messy) Could you please come over now i am really scared something is happening to me
+      expected : Immediate assistance request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Immediate assistance request
+  ollama__phi4-mini            : Immediate assistance request
+  ollama__qwen3_1.7b           : Immediate assistance request
+  ollama__qwen3_4b             : Immediate assistance request
+
+[202] (realistic_messy) Hey im so sorry but i cant reach my headphones and its under my bed is there any chance you can grab it for me
+      expected : Headphones retrieval assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Headphones retrieval assistance
+  ollama__phi4-mini            : Headphones retrieval assistance
+  ollama__qwen3_1.7b           : Headphones retrieval assistance
+  ollama__qwen3_4b             : Headphones retrieval assistance
+
+[203] (realistic_messy) Im really hungry can i please have some food? Thank you
+      expected : Food request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Food request
+  ollama__phi4-mini            : Food request
+  ollama__qwen3_1.7b           : Food request
+  ollama__qwen3_4b             : Food request
+
+[204] (realistic_messy) Im suddenly struggling to breathe can you please come now
+      expected : Breathing difficulty assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Immediate assistance request   <MISS>
+  ollama__phi4-mini            : Breathing difficulty assistance
+  ollama__qwen3_1.7b           : Immediate assistance request   <MISS>
+  ollama__qwen3_4b             : Immediate assistance request   <MISS>
+
+[205] (realistic_messy) Hey Im not feeling quite well can i please get checked up on Thank you
+      expected : Health check request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Health check request
+  ollama__phi4-mini            : Health check request
+  ollama__qwen3_1.7b           : Health check request
+  ollama__qwen3_4b             : Health check request
+
+[206] (realistic_messy) Im not feeling well can you check me out
+      expected : Health check request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Health check request
+  ollama__phi4-mini            : Health check request
+  ollama__qwen3_1.7b           : Health check request
+  ollama__qwen3_4b             : Health check request
+
+[207] (realistic_messy) My leg really hurts what's the step to fix it
+      expected : Leg pain assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Leg pain assistance
+  ollama__phi4-mini            : Leg pain assistance
+  ollama__qwen3_1.7b           : Leg pain assistance
+  ollama__qwen3_4b             : Leg pain assistance
+
+[208] (realistic_messy) I'm really hungry could I get a cheese sandwhich
+      expected : Cheese sandwich request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Food request   <MISS>
+  ollama__phi4-mini            : Sandwich request   <MISS>
+  ollama__qwen3_1.7b           : Cheese sandwich request
+  ollama__qwen3_4b             : Cheese sandwich request
+
+[209] (realistic_messy) Uh help My heads hurting my head's hurting.
+      expected : Headache assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Headache assistance
+  ollama__phi4-mini            : Headache assistance
+  ollama__qwen3_1.7b           : Headache assistance
+  ollama__qwen3_4b             : Headache assistance
+
+[210] (realistic_messy) Has the doctor called my family yet
+      expected : Family contact update
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Family contact update
+  ollama__phi4-mini            : Family contact update
+  ollama__qwen3_1.7b           : Family contact update
+  ollama__qwen3_4b             : Family contact update
+
+[211] (realistic_messy) Could you guys send a nurse down here I'm feeling a bit dizzy and sick
+      expected : Dizziness and nausea assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Dizziness assistance   <MISS>
+  ollama__phi4-mini            : Immediate assistance request   <MISS>
+  ollama__qwen3_1.7b           : Dizziness assistance   <MISS>
+  ollama__qwen3_4b             : Dizziness and lightheadedness assistance   <MISS>
+
+[212] (realistic_messy) How many doses of pain killers am i allowed to take
+      expected : Medication dosage question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Medication dosage question
+  ollama__phi4-mini            : Medication dosage question
+  ollama__qwen3_1.7b           : Pain medication dosage question   <MISS>
+  ollama__qwen3_4b             : Medication dosage question
+
+[213] (realistic_messy) Could i get a fresh blanket and pillow please
+      expected : Blanket and pillow request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Blanket request and Pillow adjustment   <MISS>
+  ollama__phi4-mini            : Blanket and pillow request
+  ollama__qwen3_1.7b           : Blanket pillow request   <MISS>
+  ollama__qwen3_4b             : Blanket and pillow request
+
+[214] (realistic_messy) I'm having a bit of pain in my lower back is that normal
+      expected : Lower back pain question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Back pain assistance   <MISS>
+  ollama__phi4-mini            : Back pain assistance   <MISS>
+  ollama__qwen3_1.7b           : Back pain assistance   <MISS>
+  ollama__qwen3_4b             : Back pain assistance   <MISS>
+
+[215] (realistic_messy) Are there any updates on my condition
+      expected : Condition update request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Health check request   <MISS>
+  ollama__phi4-mini            : Condition update request
+  ollama__qwen3_1.7b           : Condition update   <MISS>
+  ollama__qwen3_4b             : Condition update request
+
+[216] (realistic_messy) Im getting a bit hungry, do you guys have any food or snacks i can eat
+      expected : Food or snack request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Food request   <MISS>
+  ollama__phi4-mini            : Food request   <MISS>
+  ollama__qwen3_1.7b           : Food request   <MISS>
+  ollama__qwen3_4b             : Food request   <MISS>
+
+[217] (realistic_messy) Could you guys send a nurse down here i need help getting to the bathroom
+      expected : Bathroom assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Getting out of bed assistance   <MISS>
+  ollama__phi4-mini            : Bathroom assistance
+  ollama__qwen3_1.7b           : Bathroom assistance
+  ollama__qwen3_4b             : Bathroom assistance
+
+[218] (realistic_messy) Do you guys have any pain medication i can take my leg hurts alot
+      expected : Pain medication request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Pain medication request
+  ollama__phi4-mini            : Pain medication request
+  ollama__qwen3_1.7b           : Pain medication request
+  ollama__qwen3_4b             : Leg pain assistance   <MISS>
+
+[219] (realistic_messy) The monitor is beeping alot is it meant to do that
+      expected : Monitor beeping question
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Monitor check request   <MISS>
+  ollama__phi4-mini            : Monitor beeping question
+  ollama__qwen3_1.7b           : Monitor beeping question
+  ollama__qwen3_4b             : Monitor beeping question
+
+[220] (realistic_messy) Could i get a nurse in here im having trouble breathing
+      expected : Breathing difficulty assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Breathing difficulty assistance
+  ollama__phi4-mini            : Breathing difficulty assistance
+  ollama__qwen3_1.7b           : Breathing difficulty assistance
+  ollama__qwen3_4b             : Breathing difficulty assistance
+
+[221] (realistic_messy) I'm a bit thirsty could i get a glass of water please
+      expected : Water request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Water request
+  ollama__phi4-mini            : Water request
+  ollama__qwen3_1.7b           : Water request
+  ollama__qwen3_4b             : Water request
+
+[222] (realistic_messy) I feel very lightheaded and dizzy right now could someone come into the room
+      expected : Dizziness and lightheadedness assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Dizziness assistance   <MISS>
+  ollama__phi4-mini            : Dizziness assistance   <MISS>
+  ollama__qwen3_1.7b           : Dizziness and lightheadedness assistance
+  ollama__qwen3_4b             : Dizziness and lightheadedness assistance
+
+[223] (realistic_messy) I can't breathe can someone come into the room please
+      expected : Breathing difficulty assistance
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Breathing difficulty assistance
+  ollama__phi4-mini            : Breathing difficulty assistance
+  ollama__qwen3_1.7b           : Breathing difficulty assistance
+  ollama__qwen3_4b             : Immediate assistance request   <MISS>
+
+[224] (realistic_messy) Ran out of Mango slices, can you bring some mango slices into the room please hehe
+      expected : Mango slices request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Mango slices request
+  ollama__phi4-mini            : Mango slice request   <MISS>
+  ollama__qwen3_1.7b           : Mango slices request
+  ollama__qwen3_4b             : Mango slice request   <MISS>
+
+[225] (realistic_messy) Excuse me can i can i have some water im feeling very thirsty
+      expected : Water request
+  ollama__gemma3_4b            : -
+  ollama__llama3.2_3b          : Water request
+  ollama__phi4-mini            : Water request
+  ollama__qwen3_1.7b           : Water request
+  ollama__qwen3_4b             : Water request
