@@ -908,45 +908,56 @@ Full detail lives in separate deliverables already produced (`AIDE-Competitor-Co
 ### 6.4 Scaling
 - Single VM, no autoscaling, no queue system yet — concurrency capped at 10 simultaneous STT requests (queues rather than fails beyond that). Fine for pilot-stage testing; will need load-testing (10 → 25 → 50 → 100 concurrent) to determine whether a queue system or larger/multiple VMs are needed before any real pilot deployment.
 
-### 6.5 Rephrasing pipeline — eval harness built, first run done, no model chosen yet
-Progress 2026-09-03: datasets normalized + merged (`eval_set_225.csv`), label convention
-written down, prompt v1 + v2, working eval harness (`prompt-engineering/eval/`, Section 4.9),
-**Run 1 done** (see `prompt-engineering/FINDINGS.md`).
+### 6.5 Rephrasing pipeline — model + prompt LOCKED, service not built
+Decision 2026-09-03 (`prompt-engineering/FINDINGS.md`, `AIDE-Prompt-Testing-Report.pdf`):
 
-Run 1 headline: **0 PII leaks on every model** (v1's de-id works). Semantic ~79-84%, but
-exact match is dragged down by AIDE house-style mismatches (capitalisation, "retrieval
-assistance" vs "request", singular/plural, over-specifying, "Unclear request" over-firing) —
-a specification problem, not comprehension. Leaning toward a controlled-output design
-(fixed category enum + deterministic formatter) for the pilot build. qwen3.8-27b led the
-batch but it's a 27B ceiling reference, not a deploy pick.
+**Lock `qwen3:4b` (Apache 2.0) + prompt `v2`.** Self-hosted via Ollama, native `/api/chat`,
+`think:false`, grammar-constrained JSON output (`format` schema). Scored **83.6% exact /
+90.2% semantic / 0 PII leaks** on the 225-row set at Q4 quant — best of every model tested,
+cloud or local, ahead of the 27B. Fallback: `qwen3:1.7b` (70.7 / 89.8 / 0) if hardware
+can't run 4b fast enough.
 
-Still open: prompt v2 run, the local Ollama pass (the models that can actually deploy cheap
-weren't testable on free NIM), pick a model, build the FastAPI wrapper + keyword classifier
-(Section 4.5/4.6). No inference is self-hosted yet; Gen-1 still calls OpenRouter/Kimi.
+Why self-hosted small model (not a hosted API): pilot forbids external API calls in the
+request path (data residency). The cloud eval (Run 1, prompt v1) is a ceiling reference only;
+free NIM/Groq no longer host the small deployable models.
 
-Key wrinkle found: free hosted APIs (NIM, Groq) no longer carry the small Apache/MIT models
-that are the actual deploy targets — model selection depends on the local Ollama pass, not
-the cloud pass. Cloud pass gives a score ceiling only.
+Runs: Run 1 (v1, cloud, 225 rows, all 0 leaks, exact dragged by house-style not
+comprehension). Run 2 (v2 smoke: 60→92% exact, 86→100% semantic). Run 3 (v2, local Ollama
+CPU Q4: qwen3:4b + qwen3:1.7b complete; phi4-mini/llama3.2:3b/gemma3:4b/granite not finished —
+flaky eval laptop, three power losses; not decision-critical since 4b already clears the bar).
+
+Still open: build the rephrase service (FastAPI = keyword fast-path → Ollama qwen3:4b →
+PII post-filter → safe fallback; `/health`, API-key auth, audit log), package one Docker
+image, deploy to a VM in `australia-southeast1`, wire STT → rephrase → Redis. No inference
+is self-hosted yet; Gen-1 still calls OpenRouter/Kimi in production.
+
+Product decision for Noah (not blocking): free-text label (current) vs controlled output
+(category enum + urgency + deterministic formatter).
 
 Secrets that have been in plaintext and must be rotated: STT API key (`stt/env_variables.txt`),
-OpenRouter key, NVIDIA NIM key, Groq key (`prompt-engineering/.env`).
+OpenRouter key, NVIDIA NIM key, Groq key (`prompt-engineering/.env`), laptop SSH creds.
 
 ### 6.6 Immediate next steps (as of this document)
-1. Run the eval harness on aidevm (`prompt-engineering/eval/setup_and_run.sh`) — cloud pass for the score ceiling.
-2. Local Ollama pass (`models_local.txt`: qwen3 4b/8b, phi4-mini, llama3.2 3b, gemma3 4b, granite3.1-moe 3b) — the actual model selection, at real Q4 quant.
-3. Iterate prompt v1 -> v2 from the mismatch files (first fix: over-capitalisation).
-4. Pick a model; build the FastAPI wrapper + keyword fast-path (Section 4.5/4.6), deploy the wrapper to Cloud Run, model backend = OpenRouter pre-pilot / Ollama on a small always-on VM at pilot.
-5. Rotate all plaintext keys (see 6.5).
-6. Fill in the real STT VM external IP anywhere it's still a placeholder in developer-facing docs (current: `34.56.137.75`, ephemeral — reserve as static before relying on it).
-7. Address the HTTPS gap before any real (non-test) patient audio is sent through the STT endpoint.
-8. Resolve the US-hosted-VM data residency question with Noah before it's harder to migrate.
+1. ~~Eval + model selection~~ DONE — `qwen3:4b` + prompt `v2` locked (Section 6.5).
+2. Build the rephrase service: FastAPI wrapper = keyword fast-path → Ollama `qwen3:4b`
+   (`/api/chat`, `think:false`, JSON schema, `prompts/v2.txt`) → PII post-filter →
+   safe fallback; `/health`, `X-API-Key` auth, audit log (transcript, output, model +
+   prompt version, latency). Never expose Ollama directly.
+3. Package one Docker image (Ollama + qwen3:4b + wrapper); deploy to a VM in `australia-southeast1`
+   (e2-standard-4 CPU to start).
+4. Wire STT → rephrase → Redis. First end-to-end Gen-2 pipeline.
+5. Rotate all plaintext keys (see 6.5), incl. laptop SSH creds.
+6. Reserve the STT VM external IP as static (`34.56.137.75`, currently ephemeral).
+7. Address the STT HTTPS gap + lock down SSH before real patient audio.
+8. Noah: free-text vs controlled-output for rephrasing; US-hosted STT VM data residency.
+9. Finish the local pass (phi4-mini/llama3.2:3b/gemma3:4b/granite) if the eval laptop stabilises — not blocking.
 
 ---
 
 ## 7. Glossary / Conventions for anyone (human or AI) working on this project
 
 - **"The four-part loop"** — shorthand for AIDE's actual functional definition (Section 1). Use this as the test for whether something is a real competitor or feature gap, not the vaguer "AI voice in healthcare" category.
-- **STT** = Speech-to-Text (Section 3, built). **Rephrasing/LLM stage** = the shortening step (Section 4 — eval harness built, model not yet chosen, nothing self-hosted). These are always discussed as separate, swappable components — avoid conflating them.
-- Rephrasing work lives in `prompt-engineering/` — see its `README.md`. `.env` there is gitignored.
+- **STT** = Speech-to-Text (Section 3, built). **Rephrasing/LLM stage** = the shortening step (Section 4 — model `qwen3:4b` + prompt `v2` locked 2026-09-03; the service wrapper is not built and nothing is self-hosted in production yet). These are always discussed as separate, swappable components — avoid conflating them.
+- Rephrasing work lives in `prompt-engineering/` — see its `README.md` and `FINDINGS.md`. `.env` there is gitignored.
 - Content/communication style for anything AIDE-facing: short sentences, plain language, no em-dashes, every claim cited, no fabricated statistics or quotes.
 - When in doubt about product/business/regulatory facts not covered here, defer to `AIDE.md` or explicitly flag the gap rather than guessing — this mirrors the instruction already embedded in `AIDE.md` itself ("if a question is not covered here, respond with 'I don't have confirmed information on that — check with Noah' rather than guessing").

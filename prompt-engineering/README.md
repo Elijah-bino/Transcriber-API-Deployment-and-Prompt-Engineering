@@ -52,11 +52,16 @@ Results: `../results/summary.csv` + per-model `../results/raw/*.csv`, `scored/`,
 ## Status
 
 - [x] datasets normalized + merged (225 rows), all pass `validate_labels.py`
-- [x] draft prompt v1
-- [x] eval harness (NIM + Groq, resumable, rate limited, auto-scores)
-- [ ] cloud run on aidevm  <- next
-- [ ] local Ollama pass: qwen3 4b/8b, phi4-mini, llama3.2 3b, gemma3 4b, granite3.1-moe 3b
-- [ ] pick model -> wire into Cloud Run FastAPI wrapper + keyword classifier
+- [x] prompt v1 -> v2
+- [x] eval harness (NIM / Groq / Ollama, resumable, rate limited, auto-scores)
+- [x] Run 1 cloud (v1), Run 2 v2 smoke, Run 3 local Ollama (v2) -- see `FINDINGS.md`
+- [x] **DECISION: qwen3:4b + prompt v2** (83.6% exact / 90.2% semantic / 0 PII leaks)
+- [ ] finish local pass: phi4-mini, llama3.2:3b, gemma3:4b, granite (flaky laptop) -- not blocking
+- [ ] build rephrase service: FastAPI keyword fast-path -> Ollama qwen3:4b -> PII filter -> fallback
+- [ ] one Docker image, deploy to a VM in australia-southeast1
+- [ ] wire STT -> rephrase -> Redis
+
+Deliverables: `FINDINGS.md`, `AIDE-Prompt-Testing-Report.pdf`, `comparison-cloud-v1.csv`
 
 ## API reality (2026-09)
 

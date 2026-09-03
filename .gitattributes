@@ -3,3 +3,9 @@
 *.py    text eol=lf
 *.txt   text eol=lf
 *.csv   text eol=lf
+
+# Never touch binaries
+*.pdf   binary
+*.zip   binary
+*.webm  binary
+*.mp3   binary
