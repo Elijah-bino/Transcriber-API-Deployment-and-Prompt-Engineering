@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import pathlib
 import subprocess
 import sys
@@ -34,6 +35,11 @@ PROVIDERS = {
     "groq": {
         "base_url": "https://api.groq.com/openai/v1",
         "key_env": "GROQ_API_KEY",
+    },
+    "ollama": {
+        # local Ollama, OpenAI-compatible, no auth. override host with OLLAMA_BASE_URL
+        "base_url": os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434/v1"),
+        "key_env": None,
     },
 }
 
@@ -214,7 +220,7 @@ def main() -> int:
     alive = []
     for provider, model in models:
         cfg = PROVIDERS[provider]
-        key = env.get(cfg["key_env"], "")
+        key = env.get(cfg["key_env"], "") if cfg["key_env"] else "local"
         if not key:
             pf.append((provider, model, "NO_KEY", f"{cfg['key_env']} missing in .env"))
             continue
@@ -244,7 +250,7 @@ def main() -> int:
     # ---- main loop ------------------------------------------------------
     for provider, model in alive:
         cfg = PROVIDERS[provider]
-        key = env[cfg["key_env"]]
+        key = env[cfg["key_env"]] if cfg["key_env"] else "local"
         extra = model_extra(provider, model)
         mtok = model_max_tokens(model)
         raw_path = out_dir / "raw" / f"{safe_name(provider, model)}.csv"

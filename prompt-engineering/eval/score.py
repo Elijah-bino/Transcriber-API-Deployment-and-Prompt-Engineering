@@ -43,8 +43,16 @@ def norm(s: str) -> str:
     return s
 
 
+def _singular(w: str) -> str:
+    if len(w) > 3 and w.endswith("ies"):
+        return w[:-3] + "y"
+    if len(w) > 3 and w.endswith("s") and not w.endswith("ss"):
+        return w[:-1]
+    return w
+
+
 def content_words(label: str) -> set[str]:
-    ws = [w.lower() for w in re.findall(r"[A-Za-z]+", label)]
+    ws = [_singular(w.lower()) for w in re.findall(r"[A-Za-z]+", label)]
     return {w for w in ws if w not in STOPWORDS and w not in CATEGORY_NOUNS}
 
 
@@ -70,10 +78,13 @@ def score_output(expected: str, output: str, transcript: str,
     exact = (e == o) and o != ""
 
     e_noun, o_noun = last_noun(e), last_noun(o)
-    ew, ow = content_words(e), content_words(o)
+    ew, ow = content_words(e), content_words(o)          # topic words (noun excluded)
     overlap = len(ew & ow) / len(ew | ow) if (ew | ow) else 0.0
-    semantic = exact or (o != "" and e_noun == o_noun and e_noun in CATEGORY_NOUNS
-                         and overlap >= 0.5)
+    # near-miss: same topic, even if the model picked a different category noun
+    # (e.g. "Phone request" vs "Phone retrieval assistance"). True synonyms
+    # ("Headache" vs "Head pain") still miss -- known limit of a lexical metric.
+    semantic = exact or (o != "" and overlap >= 0.5
+                         and (e_noun == o_noun or e_noun in CATEGORY_NOUNS))
 
     o_low = o.lower()
     names_in_transcript = {n for n in pii_lex if re.search(rf"\b{re.escape(n)}\b", transcript.lower())}

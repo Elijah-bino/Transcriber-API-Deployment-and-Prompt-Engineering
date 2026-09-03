@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 # Bootstrap + launch the eval on a VM, detached. Safe to re-run (resumes).
 #
-#   bash setup_and_run.sh                 # full run, all models, 225 rows
+#   bash setup_and_run.sh                          # prompt v1, results in results/
 #   bash setup_and_run.sh --preflight-only
-#   bash setup_and_run.sh --limit 10      # smoke test
+#   bash setup_and_run.sh --limit 10               # smoke test
+#   PROMPT=v2 OUT=results/v2 bash setup_and_run.sh # prompt v2, separate output dir
+#   MODELS=models_local.txt LLM_BASE=http://localhost:11434/v1 bash setup_and_run.sh
 #
+# PROMPT  = prompt file: a bare name (-> prompts/<name>.txt) or a path. default v1
+# OUT     = results dir, relative to prompt-engineering/ or absolute. default results
+# MODELS  = model list file in eval/. default models.txt
+# RPM     = requests/min. default 40
 set -euo pipefail
 cd "$(dirname "$0")"
-EVAL_DIR="$(pwd)"
 PE_DIR="$(cd .. && pwd)"
 
 if [ ! -f "$PE_DIR/.env" ]; then
@@ -15,37 +20,45 @@ if [ ! -f "$PE_DIR/.env" ]; then
   exit 1
 fi
 
+PROMPT="${PROMPT:-v1}"
+case "$PROMPT" in
+  */*|*.txt) PROMPT_FILE="$PROMPT" ;;
+  *)         PROMPT_FILE="$PE_DIR/prompts/${PROMPT}.txt" ;;
+esac
+[ -f "$PROMPT_FILE" ] || { echo "ERROR: prompt not found: $PROMPT_FILE" >&2; exit 1; }
+
+OUT="${OUT:-results}"
+case "$OUT" in /*) OUT_DIR="$OUT" ;; *) OUT_DIR="$PE_DIR/$OUT" ;; esac
+
+MODELS="${MODELS:-models.txt}"
+RPM="${RPM:-40}"
+
 PY="$(command -v python3 || command -v python)"
-if [ ! -d .venv ]; then
-  echo "creating venv..."
-  "$PY" -m venv .venv
-fi
-./.venv/bin/pip -q install --upgrade pip >/dev/null
-./.venv/bin/pip -q install requests >/dev/null   # not strictly needed (stdlib http), kept for convenience
+[ -d .venv ] || { echo "creating venv..."; "$PY" -m venv .venv; }
+./.venv/bin/pip -q install --upgrade pip >/dev/null 2>&1 || true
 
-mkdir -p "$PE_DIR/results"
+mkdir -p "$OUT_DIR"
+[ -f "$PE_DIR/data/eval_set_225.csv" ] || ./.venv/bin/python build_dataset.py
 
-if [ ! -f "$PE_DIR/data/eval_set_225.csv" ]; then
-  ./.venv/bin/python build_dataset.py
-fi
+LOG="$OUT_DIR/run_$(date +%Y%m%d_%H%M%S).log"
+ln -sf "$(basename "$LOG")" "$OUT_DIR/run.log" 2>/dev/null || true
 
-LOG="$PE_DIR/results/run_$(date +%Y%m%d_%H%M%S).log"
-ln -sf "$(basename "$LOG")" "$PE_DIR/results/run.log" 2>/dev/null || true
-
+echo "prompt: $PROMPT_FILE"
+echo "models: $MODELS   out: $OUT_DIR   rpm: $RPM"
 echo "launching eval (detached), log: $LOG"
 nohup ./.venv/bin/python run_eval.py \
-  --models models.txt \
+  --models "$MODELS" \
   --data "$PE_DIR/data/eval_set_225.csv" \
-  --prompt "$PE_DIR/prompts/v1.txt" \
-  --out "$PE_DIR/results" \
-  --rpm 40 \
+  --prompt "$PROMPT_FILE" \
+  --out "$OUT_DIR" \
+  --rpm "$RPM" \
   "$@" \
   > "$LOG" 2>&1 &
 
 PID=$!
-echo "$PID" > "$PE_DIR/results/run.pid"
+echo "$PID" > "$OUT_DIR/run.pid"
 echo
 echo "  PID $PID"
 echo "  follow:  tail -f $LOG"
 echo "  stop:    kill $PID"
-echo "  resume:  bash setup_and_run.sh   (just re-run; it continues)"
+echo "  resume:  re-run the same command (it continues from the last done row)"

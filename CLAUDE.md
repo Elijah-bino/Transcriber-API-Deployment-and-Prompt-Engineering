@@ -908,12 +908,21 @@ Full detail lives in separate deliverables already produced (`AIDE-Competitor-Co
 ### 6.4 Scaling
 - Single VM, no autoscaling, no queue system yet — concurrency capped at 10 simultaneous STT requests (queues rather than fails beyond that). Fine for pilot-stage testing; will need load-testing (10 → 25 → 50 → 100 concurrent) to determine whether a queue system or larger/multiple VMs are needed before any real pilot deployment.
 
-### 6.5 Rephrasing pipeline — eval harness built, no model chosen yet
+### 6.5 Rephrasing pipeline — eval harness built, first run done, no model chosen yet
 Progress 2026-09-03: datasets normalized + merged (`eval_set_225.csv`), label convention
-written down, prompt v1, and a working eval harness (`prompt-engineering/eval/`, Section 4.9).
-Still open: run the harness on aidevm, do the local Ollama pass, pick a model, build the
-FastAPI wrapper + keyword classifier (Section 4.5/4.6). No inference is self-hosted yet;
-Gen-1 still calls OpenRouter/Kimi in production.
+written down, prompt v1 + v2, working eval harness (`prompt-engineering/eval/`, Section 4.9),
+**Run 1 done** (see `prompt-engineering/FINDINGS.md`).
+
+Run 1 headline: **0 PII leaks on every model** (v1's de-id works). Semantic ~79-84%, but
+exact match is dragged down by AIDE house-style mismatches (capitalisation, "retrieval
+assistance" vs "request", singular/plural, over-specifying, "Unclear request" over-firing) —
+a specification problem, not comprehension. Leaning toward a controlled-output design
+(fixed category enum + deterministic formatter) for the pilot build. qwen3.8-27b led the
+batch but it's a 27B ceiling reference, not a deploy pick.
+
+Still open: prompt v2 run, the local Ollama pass (the models that can actually deploy cheap
+weren't testable on free NIM), pick a model, build the FastAPI wrapper + keyword classifier
+(Section 4.5/4.6). No inference is self-hosted yet; Gen-1 still calls OpenRouter/Kimi.
 
 Key wrinkle found: free hosted APIs (NIM, Groq) no longer carry the small Apache/MIT models
 that are the actual deploy targets — model selection depends on the local Ollama pass, not
