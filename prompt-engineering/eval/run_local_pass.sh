@@ -13,8 +13,9 @@ mkdir -p "$OUT"
 LOG="$OUT/pass.log"
 PY="$(command -v python3 || command -v python)"
 
-# smallest / fastest first; qwen3:8b last (slow on CPU, may not fit 4GB VRAM)
-MODELS=(qwen3:1.7b qwen3:4b phi4-mini llama3.2:3b gemma3:4b granite3.1-moe:3b qwen3:8b)
+# smallest / fastest first. done models (225-row raw already on disk) are skipped.
+# qwen3:8b dropped -- won't fit 4GB VRAM / 7GB RAM cleanly and we have 1.7b+4b.
+MODELS=(qwen3:1.7b qwen3:4b phi4-mini llama3.2:3b gemma3:4b granite3.1-moe:3b)
 
 {
 echo "=== local pass start $(date) ==="
