@@ -79,16 +79,24 @@ def chat(base_url: str, api_key: str, model: str, system: str, user: str,
          provider: str = "") -> tuple[str | None, str | None]:
     """Return (output, error). One attempt, no retry."""
 
-    # --- Ollama: use the native endpoint so think:false is actually honoured ---
+    # --- Ollama: native endpoint + JSON-schema constrained decoding.
+    # think:false is unreliable across models (qwen3:4b ignores it), but a
+    # grammar-constrained schema forces a short answer with no CoT leak.
     if provider == "ollama":
         root = base_url.rsplit("/v1", 1)[0]
+        sys_json = system + '\n\nRespond as JSON: {"action_item": "<the item>"}'
         body = {
             "model": model,
-            "messages": [{"role": "system", "content": system},
+            "messages": [{"role": "system", "content": sys_json},
                          {"role": "user", "content": user}],
             "think": False,
             "stream": False,
-            "options": {"temperature": 0, "num_predict": max_tokens},
+            "format": {
+                "type": "object",
+                "properties": {"action_item": {"type": "string", "maxLength": 60}},
+                "required": ["action_item"],
+            },
+            "options": {"temperature": 0, "num_predict": max(max_tokens, 160)},
         }
         req = urllib.request.Request(
             f"{root}/api/chat", data=json.dumps(body).encode("utf-8"),
@@ -96,7 +104,11 @@ def chat(base_url: str, api_key: str, model: str, system: str, user: str,
         try:
             with urllib.request.urlopen(req, timeout=180) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
-            return _clean(data.get("message", {}).get("content", "")), None
+            raw = (data.get("message", {}) or {}).get("content", "") or ""
+            try:
+                return _clean(str(json.loads(raw).get("action_item", ""))), None
+            except (json.JSONDecodeError, AttributeError):
+                return _clean(raw), None
         except urllib.error.HTTPError as e:
             return None, f"HTTP {e.code} | {e.read().decode('utf-8', 'replace')[:300]}"
         except Exception as e:  # noqa: BLE001
