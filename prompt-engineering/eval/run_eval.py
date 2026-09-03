@@ -67,12 +67,42 @@ def load_env(pe_dir: pathlib.Path) -> dict[str, str]:
 
 # ----------------------------------------------------------------------- http io
 
+def _clean(text: str) -> str:
+    text = (text or "").strip()
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.S | re.I).strip()
+    text = re.sub(r"^<think>.*$", "", text, flags=re.S | re.I).strip()
+    return text
+
+
 def chat(base_url: str, api_key: str, model: str, system: str, user: str,
-         max_tokens: int, extra: dict | None = None) -> tuple[str | None, str | None]:
+         max_tokens: int, extra: dict | None = None,
+         provider: str = "") -> tuple[str | None, str | None]:
     """Return (output, error). One attempt, no retry."""
-    # Qwen3 (Ollama) emits <think>...</think> by default -> disable it
-    if "qwen3" in model.lower():
-        system = system + "\n\n/no_think"
+
+    # --- Ollama: use the native endpoint so think:false is actually honoured ---
+    if provider == "ollama":
+        root = base_url.rsplit("/v1", 1)[0]
+        body = {
+            "model": model,
+            "messages": [{"role": "system", "content": system},
+                         {"role": "user", "content": user}],
+            "think": False,
+            "stream": False,
+            "options": {"temperature": 0, "num_predict": max_tokens},
+        }
+        req = urllib.request.Request(
+            f"{root}/api/chat", data=json.dumps(body).encode("utf-8"),
+            headers={"Content-Type": "application/json"}, method="POST")
+        try:
+            with urllib.request.urlopen(req, timeout=180) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            return _clean(data.get("message", {}).get("content", "")), None
+        except urllib.error.HTTPError as e:
+            return None, f"HTTP {e.code} | {e.read().decode('utf-8', 'replace')[:300]}"
+        except Exception as e:  # noqa: BLE001
+            return None, f"{type(e).__name__}: {e}"
+
+    # --- OpenAI-compatible (NIM / Groq) ---
     body = {
         "model": model,
         "messages": [
@@ -84,9 +114,7 @@ def chat(base_url: str, api_key: str, model: str, system: str, user: str,
     }
     if extra:
         body.update(extra)
-    # stop on newline for plain models; NOT for ones that emit a <think> block
-    # first (the newline inside it would truncate to nothing)
-    if ("reasoning_effort" not in (extra or {})) and "qwen3" not in model.lower():
+    if "reasoning_effort" not in (extra or {}):
         body["stop"] = ["\n"]
 
     req = urllib.request.Request(
@@ -105,10 +133,7 @@ def chat(base_url: str, api_key: str, model: str, system: str, user: str,
         with urllib.request.urlopen(req, timeout=90) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         msg = data["choices"][0]["message"]
-        text = (msg.get("content") or "").strip()
-        # strip any leaked chain-of-thought
-        text = re.sub(r"<think>.*?</think>", "", text, flags=re.S | re.I).strip()
-        text = re.sub(r"^<think>.*$", "", text, flags=re.S | re.I).strip()
+        text = _clean(msg.get("content") or "")
         if not text and msg.get("reasoning"):
             text = msg["reasoning"].strip().splitlines()[-1].strip()
         return text, None
@@ -120,11 +145,13 @@ def chat(base_url: str, api_key: str, model: str, system: str, user: str,
         return None, f"{type(e).__name__}: {e}"
 
 
-def call_with_retry(base_url, api_key, model, system, user, max_tokens, extra):
+def call_with_retry(base_url, api_key, model, system, user, max_tokens, extra,
+                    provider=""):
     delay = 5.0
     for attempt in range(MAX_RETRIES):
         t0 = time.time()
-        out, err = chat(base_url, api_key, model, system, user, max_tokens, extra)
+        out, err = chat(base_url, api_key, model, system, user, max_tokens, extra,
+                        provider)
         latency = int((time.time() - t0) * 1000)
         if err is None:
             return out, latency, None
@@ -234,7 +261,8 @@ def main() -> int:
             pf.append((provider, model, "NO_KEY", f"{cfg['key_env']} missing in .env"))
             continue
         out, err = chat(cfg["base_url"], key, model, "Reply with the word ok.",
-                        "ping", model_max_tokens(model), model_extra(provider, model))
+                        "ping", model_max_tokens(model),
+                        model_extra(provider, model), provider)
         if err is None:
             pf.append((provider, model, "OK", (out or "")[:40]))
             alive.append((provider, model))
@@ -280,7 +308,7 @@ def main() -> int:
                 t_start = time.time()
                 out, latency, err = call_with_retry(
                     cfg["base_url"], key, model, system_prompt,
-                    r["transcript"], mtok, extra)
+                    r["transcript"], mtok, extra, provider)
                 w.writerow([r["id"], r["dataset"], r["transcript"],
                             r["expected_shortened"], out or "", latency, err or ""])
                 f.flush()
