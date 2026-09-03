@@ -21,6 +21,7 @@ import csv
 import json
 import os
 import pathlib
+import re
 import subprocess
 import sys
 import time
@@ -43,7 +44,7 @@ PROVIDERS = {
     },
 }
 
-MAX_TOKENS = 40           # plain instruct models
+MAX_TOKENS = 64           # plain instruct models
 MAX_TOKENS_REASONING = 512  # models that emit hidden/parsed chain-of-thought first
 MAX_RETRIES = 6
 RAW_COLS = ["id", "dataset", "transcript", "expected", "output", "latency_ms", "error"]
@@ -69,6 +70,9 @@ def load_env(pe_dir: pathlib.Path) -> dict[str, str]:
 def chat(base_url: str, api_key: str, model: str, system: str, user: str,
          max_tokens: int, extra: dict | None = None) -> tuple[str | None, str | None]:
     """Return (output, error). One attempt, no retry."""
+    # Qwen3 (Ollama) emits <think>...</think> by default -> disable it
+    if "qwen3" in model.lower():
+        system = system + "\n\n/no_think"
     body = {
         "model": model,
         "messages": [
@@ -80,7 +84,9 @@ def chat(base_url: str, api_key: str, model: str, system: str, user: str,
     }
     if extra:
         body.update(extra)
-    if not extra or "reasoning_effort" not in extra:
+    # stop on newline for plain models; NOT for ones that emit a <think> block
+    # first (the newline inside it would truncate to nothing)
+    if ("reasoning_effort" not in (extra or {})) and "qwen3" not in model.lower():
         body["stop"] = ["\n"]
 
     req = urllib.request.Request(
@@ -100,6 +106,9 @@ def chat(base_url: str, api_key: str, model: str, system: str, user: str,
             data = json.loads(resp.read().decode("utf-8"))
         msg = data["choices"][0]["message"]
         text = (msg.get("content") or "").strip()
+        # strip any leaked chain-of-thought
+        text = re.sub(r"<think>.*?</think>", "", text, flags=re.S | re.I).strip()
+        text = re.sub(r"^<think>.*$", "", text, flags=re.S | re.I).strip()
         if not text and msg.get("reasoning"):
             text = msg["reasoning"].strip().splitlines()[-1].strip()
         return text, None
