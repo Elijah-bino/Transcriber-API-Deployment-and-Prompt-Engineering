@@ -41,7 +41,20 @@
 
 ## Run 2 — prompt v2
 
-TODO.
+Smoke test only so far: qwen3.8-27b, first 50 rows (all `general`).
+
+| prompt | exact | semantic |
+|---|---|---|
+| v1 | 60% | 86% |
+| v2 | **92%** | **100%** |
+
+v2 fixed 18 of the 20 general misses — capitalisation, retrieval-vs-request,
+singular/plural, "Unclear request" over-firing, Head pain -> Headache. The 4
+remaining misses are all semantically correct near-boundary calls (Charger
+request vs assistance, Check-in vs Health check, dropped "Lower"). Diminishing
+returns — not worth more few-shot without risking eval overfit.
+
+Full 225-row / all-model v2 run + the personal & messy splits: TODO (VM).
 
 ## Run 3 — local Ollama pass (qwen3 4b/8b, phi4-mini, llama3.2 3b, gemma3 4b, granite3.1-moe 3b)
 
