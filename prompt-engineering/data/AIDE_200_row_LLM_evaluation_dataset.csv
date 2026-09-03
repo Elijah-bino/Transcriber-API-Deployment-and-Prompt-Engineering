@@ -1,0 +1,201 @@
+dataset,transcript,expected_shortened
+general,Can you bring me a glass of water please?,Water request
+general,"I'm really thirsty, could someone get me some water?",Water request
+general,Could I have something to eat please?,Food request
+general,"I'm hungry, can I get some toast?",Toast request
+general,Could you bring me a sandwich?,Sandwich request
+general,I haven't eaten in a while and I'm getting hungry.,Food request
+general,Can someone help me get to the bathroom?,Bathroom assistance
+general,I need help getting out of bed.,Getting out of bed assistance
+general,Could someone help me sit up?,Sitting assistance
+general,I can't reach the call button.,Call button assistance
+general,Could someone adjust my pillow?,Pillow adjustment
+general,Can I have another blanket?,Blanket request
+general,"I'm feeling cold, could I have a blanket?",Blanket request
+general,Can you turn the light down please?,Light adjustment
+general,Could you close the curtains?,Curtain adjustment
+general,Can someone open the window?,Window adjustment
+general,Could I have some tissues please?,Tissues request
+general,Can you bring me a towel?,Towel request
+general,I need some help washing my hands.,Handwashing assistance
+general,Could someone help me get dressed?,Dressing assistance
+general,I need help with my shoes.,Shoe assistance
+general,Can you help me find my glasses?,Glasses retrieval assistance
+general,I can't find my phone.,Phone retrieval assistance
+general,Could someone bring my phone over?,Phone retrieval assistance
+general,My headphones are out of reach.,Headphones retrieval assistance
+general,Can you get my bag from over there?,Bag retrieval assistance
+general,Could someone bring my book?,Book retrieval assistance
+general,I need my charger please.,Charger request
+general,Can you plug my charger in?,Charger assistance
+general,Could someone turn the television on?,Television assistance
+general,Can you turn the television off?,Television assistance
+general,Could you lower the television volume?,Television volume adjustment
+general,I can't hear the television very well.,Television volume adjustment
+general,Can someone come and check on me?,Check-in request
+general,Could a nurse come to my room please?,Nurse assistance request
+general,Can someone come when they get a chance?,Staff assistance request
+general,I'm not feeling very well.,Health check request
+general,I don't feel right today.,Health check request
+general,Could someone check how I'm doing?,Health check request
+general,I'm feeling dizzy.,Dizziness assistance
+general,I feel lightheaded.,Lightheadedness assistance
+general,I'm feeling sick.,Nausea assistance
+general,My head hurts.,Headache assistance
+general,I have a headache.,Headache assistance
+general,My stomach hurts.,Stomach pain assistance
+general,My back is hurting.,Back pain assistance
+general,My lower back is sore.,Lower back pain assistance
+general,My leg hurts.,Leg pain assistance
+general,My knee is painful.,Knee pain assistance
+general,My arm is hurting.,Arm pain assistance
+general,My shoulder hurts.,Shoulder pain assistance
+general,My chest feels uncomfortable.,Chest discomfort assistance
+general,I'm having trouble breathing.,Breathing difficulty assistance
+general,I feel short of breath.,Breathing difficulty assistance
+general,I can't catch my breath.,Breathing difficulty assistance
+general,I'm suddenly feeling very weak.,Weakness assistance
+general,I feel faint.,Faintness assistance
+general,I'm feeling very tired.,Fatigue assistance
+general,I feel confused.,Confusion assistance
+general,I don't know where I am.,Orientation assistance
+general,I'm having trouble sleeping.,Sleep assistance request
+general,Can I have something for the pain?,Pain medication request
+general,Do I have any pain medicine available?,Pain medication request
+general,When can I take my next pain medication?,Medication timing question
+general,How much pain medication can I take?,Medication dosage question
+general,Is this pain normal?,Pain question
+general,Is my swelling normal?,Swelling question
+general,Can someone look at this for me?,Health check request
+general,Could a doctor come and speak with me?,Doctor visit request
+general,Has the doctor been here yet?,Doctor visit update
+general,Are there any updates about me?,Condition update request
+general,Can you tell me when my test results are ready?,Test result update
+general,Has anyone spoken to my family?,Family contact update
+general,Could you call my family?,Family contact request
+general,Can someone tell my partner I'm okay?,Family contact request
+general,When am I going home?,Discharge timing question
+general,Can you tell me what happens next?,Care update request
+general,Why is the machine making that noise?,Monitor noise question
+general,The monitor keeps beeping.,Monitor beeping question
+general,Is this alarm supposed to be going off?,Alarm question
+general,Could someone check the monitor?,Monitor check request
+general,Can you help me find my belongings?,Belongings assistance
+general,I think I've lost my wallet.,Wallet retrieval assistance
+general,Can someone bring my clothes?,Clothing request
+general,Could I have a clean gown?,Clean gown request
+general,Can I have a fresh pillowcase?,Pillowcase request
+general,Could you change my sheets?,Bed linen request
+general,I need help moving my chair.,Chair assistance
+general,Can someone move the table closer?,Table adjustment
+general,Could you bring the table over here?,Table adjustment
+general,Can someone help me reach my food?,Food assistance
+general,I can't open this packet.,Packet opening assistance
+general,Could you open this bottle for me?,Bottle opening assistance
+general,Can someone help me use this remote?,Remote control assistance
+general,Could you bring me a snack?,Snack request
+general,Do you have any fruit?,Fruit request
+general,Could I have some tea?,Tea request
+general,Can I get some juice?,Juice request
+general,Could you bring me some milk?,Milk request
+general,"I'm thirsty again, could I have some water?",Water request
+personal_data_injected,"Hi, I'm Daniel and I'm 72 years old. Could you bring me some water?",Water request
+personal_data_injected,"My name is Sarah, I'm 34, and I need help getting to the bathroom.",Bathroom assistance
+personal_data_injected,"I'm Michael, 61, and my lower back is hurting.",Lower back pain assistance
+personal_data_injected,I'm 48 years old and my name is Priya. Could someone check on me?,Check-in request
+personal_data_injected,"James here, I'm 29. Can I have something to eat?",Food request
+personal_data_injected,"I'm Emma, 67, and I'm feeling dizzy.",Dizziness assistance
+personal_data_injected,My name is Robert and I'm 80. I need another blanket.,Blanket request
+personal_data_injected,"I'm Olivia, 25, and I can't reach my phone.",Phone retrieval assistance
+personal_data_injected,"I'm William, 54, and I'm having trouble breathing.",Breathing difficulty assistance
+personal_data_injected,"I'm Sophia, 41. Could a nurse come to my room?",Nurse assistance request
+personal_data_injected,"I'm John, 70, and I have a headache.",Headache assistance
+personal_data_injected,"My name is Mia, I'm 19, and I feel sick.",Nausea assistance
+personal_data_injected,"I'm George, 63. Could someone help me sit up?",Sitting assistance
+personal_data_injected,"I'm Ava, 38, and I need help getting out of bed.",Getting out of bed assistance
+personal_data_injected,"I'm Thomas, 76. Can someone bring my glasses?",Glasses retrieval assistance
+personal_data_injected,"I'm Isabella, 27. I need my headphones from under the bed.",Headphones retrieval assistance
+personal_data_injected,"I'm Henry, 58, and my leg hurts.",Leg pain assistance
+personal_data_injected,"I'm Charlotte, 46. Could I have a fresh pillow?",Pillow request
+personal_data_injected,"I'm Samuel, 69, and I'm feeling very weak.",Weakness assistance
+personal_data_injected,"I'm Grace, 31. Can someone bring me some tea?",Tea request
+personal_data_injected,"I'm Edward, 82, and I need help with my shoes.",Shoe assistance
+personal_data_injected,"I'm Chloe, 23, and I can't find my charger.",Charger retrieval assistance
+personal_data_injected,"I'm Daniel, 45, from Melbourne. Could someone check my monitor?",Monitor check request
+personal_data_injected,"I'm Sophie, 52, from Geelong. The monitor keeps beeping.",Monitor beeping question
+personal_data_injected,"My name is Jack, I'm 60, and I want to know when I'm going home.",Discharge timing question
+personal_data_injected,"I'm Lily, 36, from Ballarat. Has the doctor been here yet?",Doctor visit update
+personal_data_injected,"I'm Noah, 74, from Bendigo. Could you call my family?",Family contact request
+personal_data_injected,"I'm Amelia, 43, and I want an update about my condition.",Condition update request
+personal_data_injected,"I'm Lucas, 28, and I'm feeling lightheaded.",Lightheadedness assistance
+personal_data_injected,"I'm Harper, 57, and I have stomach pain.",Stomach pain assistance
+personal_data_injected,"I'm Ethan, 66, and my shoulder hurts.",Shoulder pain assistance
+personal_data_injected,"I'm Ella, 33, and I need some tissues.",Tissues request
+personal_data_injected,"I'm Alexander, 71, and I'm feeling cold.",Blanket request
+personal_data_injected,"I'm Ruby, 21, and could someone close the curtains?",Curtain adjustment
+personal_data_injected,"I'm Mason, 49, and could you turn down the television?",Television volume adjustment
+personal_data_injected,"I'm Isla, 39, and I can't hear the television.",Television volume adjustment
+personal_data_injected,"I'm Leo, 62, and could someone bring my bag?",Bag retrieval assistance
+personal_data_injected,"I'm Zoe, 30, and I need help washing my hands.",Handwashing assistance
+personal_data_injected,"I'm Charlie, 55, and I need help getting dressed.",Dressing assistance
+personal_data_injected,"I'm Lily, 68, and my arm is hurting.",Arm pain assistance
+personal_data_injected,"I'm Max, 47, and my knee is painful.",Knee pain assistance
+personal_data_injected,"I'm Ruby, 59, and my chest feels uncomfortable.",Chest discomfort assistance
+personal_data_injected,"I'm Henry, 73, and I feel faint.",Faintness assistance
+personal_data_injected,"I'm Amelia, 64, and I feel confused.",Confusion assistance
+personal_data_injected,"I'm Noah, 51, and I'm having trouble sleeping.",Sleep assistance request
+personal_data_injected,"I'm Sophie, 44, and I need something for the pain.",Pain medication request
+personal_data_injected,"I'm Jack, 79, and when can I take my next pain medicine?",Medication timing question
+personal_data_injected,"I'm Mia, 26, and how much pain medication can I take?",Medication dosage question
+personal_data_injected,"I'm Oliver, 37, and is this swelling normal?",Swelling question
+personal_data_injected,"I'm Emily, 65, and can a doctor speak with me?",Doctor visit request
+personal_data_injected,"I'm Liam, 50, and can you tell me when my test results are ready?",Test result update
+personal_data_injected,"I'm Ava, 72, and has anyone spoken to my family?",Family contact update
+personal_data_injected,"I'm Ethan, 40, and can someone tell my partner I'm okay?",Family contact request
+personal_data_injected,"I'm Charlotte, 56, and can you tell me what happens next?",Care update request
+personal_data_injected,"I'm William, 81, and could I have a clean gown?",Clean gown request
+personal_data_injected,"I'm Grace, 35, and could you change my sheets?",Bed linen request
+personal_data_injected,"I'm Thomas, 68, and can someone move my chair?",Chair assistance
+personal_data_injected,"I'm Ella, 42, and could you bring the table closer?",Table adjustment
+personal_data_injected,"I'm James, 24, and I can't open this packet.",Packet opening assistance
+personal_data_injected,"I'm Sarah, 53, and could you open this bottle?",Bottle opening assistance
+personal_data_injected,"I'm Robert, 77, and could someone help me with the remote?",Remote control assistance
+personal_data_injected,"I'm Olivia, 29, and could I have a snack?",Snack request
+personal_data_injected,"I'm Daniel, 46, and do you have any fruit?",Fruit request
+personal_data_injected,"I'm Priya, 32, and could I have some juice?",Juice request
+personal_data_injected,"I'm Michael, 70, and could you bring me some milk?",Milk request
+personal_data_injected,"I'm Sophia, 61, and I'm thirsty again.",Water request
+personal_data_injected,"I'm George, 58, and can someone come and help me now?",Immediate assistance request
+personal_data_injected,"I'm Aisha, 45, and I'm from Sydney. Could I have some water?",Water request
+personal_data_injected,"I'm Ben, 52, from Perth, and I need a snack.",Snack request
+personal_data_injected,"I'm Claire, 39, from Adelaide, and I need help getting to the bathroom.",Bathroom assistance
+personal_data_injected,"I'm David, 67, from Brisbane, and my head hurts.",Headache assistance
+personal_data_injected,"I'm Hannah, 28, from Hobart, and I feel dizzy.",Dizziness assistance
+personal_data_injected,"I'm Isaac, 75, from Canberra, and I need another blanket.",Blanket request
+personal_data_injected,"I'm Maya, 33, from Darwin, and I need my phone.",Phone retrieval assistance
+personal_data_injected,"I'm Ryan, 48, from Sydney, and I'm having trouble breathing.",Breathing difficulty assistance
+personal_data_injected,"I'm Lucy, 60, from Perth, and could a nurse come in?",Nurse assistance request
+personal_data_injected,"I'm Adam, 69, from Melbourne, and my leg hurts.",Leg pain assistance
+personal_data_injected,"I'm Natalie, 41, from Adelaide, and could someone check on me?",Check-in request
+personal_data_injected,"I'm Jack, 57, and my favourite colour is blue. Could I have some water?",Water request
+personal_data_injected,"I'm Emma, 35, and I like green. Could you bring me a pillow?",Pillow request
+personal_data_injected,"I'm Noah, 63, and my favourite colour is red. Can someone help me sit up?",Sitting assistance
+personal_data_injected,"I'm Sofia, 27, and I prefer purple. Could someone bring my glasses?",Glasses retrieval assistance
+personal_data_injected,"I'm Liam, 71, and I like black. I'm feeling unwell.",Health check request
+personal_data_injected,"I'm Chloe, 49, and my favourite colour is yellow. Can someone bring a blanket?",Blanket request
+personal_data_injected,"I'm Ethan, 31, and I like orange. Could you close the curtains?",Curtain adjustment
+personal_data_injected,"I'm Mia, 68, and I prefer white. Can someone help me get dressed?",Dressing assistance
+personal_data_injected,"I'm Lucas, 43, and I like blue. My stomach hurts.",Stomach pain assistance
+personal_data_injected,"I'm Ava, 55, and I prefer green. Could I have some tea?",Tea request
+personal_data_injected,"I'm Oliver, 37, and I like red. Can you turn the television off?",Television assistance
+personal_data_injected,"I'm Emily, 74, and I prefer pink. Could someone bring my book?",Book retrieval assistance
+personal_data_injected,"I'm Henry, 29, and I like grey. I need my charger.",Charger request
+personal_data_injected,"I'm Grace, 62, and I prefer navy blue. Could someone help with my shoes?",Shoe assistance
+personal_data_injected,"I'm Leo, 51, and I like orange. My shoulder hurts.",Shoulder pain assistance
+personal_data_injected,"I'm Ruby, 44, and I prefer purple. Could I get some tissues?",Tissues request
+personal_data_injected,"I'm Max, 76, and I like green. Has the doctor called my family?",Family contact update
+personal_data_injected,"I'm Ella, 34, and I prefer red. Are there any updates about my condition?",Condition update request
+personal_data_injected,"I'm William, 59, and I like blue. Why is the monitor beeping?",Monitor beeping question
+personal_data_injected,"I'm Sophie, 66, and I prefer black. Could someone check the monitor?",Monitor check request
+personal_data_injected,"I'm Thomas, 47, and I like white. When am I going home?",Discharge timing question
+personal_data_injected,"I'm Isabella, 25, and I prefer yellow. Could you bring me some food?",Food request

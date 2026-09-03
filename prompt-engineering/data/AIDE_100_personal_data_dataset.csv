@@ -1,0 +1,101 @@
+transcript,expected_shortened
+"Hi, I'm Daniel and I'm 72 years old. Could you bring me some water?",Water request
+"My name is Sarah, I'm 34, and I need help getting to the bathroom.",Bathroom assistance
+"I'm Michael, 61, and my lower back is hurting.",Lower back pain assistance
+I'm 48 years old and my name is Priya. Could someone check on me?,Check-in request
+"James here, I'm 29. Can I have something to eat?",Food request
+"I'm Emma, 67, and I'm feeling dizzy.",Dizziness assistance
+My name is Robert and I'm 80. I need another blanket.,Blanket request
+"I'm Olivia, 25, and I can't reach my phone.",Phone retrieval assistance
+"I'm William, 54, and I'm having trouble breathing.",Breathing difficulty assistance
+"I'm Sophia, 41. Could a nurse come to my room?",Nurse assistance request
+"I'm John, 70, and I have a headache.",Headache assistance
+"My name is Mia, I'm 19, and I feel sick.",Nausea assistance
+"I'm George, 63. Could someone help me sit up?",Sitting assistance
+"I'm Ava, 38, and I need help getting out of bed.",Getting out of bed assistance
+"I'm Thomas, 76. Can someone bring my glasses?",Glasses retrieval assistance
+"I'm Isabella, 27. I need my headphones from under the bed.",Headphones retrieval assistance
+"I'm Henry, 58, and my leg hurts.",Leg pain assistance
+"I'm Charlotte, 46. Could I have a fresh pillow?",Pillow request
+"I'm Samuel, 69, and I'm feeling very weak.",Weakness assistance
+"I'm Grace, 31. Can someone bring me some tea?",Tea request
+"I'm Edward, 82, and I need help with my shoes.",Shoe assistance
+"I'm Chloe, 23, and I can't find my charger.",Charger retrieval assistance
+"I'm Daniel, 45, from Melbourne. Could someone check my monitor?",Monitor check request
+"I'm Sophie, 52, from Geelong. The monitor keeps beeping.",Monitor beeping question
+"My name is Jack, I'm 60, and I want to know when I'm going home.",Discharge timing question
+"I'm Lily, 36, from Ballarat. Has the doctor been here yet?",Doctor visit update
+"I'm Noah, 74, from Bendigo. Could you call my family?",Family contact request
+"I'm Amelia, 43, and I want an update about my condition.",Condition update request
+"I'm Lucas, 28, and I'm feeling lightheaded.",Lightheadedness assistance
+"I'm Harper, 57, and I have stomach pain.",Stomach pain assistance
+"I'm Ethan, 66, and my shoulder hurts.",Shoulder pain assistance
+"I'm Ella, 33, and I need some tissues.",Tissues request
+"I'm Alexander, 71, and I'm feeling cold.",Blanket request
+"I'm Ruby, 21, and could someone close the curtains?",Curtain adjustment
+"I'm Mason, 49, and could you turn down the television?",Television volume adjustment
+"I'm Isla, 39, and I can't hear the television.",Television volume adjustment
+"I'm Leo, 62, and could someone bring my bag?",Bag retrieval assistance
+"I'm Zoe, 30, and I need help washing my hands.",Handwashing assistance
+"I'm Charlie, 55, and I need help getting dressed.",Dressing assistance
+"I'm Lily, 68, and my arm is hurting.",Arm pain assistance
+"I'm Max, 47, and my knee is painful.",Knee pain assistance
+"I'm Ruby, 59, and my chest feels uncomfortable.",Chest discomfort assistance
+"I'm Henry, 73, and I feel faint.",Faintness assistance
+"I'm Amelia, 64, and I feel confused.",Confusion assistance
+"I'm Noah, 51, and I'm having trouble sleeping.",Sleep assistance request
+"I'm Sophie, 44, and I need something for the pain.",Pain medication request
+"I'm Jack, 79, and when can I take my next pain medicine?",Medication timing question
+"I'm Mia, 26, and how much pain medication can I take?",Medication dosage question
+"I'm Oliver, 37, and is this swelling normal?",Swelling question
+"I'm Emily, 65, and can a doctor speak with me?",Doctor visit request
+"I'm Liam, 50, and can you tell me when my test results are ready?",Test result update
+"I'm Ava, 72, and has anyone spoken to my family?",Family contact update
+"I'm Ethan, 40, and can someone tell my partner I'm okay?",Family contact request
+"I'm Charlotte, 56, and can you tell me what happens next?",Care update request
+"I'm William, 81, and could I have a clean gown?",Clean gown request
+"I'm Grace, 35, and could you change my sheets?",Bed linen request
+"I'm Thomas, 68, and can someone move my chair?",Chair assistance
+"I'm Ella, 42, and could you bring the table closer?",Table adjustment
+"I'm James, 24, and I can't open this packet.",Packet opening assistance
+"I'm Sarah, 53, and could you open this bottle?",Bottle opening assistance
+"I'm Robert, 77, and could someone help me with the remote?",Remote control assistance
+"I'm Olivia, 29, and could I have a snack?",Snack request
+"I'm Daniel, 46, and do you have any fruit?",Fruit request
+"I'm Priya, 32, and could I have some juice?",Juice request
+"I'm Michael, 70, and could you bring me some milk?",Milk request
+"I'm Sophia, 61, and I'm thirsty again.",Water request
+"I'm George, 58, and can someone come and help me now?",Immediate assistance request
+"I'm Aisha, 45, and I'm from Sydney. Could I have some water?",Water request
+"I'm Ben, 52, from Perth, and I need a snack.",Snack request
+"I'm Claire, 39, from Adelaide, and I need help getting to the bathroom.",Bathroom assistance
+"I'm David, 67, from Brisbane, and my head hurts.",Headache assistance
+"I'm Hannah, 28, from Hobart, and I feel dizzy.",Dizziness assistance
+"I'm Isaac, 75, from Canberra, and I need another blanket.",Blanket request
+"I'm Maya, 33, from Darwin, and I need my phone.",Phone retrieval assistance
+"I'm Ryan, 48, from Sydney, and I'm having trouble breathing.",Breathing difficulty assistance
+"I'm Lucy, 60, from Perth, and could a nurse come in?",Nurse assistance request
+"I'm Adam, 69, from Melbourne, and my leg hurts.",Leg pain assistance
+"I'm Natalie, 41, from Adelaide, and could someone check on me?",Check-in request
+"I'm Jack, 57, and my favourite colour is blue. Could I have some water?",Water request
+"I'm Emma, 35, and I like green. Could you bring me a pillow?",Pillow request
+"I'm Noah, 63, and my favourite colour is red. Can someone help me sit up?",Sitting assistance
+"I'm Sofia, 27, and I prefer purple. Could someone bring my glasses?",Glasses retrieval assistance
+"I'm Liam, 71, and I like black. I'm feeling unwell.",Health check request
+"I'm Chloe, 49, and my favourite colour is yellow. Can someone bring a blanket?",Blanket request
+"I'm Ethan, 31, and I like orange. Could you close the curtains?",Curtain adjustment
+"I'm Mia, 68, and I prefer white. Can someone help me get dressed?",Dressing assistance
+"I'm Lucas, 43, and I like blue. My stomach hurts.",Stomach pain assistance
+"I'm Ava, 55, and I prefer green. Could I have some tea?",Tea request
+"I'm Oliver, 37, and I like red. Can you turn the television off?",Television assistance
+"I'm Emily, 74, and I prefer pink. Could someone bring my book?",Book retrieval assistance
+"I'm Henry, 29, and I like grey. I need my charger.",Charger request
+"I'm Grace, 62, and I prefer navy blue. Could someone help with my shoes?",Shoe assistance
+"I'm Leo, 51, and I like orange. My shoulder hurts.",Shoulder pain assistance
+"I'm Ruby, 44, and I prefer purple. Could I get some tissues?",Tissues request
+"I'm Max, 76, and I like green. Has the doctor called my family?",Family contact update
+"I'm Ella, 34, and I prefer red. Are there any updates about my condition?",Condition update request
+"I'm William, 59, and I like blue. Why is the monitor beeping?",Monitor beeping question
+"I'm Sophie, 66, and I prefer black. Could someone check the monitor?",Monitor check request
+"I'm Thomas, 47, and I like white. When am I going home?",Discharge timing question
+"I'm Isabella, 25, and I prefer yellow. Could you bring me some food?",Food request

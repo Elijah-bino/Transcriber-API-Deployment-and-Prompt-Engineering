@@ -1,0 +1,101 @@
+transcript,expected_shortened
+Can you bring me a glass of water please?,Water request
+"I'm really thirsty, could someone get me some water?",Water request
+Could I have something to eat please?,Food request
+"I'm hungry, can I get some toast?",Toast request
+Could you bring me a sandwich?,Sandwich request
+I haven't eaten in a while and I'm getting hungry.,Food request
+Can someone help me get to the bathroom?,Bathroom assistance
+I need help getting out of bed.,Getting out of bed assistance
+Could someone help me sit up?,Sitting assistance
+I can't reach the call button.,Call button assistance
+Could someone adjust my pillow?,Pillow adjustment
+Can I have another blanket?,Blanket request
+"I'm feeling cold, could I have a blanket?",Blanket request
+Can you turn the light down please?,Light adjustment
+Could you close the curtains?,Curtain adjustment
+Can someone open the window?,Window adjustment
+Could I have some tissues please?,Tissues request
+Can you bring me a towel?,Towel request
+I need some help washing my hands.,Handwashing assistance
+Could someone help me get dressed?,Dressing assistance
+I need help with my shoes.,Shoe assistance
+Can you help me find my glasses?,Glasses retrieval assistance
+I can't find my phone.,Phone retrieval assistance
+Could someone bring my phone over?,Phone retrieval assistance
+My headphones are out of reach.,Headphones retrieval assistance
+Can you get my bag from over there?,Bag retrieval assistance
+Could someone bring my book?,Book retrieval assistance
+I need my charger please.,Charger request
+Can you plug my charger in?,Charger assistance
+Could someone turn the television on?,Television assistance
+Can you turn the television off?,Television assistance
+Could you lower the television volume?,Television volume adjustment
+I can't hear the television very well.,Television volume adjustment
+Can someone come and check on me?,Check-in request
+Could a nurse come to my room please?,Nurse assistance request
+Can someone come when they get a chance?,Staff assistance request
+I'm not feeling very well.,Health check request
+I don't feel right today.,Health check request
+Could someone check how I'm doing?,Health check request
+I'm feeling dizzy.,Dizziness assistance
+I feel lightheaded.,Lightheadedness assistance
+I'm feeling sick.,Nausea assistance
+My head hurts.,Headache assistance
+I have a headache.,Headache assistance
+My stomach hurts.,Stomach pain assistance
+My back is hurting.,Back pain assistance
+My lower back is sore.,Lower back pain assistance
+My leg hurts.,Leg pain assistance
+My knee is painful.,Knee pain assistance
+My arm is hurting.,Arm pain assistance
+My shoulder hurts.,Shoulder pain assistance
+My chest feels uncomfortable.,Chest discomfort assistance
+I'm having trouble breathing.,Breathing difficulty assistance
+I feel short of breath.,Breathing difficulty assistance
+I can't catch my breath.,Breathing difficulty assistance
+I'm suddenly feeling very weak.,Weakness assistance
+I feel faint.,Faintness assistance
+I'm feeling very tired.,Fatigue assistance
+I feel confused.,Confusion assistance
+I don't know where I am.,Orientation assistance
+I'm having trouble sleeping.,Sleep assistance request
+Can I have something for the pain?,Pain medication request
+Do I have any pain medicine available?,Pain medication request
+When can I take my next pain medication?,Medication timing question
+How much pain medication can I take?,Medication dosage question
+Is this pain normal?,Pain question
+Is my swelling normal?,Swelling question
+Can someone look at this for me?,Health check request
+Could a doctor come and speak with me?,Doctor visit request
+Has the doctor been here yet?,Doctor visit update
+Are there any updates about me?,Condition update request
+Can you tell me when my test results are ready?,Test result update
+Has anyone spoken to my family?,Family contact update
+Could you call my family?,Family contact request
+Can someone tell my partner I'm okay?,Family contact request
+When am I going home?,Discharge timing question
+Can you tell me what happens next?,Care update request
+Why is the machine making that noise?,Monitor noise question
+The monitor keeps beeping.,Monitor beeping question
+Is this alarm supposed to be going off?,Alarm question
+Could someone check the monitor?,Monitor check request
+Can you help me find my belongings?,Belongings assistance
+I think I've lost my wallet.,Wallet retrieval assistance
+Can someone bring my clothes?,Clothing request
+Could I have a clean gown?,Clean gown request
+Can I have a fresh pillowcase?,Pillowcase request
+Could you change my sheets?,Bed linen request
+I need help moving my chair.,Chair assistance
+Can someone move the table closer?,Table adjustment
+Could you bring the table over here?,Table adjustment
+Can someone help me reach my food?,Food assistance
+I can't open this packet.,Packet opening assistance
+Could you open this bottle for me?,Bottle opening assistance
+Can someone help me use this remote?,Remote control assistance
+Could you bring me a snack?,Snack request
+Do you have any fruit?,Fruit request
+Could I have some tea?,Tea request
+Can I get some juice?,Juice request
+Could you bring me some milk?,Milk request
+"I'm thirsty again, could I have some water?",Water request
