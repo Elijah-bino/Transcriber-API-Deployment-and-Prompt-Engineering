@@ -792,6 +792,9 @@ Same principle as the STT service (Section 3.6) — the frontend should never ca
 
 ### 4.7 Datasets — what exists right now
 
+As of 2026-09-03 all rephrasing work lives in **`prompt-engineering/`** (datasets moved
+from repo root into `prompt-engineering/data/`). See `prompt-engineering/README.md`.
+
 Three CSV files, uploaded and inspected:
 
 **`AIDE_100_general_dataset.csv`** — 100 rows, columns `transcript`, `expected_shortened`
@@ -811,44 +814,59 @@ Three CSV files, uploaded and inspected:
 
 **Why the `personal_data_injected` split matters so much:** it's not just testing "can the model shorten text," it's testing "does the model strip PII while shortening." A model/prompt combination could score well on `general` and still leak names/ages on `personal_data_injected` — these need to be scored and reported **separately**, not blended into one aggregate accuracy number.
 
-### 4.8 Draft system prompt (starting point, not final)
+**Normalization done 2026-09-03** (`prompt-engineering/LABEL_CONVENTION.md`): the closed label
+format is written down — 2-5 words, Title Case, no punctuation, topic first, category noun from
+`{request, assistance, adjustment, question, update}`, no PII. The three canon CSVs were already
+clean and consistent. Only `AIDE_training_data_with_expected_shortened.csv` (25 rows) was off —
+3 labels fixed (`Immediate assistance needed` -> `... request`; `Pain medication dosage question`
+-> `Medication dosage question`; `Fresh blanket and pillow` -> `Blanket and pillow request`).
+`validate_labels.py` enforces the convention.
 
-Built directly from patterns observed in the actual dataset:
+**Merged eval set:** `prompt-engineering/data/eval_set_225.csv` = the 200-row set + the 25 messy
+rows tagged `dataset=realistic_messy`. Columns `id,dataset,transcript,expected_shortened`. The
+messy split is a reality check — a model can ace the clean synthetic rows and fall apart on
+disfluent run-on ASR-style input. Rebuild with `eval/build_dataset.py`.
 
-```
-You are a triage assistant for a hospital patient-request system.
-Convert a patient's spoken request into a short staff-facing action item.
+### 4.8 System prompt
 
-Rules:
-1. Output 2-5 words, Title Case, no punctuation.
-2. Never include the patient's name, age, or any other identifying detail,
-   even if they stated it. Only the request matters.
-3. End with a plain noun: "Request", "Assistance", or "Adjustment" where natural.
-4. If multiple needs are mentioned, output only the most urgent one.
-5. If the request is unclear or not a request, output: "Unclear request"
+Current: **`prompt-engineering/prompts/v1.txt`** (versioned; the harness takes `--prompt`).
+Distilled from the 325 labels + few-shot pulled from real dataset rows, deliberately mixing
+`general` and `personal_data_injected` examples so PII-stripping is demonstrated, not just
+described. Rules: 2-5 words, Title Case, topic-first, category noun from the closed set,
+pain/symptoms -> `assistance`, never emit name/age/town, `Unclear request` fallback, output
+only the phrase. Iterate to v2/v3 from harness mismatch files.
 
-Examples:
-"Can you bring me a glass of water please?" -> Water request
-"Hi, I'm Daniel and I'm 72 years old. Could you bring me some water?" -> Water request
-"I'm Michael, 61, and my lower back is hurting." -> Lower back pain assistance
-"Could you lower the television volume?" -> Television volume adjustment
-```
+Known v1 weakness from the smoke run: several models over-capitalise ("Water Request" not
+"Water request") — v2 should spell out "capitalise only the first word".
 
-Recommendation: pull 6–10 real rows from the dataset as few-shot examples, deliberately mixing `general` and `personal_data_injected` rows so the model sees the PII-stripping behavior demonstrated directly, not just described in the rules.
+### 4.9 Evaluation methodology — BUILT
 
-### 4.9 Evaluation methodology (planned, not yet built)
+`prompt-engineering/eval/` — `run_eval.py` (+ `score.py`). Provider-agnostic
+(OpenAI-compatible: NVIDIA NIM, Groq, and an Ollama pass), one model at a time, **no
+cross-model failover** (isolation), rate limited (40/min default), checkpointed after every
+row (kill and re-run to resume), auto-scores at the end.
 
-Turn "prompt engineering" into a measurable, comparable process rather than eyeballing outputs:
+Per model it writes `results/raw/<model>.csv` (every row: expected, output, latency, error),
+`results/scored/`, `results/mismatches/`, and appends to `results/summary.csv`. Metrics:
 
-1. Run every transcript in the 200-row eval set through a candidate prompt + model combination.
-2. Score each output against `expected_shortened` two ways:
-   - **Exact match** (strict string comparison)
-   - **Fuzzy/semantic match** (e.g. "Water request" vs "Water assistance" should count as a near-miss, not a total failure — needs a defined similarity threshold or an LLM-as-judge approach)
-3. **Break the score down by the `dataset` column, always.** A model can look great in aggregate while still leaking PII on the `personal_data_injected` split — that split must be scored and reported separately, never blended.
-4. Track a distinct **PII-leak rate** metric — did the output contain a name, age, or other identifying detail that was present in the input transcript? This is arguably the most important metric for a healthcare product and should never be allowed to hide inside a general accuracy number.
-5. Log every mismatch with input/expected/actual, so failures are diagnosable, not just a percentage.
+1. **exact** — normalised output == expected, case-sensitive (catches over-capitalising / format drift).
+2. **semantic** — same final category noun AND >=50% content-word overlap. Lexical proxy for now;
+   swap for embeddings only if it proves too crude.
+3. **pii_leak** (hard gate) — on `personal_data_injected` rows: output contains a digit, or a
+   patient name/town present in the transcript but not in the expected label. Name/town lexicon
+   built at score time from `AIDE_100_personal_data_dataset.csv`.
 
-This evaluation script does not exist yet as of this document — building it is a natural next step, and it should be reusable across any candidate model/prompt (Qwen3, Gemma 4, Phi-4-mini, current OpenRouter/Kimi setup, etc.) so results are directly comparable.
+All three reported split by `general` / `personal_data_injected` / `realistic_messy`, never blended.
+Ranked table sorts no-PII-leak first, then overall semantic.
+
+**API reality (2026-09):** the free NIM catalog has EOL'd nearly every small Apache/MIT instruct
+model (granite 3.0, mistral-7b-v0.3, zamba2, gemma-3-4b all 404 for this account). `models.txt`
+is therefore thin and large-skewed: `gpt-oss-20b` (Apache, the one real cheap-ish Tier A
+candidate) plus `gpt-oss-120b` / `qwen3.8-27b` / `gemma-4-31b` as a score ceiling. The models
+we would actually deploy (3-8B) are tested in the **local Ollama pass** (`models_local.txt`:
+qwen3 4b/8b, phi4-mini, llama3.2 3b, gemma3 4b, granite3.1-moe 3b), which also gives the true
+Q4-quant numbers. Groq's Cloudflare 403s the default `python-urllib` User-Agent — harness sends
+a browser-like UA.
 
 ---
 
@@ -890,21 +908,36 @@ Full detail lives in separate deliverables already produced (`AIDE-Competitor-Co
 ### 6.4 Scaling
 - Single VM, no autoscaling, no queue system yet — concurrency capped at 10 simultaneous STT requests (queues rather than fails beyond that). Fine for pilot-stage testing; will need load-testing (10 → 25 → 50 → 100 concurrent) to determine whether a queue system or larger/multiple VMs are needed before any real pilot deployment.
 
-### 6.5 Rephrasing pipeline — everything in Section 4 is design work, not implementation
-As of this document, the rephrasing/LLM stage is **not yet built**. What exists: a model shortlist with confirmed licensing, an architecture direction (self-hosted via Ollama initially), a draft prompt, three labeled datasets, and a defined (but not yet coded) evaluation methodology. Next concrete step: build the evaluation script (Section 4.9) and run the draft prompt (Section 4.8) against at least 2–3 candidate models to get real, comparable numbers before committing to one model/approach.
+### 6.5 Rephrasing pipeline — eval harness built, no model chosen yet
+Progress 2026-09-03: datasets normalized + merged (`eval_set_225.csv`), label convention
+written down, prompt v1, and a working eval harness (`prompt-engineering/eval/`, Section 4.9).
+Still open: run the harness on aidevm, do the local Ollama pass, pick a model, build the
+FastAPI wrapper + keyword classifier (Section 4.5/4.6). No inference is self-hosted yet;
+Gen-1 still calls OpenRouter/Kimi in production.
+
+Key wrinkle found: free hosted APIs (NIM, Groq) no longer carry the small Apache/MIT models
+that are the actual deploy targets — model selection depends on the local Ollama pass, not
+the cloud pass. Cloud pass gives a score ceiling only.
+
+Secrets that have been in plaintext and must be rotated: STT API key (`stt/env_variables.txt`),
+OpenRouter key, NVIDIA NIM key, Groq key (`prompt-engineering/.env`).
 
 ### 6.6 Immediate next steps (as of this document)
-1. Build and run the evaluation script against the 200-row dataset for the current OpenRouter/Kimi setup (establish a baseline) and at least one self-hosted candidate (e.g. Qwen3 8B via Ollama).
-2. Fill in the real STT VM external IP anywhere it's still a placeholder in developer-facing docs.
-3. Address the HTTPS gap before any real (non-test) patient audio is sent through the STT endpoint.
-4. Resolve the US-hosted-VM data residency question with Noah before it's harder to migrate.
-5. Decide on and implement the intent-classifier-plus-LLM-fallback design (Section 4.5) once a model is chosen, to control inference cost/latency.
+1. Run the eval harness on aidevm (`prompt-engineering/eval/setup_and_run.sh`) — cloud pass for the score ceiling.
+2. Local Ollama pass (`models_local.txt`: qwen3 4b/8b, phi4-mini, llama3.2 3b, gemma3 4b, granite3.1-moe 3b) — the actual model selection, at real Q4 quant.
+3. Iterate prompt v1 -> v2 from the mismatch files (first fix: over-capitalisation).
+4. Pick a model; build the FastAPI wrapper + keyword fast-path (Section 4.5/4.6), deploy the wrapper to Cloud Run, model backend = OpenRouter pre-pilot / Ollama on a small always-on VM at pilot.
+5. Rotate all plaintext keys (see 6.5).
+6. Fill in the real STT VM external IP anywhere it's still a placeholder in developer-facing docs (current: `34.56.137.75`, ephemeral — reserve as static before relying on it).
+7. Address the HTTPS gap before any real (non-test) patient audio is sent through the STT endpoint.
+8. Resolve the US-hosted-VM data residency question with Noah before it's harder to migrate.
 
 ---
 
 ## 7. Glossary / Conventions for anyone (human or AI) working on this project
 
 - **"The four-part loop"** — shorthand for AIDE's actual functional definition (Section 1). Use this as the test for whether something is a real competitor or feature gap, not the vaguer "AI voice in healthcare" category.
-- **STT** = Speech-to-Text (Section 3, built). **Rephrasing/LLM stage** = the shortening step (Section 4, not yet built). These are always discussed as separate, swappable components — avoid conflating them.
+- **STT** = Speech-to-Text (Section 3, built). **Rephrasing/LLM stage** = the shortening step (Section 4 — eval harness built, model not yet chosen, nothing self-hosted). These are always discussed as separate, swappable components — avoid conflating them.
+- Rephrasing work lives in `prompt-engineering/` — see its `README.md`. `.env` there is gitignored.
 - Content/communication style for anything AIDE-facing: short sentences, plain language, no em-dashes, every claim cited, no fabricated statistics or quotes.
 - When in doubt about product/business/regulatory facts not covered here, defer to `AIDE.md` or explicitly flag the gap rather than guessing — this mirrors the instruction already embedded in `AIDE.md` itself ("if a question is not covered here, respond with 'I don't have confirmed information on that — check with Noah' rather than guessing").

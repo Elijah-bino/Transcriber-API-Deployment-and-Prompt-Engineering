@@ -1,0 +1,5 @@
+# Keep LF on files that run on the Linux VM — CRLF breaks shebangs and shell parsing
+*.sh    text eol=lf
+*.py    text eol=lf
+*.txt   text eol=lf
+*.csv   text eol=lf

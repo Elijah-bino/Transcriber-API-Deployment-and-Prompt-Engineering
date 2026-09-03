@@ -1,0 +1,16 @@
+# LOCAL Ollama pass -- the real Tier A small-model bake-off.
+# Run against `ollama serve` (OpenAI-compatible on :11434). These are the
+# models we would actually self-host, at the Q4 quant we would actually ship.
+#
+#   ollama serve &
+#   for m in qwen3:4b qwen3:8b phi4-mini llama3.2:3b gemma3:4b granite3.1-moe:3b; do ollama pull $m; done
+#   python run_eval.py --models models_local.txt --provider-override ollama ...
+#
+# (harness support for an ollama provider is added when we do this pass)
+
+ollama,qwen3:4b            # Apache 2.0
+ollama,qwen3:8b            # Apache 2.0
+ollama,phi4-mini           # MIT  (3.8B)
+ollama,llama3.2:3b         # Llama license (attribution)
+ollama,gemma3:4b           # Gemma license
+ollama,granite3.1-moe:3b   # Apache 2.0

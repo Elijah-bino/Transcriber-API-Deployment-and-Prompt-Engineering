@@ -7,30 +7,65 @@ STT stage is separate (`../stt/`). See `../claude.md` section 4.
 
 ```
 prompt-engineering/
-  data/                 datasets (moved here 2026-09-03)
-    AIDE_200_row_LLM_evaluation_dataset.csv   <- the scoring set
-    AIDE_100_general_dataset.csv              general split (no PII in transcript)
-    AIDE_100_personal_data_dataset.csv        name/age/town injected; labels strip it
-    AIDE_training_data_with_expected_shortened.csv   25 rows, normalized
+  data/
+    eval_set_225.csv                         <- what the harness scores against
+       = AIDE_200_row_LLM_evaluation_dataset.csv  (general 100 + personal_data_injected 100)
+       + AIDE_training_data_with_expected_shortened.csv  (25, tagged realistic_messy)
+    AIDE_100_*.csv, AIDE_200_*.csv            source datasets
     training data PRE-AI.md                   raw source transcripts
-  LABEL_CONVENTION.md   the closed label format all labels + outputs must follow
-  validate_labels.py    checks every label file against the convention
-  prompts/              versioned system prompts (v1, v2, ...)
-  results/              eval output (gitignored)
-  .env                  OPENROUTER_API_KEY (gitignored)
+  prompts/
+    v1.txt                                    current system prompt
+  eval/
+    build_dataset.py    rebuilds eval_set_225.csv from the sources
+    run_eval.py         harness: dataset x prompt x model -> results/raw/*.csv  (resumable)
+    score.py            results/raw/*.csv -> scored/, mismatches/, summary.csv + ranked table
+    models.txt          cloud API models (NIM + Groq)
+    models_local.txt    the local Ollama pass (the real small-model bake-off)
+    setup_and_run.sh    VM bootstrap + detached launch
+  LABEL_CONVENTION.md   closed label format all labels + outputs must follow
+  validate_labels.py    checks the label files against the convention
+  results/              gitignored
+  .env                  NVIDIA_API_KEY, GROQ_API_KEY  (gitignored)
 ```
+
+## Metrics (score.py)
+
+| metric | meaning |
+|---|---|
+| exact | normalised output == expected, case-sensitive (catches over-capitalising) |
+| semantic | same final category noun AND >=50% content-word overlap |
+| pii_leak | output has a digit, or a patient name/town from the transcript not in the label. **hard gate** |
+
+Reported split three ways: `general`, `personal_data_injected`, `realistic_messy`. Never blended.
+
+## Run on the VM
+
+```bash
+cd ~/aide/prompt-engineering/eval
+bash setup_and_run.sh --preflight-only     # check which models answer
+bash setup_and_run.sh                       # full run, detached, ~30-60 min
+tail -f ../results/run.log
+```
+Re-run `setup_and_run.sh` any time to resume (it skips completed rows).
+Results: `../results/summary.csv` + per-model `../results/raw/*.csv`, `scored/`, `mismatches/`.
 
 ## Status
 
-- [x] datasets normalized, all 4 files pass `validate_labels.py`
-- [x] draft prompt v1 (`prompts/v1.txt`)
-- [ ] eval harness
-- [ ] baseline run: Kimi K2.5 (current live model)
-- [ ] candidate runs: Qwen3 8B/4B, Gemma, Phi-4-mini, Ministral (via Ollama on GCP VM)
+- [x] datasets normalized + merged (225 rows), all pass `validate_labels.py`
+- [x] draft prompt v1
+- [x] eval harness (NIM + Groq, resumable, rate limited, auto-scores)
+- [ ] cloud run on aidevm  <- next
+- [ ] local Ollama pass: qwen3 4b/8b, phi4-mini, llama3.2 3b, gemma3 4b, granite3.1-moe 3b
+- [ ] pick model -> wire into Cloud Run FastAPI wrapper + keyword classifier
 
-## OpenRouter key
+## API reality (2026-09)
 
-Free tier, $0 balance. Only `:free` models work, ~50 requests/day, ~20/min.
-A 200-row eval = 200 requests, so it will not complete on free tier in one day,
-and Kimi K2.5 is a paid model (needs credits). Load ~$10 of credits to unblock:
-that also raises the free-model cap to 1000/day. Full Kimi eval run costs ~$0.05.
+Free NIM has EOL'd almost every small Apache/MIT instruct model. `models.txt` is
+thin and large-skewed on purpose -- it gives a **ceiling** (what's the best possible
+score) plus `gpt-oss-20b` as the one real cheap-ish Tier A candidate. The models we
+would actually deploy (3-8B) are tested in the **local Ollama pass**, which also
+gives the true Q4 quant numbers. Groq needs a browser-like `User-Agent` or its
+Cloudflare returns 403 (handled in the harness).
+
+Rotate the NVIDIA / Groq / OpenRouter keys after the eval work -- they have been
+in plaintext.

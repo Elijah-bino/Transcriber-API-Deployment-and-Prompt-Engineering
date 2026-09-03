@@ -1,0 +1,15 @@
+# format: provider,model_id      (provider = nvidia | groq)
+# run_eval.py preflights each and silently skips any that 404 / EOL / 403.
+#
+# NOTE (2026-09): the free NIM catalog has EOL'd almost every small Apache/MIT
+# instruct model (granite 3.0, mistral-7b, zamba2, gemma-3-4b all 404 for this
+# account). What survives here is thin and skews large. The real small-model
+# bake-off is the LOCAL Ollama pass -- see eval/models_local.txt.
+
+# --- Tier A: clean license, plausibly cheap to self-host ---
+groq,openai/gpt-oss-20b          # Apache 2.0, 21B / 3.6B active MoE
+
+# --- reference / ceiling: set the bar, NOT deploy candidates (too big) ---
+groq,openai/gpt-oss-120b         # Apache 2.0
+groq,qwen/qwen3.8-27b            # Apache 2.0
+nvidia,google/gemma-4-31b-it     # Gemma license
