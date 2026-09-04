@@ -142,7 +142,7 @@ story += [
         ["gpt-oss-20b", "47.6%", "78.7%", "77%", "83%", "68%", "0"],
     ], colw=[34 * mm, 18 * mm, 20 * mm, 20 * mm, 20 * mm, 18 * mm, 18 * mm]),
     P("Every model, zero leaks. gpt-oss-120b's 11% exact is pure capitalisation. "
-      "Per-response detail: <font face='Courier'>results/comparison.csv</font>.", SMALL),
+      "Per-row cloud outputs were not retained; Run 3 (below) is the deciding run.", SMALL),
 
     P("5.2 Run 3 &mdash; prompt v2, self-hosted (Ollama, CPU, Q4), 225 rows", H2),
     P("This is the deciding run: the pilot forbids external API calls in the request path "
@@ -163,7 +163,7 @@ story += [
       "the specific item. The eval box (a gaming laptop; Secure Boot blocked the GPU, so CPU "
       "only, 7 GB RAM) lost power three times; the watcher auto-resumed each time. gemma3:4b "
       "and granite were still finishing at the last data pull &mdash; they do not change the "
-      "decision. Per-response detail: <font face='Courier'>comparison-local.csv</font>.", SMALL),
+      "decision. Per-response detail: <font face='Courier'>comparison.csv</font>.", SMALL),
     PageBreak(),
 ]
 

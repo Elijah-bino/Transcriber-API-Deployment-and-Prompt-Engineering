@@ -29,7 +29,7 @@ match, semantic near-match, **PII-leak rate** (hard gate), split three ways.
 | gpt-oss-20b | 47.6% | 78.7% | 77% | 83% | 68% | 0 |
 
 `gemma-4-31b` timed out in preflight, did not run.
-Per-response detail: `results/comparison.txt` / `results/comparison.csv`.
+(Per-row cloud outputs not retained — Run 3 below is the deciding run.)
 
 **Read:** zero PII leaks on v1 already — the de-identification instruction works.
 The exact-match gap is AIDE house-style, not comprehension: over-capitalisation
@@ -56,7 +56,7 @@ Cloud smoke (qwen3.8-27b, 50 general rows): exact 60% -> **92%**, semantic 86% -
 | qwen3:1.7b | 1.7B | Apache 2.0 | 70.7% | 89.8% | 87% | 91% | 96% | **0** | 0.9s |
 | granite3.1-moe:3b | 3B/1B-active | Apache 2.0 | (finishing) | | | | | | |
 
-Per-response detail: `comparison-local.csv` / `.txt`.
+Per-response detail: `comparison.csv` / `.txt`.
 
 **qwen3:4b wins outright** — 7 points clear on exact over the next model, best on semantic,
 0 leaks. **Every model: 0 PII leaks** — the v2 de-identification instruction holds across the

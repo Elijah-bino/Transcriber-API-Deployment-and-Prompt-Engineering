@@ -63,7 +63,7 @@ Results: `../results/summary.csv` + per-model `../results/raw/*.csv`, `scored/`,
 - [ ] wire STT -> rephrase -> Redis
 
 Deliverables: `FINDINGS.md`, `AIDE-Prompt-Testing-Report.pdf`,
-`comparison-cloud-v1.csv` (3 cloud models, v1), `comparison-local.csv` (5 local models, v2)
+`comparison.csv` / `.txt` (final: 5 local models on prompt v2, every response per transcript)
 
 ## API reality (2026-09)
 
