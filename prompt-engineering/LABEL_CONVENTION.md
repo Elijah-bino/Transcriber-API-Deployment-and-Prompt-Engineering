@@ -1,4 +1,4 @@
-# AIDE Rephrasing — Label Convention
+# Label Convention
 
 Ground-truth format for every `expected_shortened` label and every model output
 in the rephrasing stage. Keeps datasets consistent so exact-match scoring is fair.

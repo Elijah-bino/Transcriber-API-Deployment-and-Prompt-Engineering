@@ -1,6 +1,6 @@
 """Generate the prompt & model evaluation report PDF (ReportLab).
 
-  python make_report.py            -> ../AIDE-Prompt-Testing-Report.pdf
+  python make_report.py            -> ../Prompt-Testing-Report.pdf
 
 Point-in-time report. Numbers are captured inline (see DATA below); update them
 when a run finishes and re-run.
@@ -17,20 +17,20 @@ from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Table,
 
 HERE = pathlib.Path(__file__).resolve().parent
 PE = HERE.parent
-OUT = PE / "AIDE-Prompt-Testing-Report.pdf"
+OUT = PE / "Prompt-Testing-Report.pdf"
 
-WARD_GREEN = colors.HexColor("#0B3630")
-ALERT_AMBER = colors.HexColor("#E8914A")
+DARK_GREEN = colors.HexColor("#0B3630")
+AMBER = colors.HexColor("#E8914A")
 TEAL = colors.HexColor("#5AC9A8")
-LINEN = colors.HexColor("#FAF6F0")
+CREAM = colors.HexColor("#FAF6F0")
 
 ss = getSampleStyleSheet()
-H1 = ParagraphStyle("H1", parent=ss["Heading1"], textColor=WARD_GREEN, spaceBefore=14, spaceAfter=6, fontSize=16)
-H2 = ParagraphStyle("H2", parent=ss["Heading2"], textColor=WARD_GREEN, spaceBefore=10, spaceAfter=4, fontSize=12)
+H1 = ParagraphStyle("H1", parent=ss["Heading1"], textColor=DARK_GREEN, spaceBefore=14, spaceAfter=6, fontSize=16)
+H2 = ParagraphStyle("H2", parent=ss["Heading2"], textColor=DARK_GREEN, spaceBefore=10, spaceAfter=4, fontSize=12)
 BODY = ParagraphStyle("Body", parent=ss["BodyText"], fontSize=9.5, leading=13, spaceAfter=5)
 SMALL = ParagraphStyle("Small", parent=ss["BodyText"], fontSize=8, leading=10, textColor=colors.HexColor("#555555"))
-TITLE = ParagraphStyle("Title", parent=ss["Title"], textColor=WARD_GREEN, fontSize=22, leading=26)
-MONO = ParagraphStyle("Mono", parent=ss["Code"], fontSize=7.3, leading=9.2, backColor=LINEN)
+TITLE = ParagraphStyle("Title", parent=ss["Title"], textColor=DARK_GREEN, fontSize=22, leading=26)
+MONO = ParagraphStyle("Mono", parent=ss["Code"], fontSize=7.3, leading=9.2, backColor=CREAM)
 
 
 def tbl(data, colw=None, header=True):
@@ -44,7 +44,7 @@ def tbl(data, colw=None, header=True):
         ("LEFTPADDING", (0, 0), (-1, -1), 5),
     ]
     if header:
-        style += [("BACKGROUND", (0, 0), (-1, 0), WARD_GREEN),
+        style += [("BACKGROUND", (0, 0), (-1, 0), DARK_GREEN),
                   ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
                   ("FONT", (0, 0), (-1, 0), "Helvetica-Bold", 8.4)]
     t.setStyle(TableStyle(style))
@@ -60,11 +60,11 @@ story = []
 # ---- cover ----
 story += [
     Spacer(1, 40 * mm),
-    P("AIDE", TITLE),
-    P("LLM Rephrasing Stage &mdash; Prompt &amp; Model Evaluation Report", H1),
+    P("Rephrasing Model Evaluation", TITLE),
+    P("Prompt &amp; Model Selection Report &mdash; Prompt &amp; Model Evaluation Report", H1),
     Spacer(1, 6 * mm),
     P(f"Date: {date.today().isoformat()}", BODY),
-    P("Author: Elijah (backend infrastructure)", BODY),
+    P("Prepared by: infrastructure team", BODY),
     P("Scope: selecting the prompt and open-weight model that turn a raw speech-to-text "
       "transcript into a short, de-identified action item for the ward dashboard.", BODY),
     Spacer(1, 10 * mm),
@@ -121,7 +121,7 @@ story += [
 story += [
     P("4. Prompt: v1 &rarr; v2", H1),
     P("<b>v1</b> stated the rules and gave four examples. It achieved zero PII leaks but "
-      "low exact match: models understood every request but did not match AIDE's specific "
+      "low exact match: models understood every request but did not match the target label "
       "vocabulary &mdash; over-capitalising (“Water Request”), saying “Phone "
       "request” where the label wants “Phone retrieval assistance”, singular "
       "vs plural, over-specifying, and firing “Unclear request” on real-but-vague "
@@ -190,7 +190,7 @@ story += [
       "model RAM-load on every cold start; pinning one warm instance removes that but costs "
       "about the same as a VM, so a plain VM is simpler for the same money.", BODY),
     Paragraph(
-        "Next.js &rarr; AIDE API (FastAPI, one VM, one Docker image)<br/>"
+        "Next.js &rarr; Rephrase API (FastAPI, one VM, one Docker image)<br/>"
         "&nbsp;&nbsp;&nbsp;&nbsp;POST /transcribe &rarr; Google Cloud Speech-to-Text<br/>"
         "&nbsp;&nbsp;&nbsp;&nbsp;POST /shorten &nbsp;&nbsp;&#9500;&#9472; keyword fast-path &nbsp; ~60-70%, no model call<br/>"
         "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472; else &rarr; localhost Ollama qwen3:4b (think:false, JSON schema)<br/>"
@@ -221,13 +221,13 @@ story += [
       "&bull; The semantic metric is lexical; true synonyms (“Headache” vs “Head "
       "pain”) still score as misses. An embedding or LLM-judge metric would tighten this.<br/>"
       "&bull; phi4-mini / llama3.2:3b / gemma3:4b / granite not completed (hardware).<br/>"
-      "&bull; <b>Product decision for Noah:</b> free-text label (current) vs controlled output "
+      "&bull; <b>Open product decision:</b> free-text label (current) vs controlled output "
       "(fixed category enum + urgency + deterministic formatter). Free-text at 84-90% semantic "
       "/ 0 leak is good enough for the pilot; controlled output removes the exact-match gap "
       "structurally and enables dashboard sort/filter and the analytics revenue stream.<br/>"
-      "&bull; Self-hosting supports the compliance story but does not by itself make AIDE "
-      "compliant &mdash; that needs privacy/legal review against the Privacy Act 1988 and "
-      "Victorian Health Records Act 2001.", BODY),
+      "&bull; Self-hosting supports the compliance story but does not by itself make the system "
+      "compliant &mdash; that needs privacy/legal review against the applicable privacy "
+      "and health-records regulation.", BODY),
     PageBreak(),
 ]
 
@@ -245,6 +245,6 @@ except Exception as e:  # noqa: BLE001
 doc = SimpleDocTemplate(str(OUT), pagesize=A4,
                         leftMargin=20 * mm, rightMargin=20 * mm,
                         topMargin=18 * mm, bottomMargin=18 * mm,
-                        title="AIDE - Prompt & Model Evaluation Report")
+                        title="Rephrasing Model - Prompt & Model Evaluation Report")
 doc.build(story)
 print("wrote", OUT)

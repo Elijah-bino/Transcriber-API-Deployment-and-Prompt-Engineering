@@ -32,7 +32,7 @@ match, semantic near-match, **PII-leak rate** (hard gate), split three ways.
 (Per-row cloud outputs not retained — Run 3 below is the deciding run.)
 
 **Read:** zero PII leaks on v1 already — the de-identification instruction works.
-The exact-match gap is AIDE house-style, not comprehension: over-capitalisation
+The exact-match gap is house-style, not comprehension: over-capitalisation
 ("Water Request"), "X request" vs the label's "X retrieval assistance",
 singular/plural, over-specifying, "Unclear request" firing on real-but-vague
 needs, synonyms ("Head pain" vs "Headache").
@@ -74,7 +74,7 @@ residency / compliance). So the model must be self-hosted. That is why Run 3 (lo
 real Q4 quant) is the deciding run and Run 1 (cloud) is only a ceiling reference.
 The cloud APIs also no longer host the small deployable models (NIM EOL'd them).
 
-## Open product decision (Noah, not blocking)
+## Open product decision (not blocking the build)
 
 Free-text label (current) vs controlled output (fixed `category` enum + `urgency`
 + deterministic label formatter). Free-text at 84-90% semantic / 0 leak is good
@@ -98,7 +98,7 @@ adds deploy-time reload blips, so a plain VM is simpler with the same cost.
   on every call. So a prompt change = rebuild+redeploy the service; the model layer is
   unchanged. Prompt caching (identical prefix every call) should amortise the ~1400-token
   prefill to a one-time cost per warm process -> steady-state ~1-3s. **Must load-test.**
-- **Registry**: Artifact Registry (`australia-southeast1-docker.pkg.dev/aide-507408/...`)
+- **Registry**: Artifact Registry (`australia-southeast1-docker.pkg.dev/<PROJECT>/...`)
   -- same cloud, private, no pull limits, gcloud auth. (Docker Hub also works; AR is
   better for a GCP target.) For a single pilot VM a registry is optional -- can build
   and run on the same box.
@@ -113,5 +113,5 @@ adds deploy-time reload blips, so a plain VM is simpler with the same cost.
 1. Scaffold `service/`: Dockerfile, start.sh, app/ (main, keywords, rephrase, pii, audit),
    prompts/v2.txt, cloudbuild.yaml.
 2. Load-test `/shorten` latency on the chosen VM size -- confirm prompt caching gives ~1-3s.
-3. Wire STT -> rephrase -> Redis; retire aidevm's standalone STT.
+3. Wire STT -> rephrase -> Redis; retire the standalone STT VM.
 4. Rotate all plaintext keys.

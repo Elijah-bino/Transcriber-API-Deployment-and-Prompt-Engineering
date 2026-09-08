@@ -1,4 +1,4 @@
-"""AIDE rephrasing eval harness.
+"""Rephrasing-stage eval harness.
 
 Runs one prompt against a list of models (NVIDIA NIM / Groq, OpenAI-compatible),
 scores nothing here -- just captures raw output per row. Isolated per model
@@ -137,7 +137,7 @@ def chat(base_url: str, api_key: str, model: str, system: str, user: str,
             "Content-Type": "application/json",
             "Accept": "application/json",
             # Groq sits behind Cloudflare which 403s the default python-urllib UA
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) aide-eval/1.0",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) eval-harness/1.0",
         },
         method="POST",
     )
